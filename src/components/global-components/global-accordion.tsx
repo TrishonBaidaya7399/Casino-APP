@@ -1,8 +1,9 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { ReactNode } from "react";
 
 interface SliderData {
   title: string;
-  content: string;
+  content: string | ReactNode;
 }
 
 interface GlobalAccordionProps {

@@ -56,7 +56,7 @@ export default function GlobalCarousel<T>({
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full h-auto">
       <div className="flex items-center justify-between mb-2.5">
         <h2 className="text-foreground-muted text-base font-semibold">
           {title}

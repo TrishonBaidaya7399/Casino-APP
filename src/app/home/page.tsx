@@ -1,5 +1,8 @@
 import dynamic from "next/dynamic";
 const HeroSection = dynamic(() => import("@/sections/home/hero-section"));
+const SearchBar = dynamic(
+  () => import("@/components/common/search-bar/search-bar")
+);
 const GameAndSport = dynamic(
   () => import("@/sections/home/games-and-sports/game-and-sport")
 );
@@ -15,9 +18,12 @@ export default function HomePage() {
       <div className="w-full pt-8">
         <HeroSection />
       </div>
-
-      {/* game and sport section */}
+      {/* top search panel */}
       <div className="w-full pt-9">
+        <SearchBar />
+      </div>
+      {/* game and sport section */}
+      <div className="w-full pt-6">
         <GameAndSport />
       </div>
 
