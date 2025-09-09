@@ -2,7 +2,6 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../app/globals.css";
-import dynamic from "next/dynamic";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700"],

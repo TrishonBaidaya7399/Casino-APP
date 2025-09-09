@@ -44,7 +44,7 @@ const nextConfig = {
   },
 
   images: {
-    formats: ["image/avif", "image/webp"],
+   formats: ["image/avif", "image/webp"],
   },
 
   async headers() {
@@ -57,6 +57,7 @@ const nextConfig = {
   },
 };
 
+// Conditional bundle analyzer wrapper (ES module compatible)
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
