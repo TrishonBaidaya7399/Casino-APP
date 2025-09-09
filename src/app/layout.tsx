@@ -1,7 +1,10 @@
+import "../app/globals.css";
+
 import type React from "react";
 import type { Metadata } from "next";
+
 import { Inter } from "next/font/google";
-import "../app/globals.css";
+import GlobalProvider from "@/providers/GlobalProvider";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700"],
@@ -23,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className={`antialiased`}>{children}</body>
+      <body className="antialiased">  <GlobalProvider>{children}</GlobalProvider></body>
     </html>
   );
 }
