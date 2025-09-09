@@ -27,5 +27,4 @@ jobs:
 
       - name: Run CI checks (regex checks)
         run: |
-          grep -RInE "sx=\{[^}]*"(#[0-9a-fA-F]{3,8}|rgba\(|hsl\(|[0-9.]+px|var\(--)" src/ || true
-          grep -RInE "\.module\.css" src/ || true
+         grep -RInE '#[0-9a-fA-F]{3,8}' src/ && echo "Warning: Hex" || true
