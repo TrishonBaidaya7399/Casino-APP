@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main, ci/*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run CI checks (regex checks)
+        run: |
+          grep -RInE "sx=\{[^}]*"(#[0-9a-fA-F]{3,8}|rgba\(|hsl\(|[0-9.]+px|var\(--)" src/ || true
+          grep -RInE "\.module\.css" src/ || true
