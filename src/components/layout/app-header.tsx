@@ -10,7 +10,7 @@ export default function AppHeader() {
   const { mobileOpen, toggleMobileOpen } = useSidebarStore();
 
   return (
-    <header className="fixed top-0 left-0 z-40 w-full border-b border-gray-200 bg-white transition-all lg:ml-60 lg:w-[calc(100%-15rem)]">
+    <header className="fixed top-0 left-0 z-40 w-full border-b border bg-background transition-all lg:ml-60 lg:w-[calc(100%-15rem)] py-5.5">
       <div className="app-container flex items-center justify-between py-4">
         {/* Logo + Brand */}
         <div className="flex items-center">
@@ -26,7 +26,7 @@ export default function AppHeader() {
               className="h-full w-full object-cover"
             />
           </div>
-          <span className="hidden text-lg font-semibold text-gray-900 lg:block">
+          <span className="hidden text-lg font-semibold text-foreground lg:block">
             BRAND NAME
           </span>
         </div>
@@ -36,14 +36,14 @@ export default function AppHeader() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-lg border border-gray-900 px-6 text-base font-medium text-gray-900 hover:bg-gray-100"
+            className="rounded-lg border border-foreground px-6 text-base font-medium text-foreground hover:bg-foreground/10"
           >
             Login
           </Button>
           <Button
             variant="default"
             size="lg"
-            className="rounded-lg bg-gray-900 px-6 text-base font-medium text-white hover:bg-gray-800"
+            className="rounded-lg bg-foreground px-6 text-base font-medium text-background hover:bg-foreground/70"
           >
             Register
           </Button>
