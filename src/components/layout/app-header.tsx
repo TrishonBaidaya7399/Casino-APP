@@ -7,10 +7,23 @@ import AnimatedHamburger from "@/components/ui/animated-hamburger";
 import { Button } from "../ui/button";
 
 export default function AppHeader() {
-  const { mobileOpen, toggleMobileOpen } = useSidebarStore();
+  const { mobileOpen, toggleMobileOpen, collapsed, toggleCollapsed } =
+    useSidebarStore();
+
+  // Use drawerWidth (240px) from GlobalProvider context for consistency
+  const drawerWidth = 240;
+  const sidebarOffset = `ml-[${drawerWidth / 16}rem]`; // Convert 240px to 15rem (240 / 16)
+  const collapsedOffset = `ml-[${64 / 16}rem]`; // Convert 64px to 4rem
+  const adjustedWidth = collapsed
+    ? `w-[calc(100%-${64 / 16}rem)]`
+    : `w-[calc(100%-${drawerWidth / 16}rem)]`;
 
   return (
-    <header className="fixed top-0 left-0 z-40 w-full border-b border bg-background transition-all lg:ml-60 lg:w-[calc(100%-15rem)] py-5.5">
+    <header
+      className={`fixed top-0 right-0 z-40 w-full border-b border-border bg-background transition-all ${
+        collapsed ? collapsedOffset : sidebarOffset
+      } ${adjustedWidth} py-5.5 lg:${adjustedWidth}`}
+    >
       <div className="app-container flex items-center justify-between py-4">
         {/* Logo + Brand */}
         <div className="flex items-center">
@@ -53,6 +66,14 @@ export default function AppHeader() {
             <AnimatedHamburger
               isOpen={mobileOpen}
               onClick={toggleMobileOpen}
+              size={24}
+            />
+          </div>
+          {/* Collapse toggle for lg displays */}
+          <div className="hidden lg:block ml-2">
+            <AnimatedHamburger
+              isOpen={collapsed}
+              onClick={toggleCollapsed}
               size={24}
             />
           </div>

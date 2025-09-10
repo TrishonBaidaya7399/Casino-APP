@@ -26,7 +26,7 @@ function useIsMobile() {
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   const [isClient, setIsClient] = useState(false);
   const isMobile = useIsMobile();
-  const { collapsed, hovered } = useSidebarStore();
+  const { collapsed, hovered, toggleCollapsed } = useSidebarStore();
 
   const currentDrawerWidth =
     !isMobile && collapsed && !hovered ? collapsedDrawerWidth : drawerWidth;
@@ -44,16 +44,17 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
       <Suspense>
         <div className="flex min-h-screen bg-background text-foreground">
           <AppHeader />
-          <AppSidebar />
-          <main
-            className="flex-grow min-h-screen transition-[width]"
-            style={{
-              width: isMobile ? "100%" : `calc(100% - ${currentDrawerWidth}px)`,
-            }}
-          >
-            <div className="h-16" />
-            <div className="p-1 sm:p-3">{children}</div>
-          </main>
+          <div className="flex flex-row w-full">
+            <AppSidebar isMobile={isMobile} onToggle={toggleCollapsed} />
+            <main
+              className={`flex-grow min-h-screen transition-[width] ${
+                isMobile ? "w-full" : `w-[calc(100%-${currentDrawerWidth}px)]`
+              }`}
+            >
+              <div className="h-16" />
+              <div className="p-1 sm:p-3">{children}</div>
+            </main>
+          </div>
         </div>
       </Suspense>
     </ThemeProvider>
