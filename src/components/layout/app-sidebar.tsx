@@ -74,7 +74,7 @@ export default function AppSidebar() {
         toggleMobileOpen();
       }
     }
-  }, []);
+  }, [toggleMobileOpen]);
 
 
   const handleItemClick = (itemText: string) => {

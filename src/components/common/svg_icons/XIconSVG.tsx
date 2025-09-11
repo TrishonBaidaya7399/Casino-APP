@@ -1,22 +1,11 @@
 import React from "react";
 
-function XIconSVG() {
+function XIconSVG({ className = "" }: { className?: string }) {
   return (
-    <div>
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12.2175 1.26953H14.4665L9.55314 6.88519L15.3333 14.5268H10.8075L7.26268 9.89222L3.20662 14.5268H0.956278L6.21161 8.52026L0.666656 1.26953H5.3074L8.51159 5.50575L12.2175 1.26953ZM11.4282 13.1807H12.6744L4.63025 2.54495H3.29296L11.4282 13.1807Z"
-          className="bg-muted fill-muted"
-          fillOpacity="0.55"
-        />
-      </svg>
-    </div>
+    <svg className={`w-4 h-4 ${className}`} viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.2174 0.269531H14.4663L9.55298 5.88519L15.3332 13.5268H10.8073L7.26253 8.89222L3.20647 13.5268H0.956125L6.21146 7.52026L0.666504 0.269531H5.30724L8.51143 4.50575L12.2174 0.269531ZM11.428 12.1807H12.6742L4.6301 1.54495H3.29281L11.428 12.1807Z"/>
+    </svg>
+
   );
 }
 

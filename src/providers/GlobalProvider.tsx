@@ -5,6 +5,7 @@ import React, { Suspense, useState, useEffect } from "react";
 
 import AppHeader from "../components/layout/app-header";
 import AppSidebar from "../components/layout/app-sidebar";
+import Footer from "@/components/common/footer/footer";
 
 
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
@@ -28,6 +29,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
             <main className="app-container">
               {children}
             </main>
+            <Footer/>
           </div>
         </div>
       </Suspense>
