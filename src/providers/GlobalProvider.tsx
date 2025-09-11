@@ -21,9 +21,9 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider attribute="class">
       <Suspense>
-        <div className="bg-background text-foreground relative flex items-start">
+        <div className="bg-background text-foreground relative flex items-start min-h-screen">
           <AppSidebar />
-          <div className="flex-grow h-screen overflow-y-auto">
+          <div className="flex-grow">
             <AppHeader />
             <main className="app-container">
               {children}

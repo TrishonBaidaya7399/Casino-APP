@@ -22,11 +22,11 @@ const variantClasses: Record<ButtonVariant, string> = {
   outline:
     "border border-2 border-white-3 bg-background text-white hover:bg-gray-900 transition-colors",
   orangeGradient:
-    "bg-gradient-to-r from-orange-500 to-yellow-400 text-white hover:opacity-80",
+    "bg-gradient-to-t from-orange-1 to-yellow-1 text-white hover:opacity-80",
   purpleGradient:
-    "bg-gradient-to-r from-purple-500 to-blue-400 text-white hover:opacity-80",
+    "bg-gradient-to-t from-purple-1 to-blue-1 text-white hover:opacity-80",
   greenGradient:
-    "bg-gradient-to-r from-green-400 to-cyan-400 text-white hover:opacity-80",
+    "bg-gradient-to-t from-cyan-1 to-green-1 text-white hover:opacity-80",
 };
 
 export function Button({
