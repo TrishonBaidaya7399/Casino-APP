@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../ui/button";
-// import { FaUser, FaGamepad } from "react-icons/fa";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -21,14 +20,14 @@ const meta: Meta<typeof Button> = {
     fullWidth: { control: "boolean" },
     asChild: { control: "boolean" },
     children: { control: "text" },
-    icon: { control: false }, // not exposed in controls, handled via JSX
+    icon: { control: false }, 
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// ⚪ Gray button
+// Gray button
 export const Gray: Story = {
   args: {
     children: "Casino",
@@ -36,7 +35,7 @@ export const Gray: Story = {
   },
 };
 
-// ⬜ Outline button
+// Outline button
 export const Outline: Story = {
   args: {
     children: "Login",
@@ -44,7 +43,7 @@ export const Outline: Story = {
   },
 };
 
-// 🟠 Orange gradient
+// Orange gradient
 export const OrangeGradient: Story = {
   args: {
     children: "Register",
@@ -52,10 +51,7 @@ export const OrangeGradient: Story = {
 },
 };
 
-// icon: <FaUser />,
-// icon: <FaGamepad />,
-
-// 🟣 Purple gradient
+// Purple gradient
 export const PurpleGradient: Story = {
   args: {
     children: "Casino",
@@ -63,7 +59,7 @@ export const PurpleGradient: Story = {
   },
 };
 
-// 🟢 Green gradient
+// Green gradient
 export const GreenGradient: Story = {
   args: {
     children: "Sports",
@@ -71,7 +67,7 @@ export const GreenGradient: Story = {
   },
 };
 
-// 📏 Full width example
+// Full width example
 export const FullWidth: Story = {
   args: {
     children: "Full Width",

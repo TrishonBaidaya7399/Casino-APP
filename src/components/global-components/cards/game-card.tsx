@@ -1,0 +1,42 @@
+import Image from "next/image";
+import React from "react";
+import PlayerStatus from "../player-status";
+
+function GameCard({
+  src = "/default.webp",
+  alt = "game card",
+  width = 143,
+  height = 188,
+  id,
+  players,
+}: {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  id: number;
+  players?: number;
+}) {
+  return (
+    <div>
+      <div className="relative rounded-lg bg-background-2 flex flex-col gap-2 w-35.75 m:w-31.75 h-47">
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading="lazy"
+          className="rounded-lg"
+        />
+        {id && (
+          <div className="w-8 h-8 rounded-full bg-background text-foreground absolute top-1.5 left-1.5 font-semibold text-base flex items-center justify-center">
+            {id}
+          </div>
+        )}
+        {players !== 0 && <PlayerStatus key={id} players={players} />}
+      </div>
+    </div>
+  );
+}
+
+export default GameCard;
