@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxWithInput, Input, Select, Textarea } from "@/components/ui/Input";
+import { Checkbox, CheckboxWithInput, Input, Select, Textarea } from "@/components/global-components/form-inputs";
 
 const GameAndSport = () => {
 
