@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { X, Menu, Hamburger } from "lucide-react";
 import HamburgerSVG from "../common/svg_icons/HamburgerSVG";
 import CloseSVG from "../common/svg_icons/CloseSVG";
 

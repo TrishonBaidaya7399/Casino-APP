@@ -25,7 +25,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const isChecked = checked !== undefined ? checked : internalChecked;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (checked === undefined) setInternalChecked(e.target.checked);
+      if (checked === undefined) {
+        setInternalChecked(e.target.checked);
+      }
       onChange?.(e);
     };
 
@@ -55,12 +57,15 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           </span>
           {label && (
             <span>
-              {label} {optional && <span className="text-gray-500">(Optional)</span>}
+              {label}{" "}
+              {optional && <span className="text-gray-500">(Optional)</span>}
             </span>
           )}
         </label>
 
-        {errorMessage && <p className="text-red-500 text-xs mt-1">{errorMessage}</p>}
+        {errorMessage && (
+          <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+        )}
       </div>
     );
   }

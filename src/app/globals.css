@@ -37,13 +37,12 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  
-  
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
+
   /* new variables */
   --color-background-1: var(--background-1);
   --color-background-2: var(--background-2);
@@ -55,6 +54,8 @@
   --color-blue-1: var(--blue-1);
   --color-orange-1: var(--orange-1);
   --color-yellow-1: var(--yellow-1);
+  --svg-stop-color: var(----svg-stop-color);
+  --svg-stop-color-2: var(----svg-stop-color-2);
 }
 
 :root {
@@ -105,6 +106,9 @@
 
   --orange-1: oklch(69.213% 0.1701 20.44);
   --yellow-1: oklch(79.173% 0.1665 75.228);
+
+  --svg-stop-color: oklch(79.173% 0.1665 75.228);
+  --svg-stop-color-2: oklch(69.213% 0.1701 20.44);
 }
 
 .dark {
@@ -156,6 +160,8 @@
   --orange-1: oklch(69.213% 0.1701 20.44);
   --yellow-1: oklch(79.173% 0.1665 75.228);
 
+  --svg-stop-color: oklch(79.173% 0.1665 75.228);
+  --svg-stop-color-2: oklch(69.213% 0.1701 20.44);
 }
 
 @layer base {
