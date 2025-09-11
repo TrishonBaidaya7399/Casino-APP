@@ -129,7 +129,7 @@ export default function AppSidebar() {
                           {item.children.map((child) => (
                             <button key={child.text} className="flex items-center gap-2 p-1 rounded hover:bg-sidebar-hover">
                               <child.icon className="w-4 h-4" />
-                              <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}}`}>
+                              <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
                                 {child.text}
                               </span>
                             </button>

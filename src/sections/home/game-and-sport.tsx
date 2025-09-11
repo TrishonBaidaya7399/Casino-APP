@@ -17,6 +17,7 @@ const GameAndSport = () => {
                 optional
                 placeholder="Tell us about yourself..."
             />
+            
             <Checkbox />
 
             <CheckboxWithInput
