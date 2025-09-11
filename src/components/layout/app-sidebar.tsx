@@ -1,7 +1,8 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -20,6 +21,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 import AnimatedHamburger from "../ui/animated-hamburger";
+import { Button } from "../ui/button";
+import CloseSVG from "../common/svg_icons/CloseSVG";
 
 interface MenuItem {
   text: string;
@@ -30,9 +33,7 @@ interface MenuItem {
 
 const menuItems1: MenuItem[] = [
   {
-    text: "Promotions",
-    icon: Star,
-    children: [
+    text: "Promotions", icon: Star, children: [
       { text: "Welcome Bonus", icon: Star },
       { text: "Daily Rewards", icon: Calendar },
       { text: "VIP Rewards", icon: Crown },
@@ -46,9 +47,7 @@ const menuItems1: MenuItem[] = [
 
 const menuItems2: MenuItem[] = [
   {
-    text: "Sponsorships",
-    icon: Handshake,
-    children: [
+    text: "Sponsorships", icon: Handshake, children: [
       { text: "Partner Program", icon: Handshake },
       { text: "Brand Deals", icon: Briefcase },
     ],
@@ -57,14 +56,26 @@ const menuItems2: MenuItem[] = [
   { text: "Live Support", icon: Headphones },
 ];
 
-const MobileSidebar = ({
-  isOpen,
-  onClose,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-}) => {
+const menuSections: { items: MenuItem[] }[] = [
+  { items: menuItems1 },
+  { items: menuItems2 },
+];
+
+export default function AppSidebar() {
+  const { mobileOpen, toggleMobileOpen } = useSidebarStore();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 768) {
+        toggleMobileOpen();
+      }
+      else {
+        toggleMobileOpen();
+      }
+    }
+  }, []);
+
 
   const handleItemClick = (itemText: string) => {
     if (expandedItems.includes(itemText)) {
@@ -75,168 +86,79 @@ const MobileSidebar = ({
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ x: "-100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed inset-y-0 left-0 z-50 w-[240px] bg-sidebar text-sidebar-foreground flex flex-col p-4 gap-4 overflow-y-auto"
-          onClick={onClose}
-        >
-          <div className="flex justify-end mb-4">
-            <AnimatedHamburger isOpen={isOpen} onClick={onClose} size={28} />
-          </div>
-          {[...menuItems1, ...menuItems2].map((item) => {
-            const isExpanded = expandedItems.includes(item.text);
-            return (
-              <div key={item.text}>
-                <button
-                  onClick={() => item.children && handleItemClick(item.text)}
-                  className="flex items-center justify-between w-full p-2 rounded hover:bg-sidebar-hover"
-                >
-                  <span className="flex items-center gap-2">
-                    <item.icon className="w-5 h-5" />
-                    {item.text}
-                  </span>
-                  {item.children &&
-                    (isExpanded ? (
-                      <ChevronUp className="w-4 h-4" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4" />
-                    ))}
-                </button>
-                {item.children && (
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="pl-6 flex flex-col gap-1 mt-1"
-                      >
-                        {item.children.map((child) => (
-                          <button
-                            key={child.text}
-                            className="flex items-center gap-2 p-1 rounded hover:bg-sidebar-hover"
-                          >
-                            <child.icon className="w-4 h-4" />
-                            {child.text}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
-              </div>
-            );
-          })}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
 
-const DesktopSidebar = ({
-  isCollapsed,
-  onToggle,
-}: {
-  isCollapsed: boolean;
-  onToggle: () => void;
-}) => {
-  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+    <nav className={`z-50 fixed md:sticky top-0 left-0 h-screen overflow-y-auto border-r border-border bg-sidebar shrink-0
+      transition-all duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 max-w-2xl w-full md:w-auto md:max-w-auto`}>
 
-  const handleItemClick = (itemText: string) => {
-    if (expandedItems.includes(itemText)) {
-      setExpandedItems(expandedItems.filter((i) => i !== itemText));
-    } else {
-      setExpandedItems([...expandedItems, itemText]);
-    }
-  };
+      {/* Mobile toggle */}
+      <div className="sticky top-0 left-0 z-40 flex items-center gap-4 p-4 bg-sidebar">
 
-  return (
-    <nav className="relative z-50">
-      <motion.div
-        className={`fixed top-0 left-0 h-full flex flex-col p-4 gap-4 overflow-y-auto transition-all duration-300 ${
-          isCollapsed ? "w-[64px]" : "w-[240px]"
-        } bg-sidebar text-sidebar-foreground`}
-        initial={false}
-        animate={{ width: isCollapsed ? "64px" : "240px" }}
-      >
-        {/* Hamburger at the top for desktop */}
-        <div className="mb-4">
-          <AnimatedHamburger
-            isOpen={isCollapsed}
-            onClick={onToggle}
-            size={28}
-          />
+        <button onClick={toggleMobileOpen} className="flex md:hidden items-center justify-center size-6">
+          <CloseSVG className="stroke-white-3" />
+        </button>
+        <div className="hidden md:block">
+          <AnimatedHamburger isOpen={mobileOpen} onClick={toggleMobileOpen} />
         </div>
-        {[...menuItems1, ...menuItems2].map((item) => {
-          const isExpanded = expandedItems.includes(item.text);
-          return (
-            <div key={item.text}>
-              <button
-                onClick={() => item.children && handleItemClick(item.text)}
-                className="flex items-center justify-between w-full p-2 rounded hover:bg-sidebar-hover"
-              >
-                <span
-                  className={`flex items-center gap-2 ${
-                    isCollapsed ? "justify-center" : ""
-                  }`}
-                >
-                  <item.icon className="w-5 h-5" />
-                  {!isCollapsed && item.text}
-                </span>
-                {!isCollapsed &&
-                  item.children &&
-                  (isExpanded ? (
-                    <ChevronUp className="w-4 h-4" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4" />
-                  ))}
-              </button>
-              {!isCollapsed && item.children && (
-                <AnimatePresence>
-                  {isExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="pl-6 flex flex-col gap-1 mt-1"
-                    >
-                      {item.children.map((child) => (
-                        <button
-                          key={child.text}
-                          className="flex items-center gap-2 p-1 rounded hover:bg-sidebar-hover"
+        <div className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
+          <Button href="/casino" variant="gray">Casino</Button>
+          <Button href="/sports" variant="gray">Sports</Button>
+        </div>
+      </div>
+
+      {/* Sidebar container */}
+      <div className="text-sidebar-foreground flex flex-col gap-2 p-4">
+        {menuSections.map((section, index) => (
+          <div key={index} className="rounded-lg bg-background">
+            {section.items.map((item) => {
+              const isExpanded = expandedItems.includes(item.text);
+              return (
+                <div key={item.text}>
+                  <button
+                    onClick={() => item.children && handleItemClick(item.text)}
+                    className="flex gap-0.5 items-center justify-between w-full p-3 rounded overflow-hidden"
+                  >
+                    <span className="flex items-center gap-2">
+
+                      <item.icon className="size-5" />
+
+                      <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
+                        {item.text}
+                      </span>
+                    </span>
+                    {item.children && (
+                      isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />
+                    )}
+                  </button>
+
+                  {item.children && (
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="pl-6 flex flex-col gap-1 mt-1"
                         >
-                          <child.icon className="w-4 h-4" />
-                          {!isCollapsed && child.text}
-                        </button>
-                      ))}
-                    </motion.div>
+                          {item.children.map((child) => (
+                            <button key={child.text} className="flex items-center gap-2 p-1 rounded hover:bg-sidebar-hover">
+                              <child.icon className="w-4 h-4" />
+                              <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}}`}>
+                                {child.text}
+                              </span>
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
-                </AnimatePresence>
-              )}
-            </div>
-          );
-        })}
-      </motion.div>
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
     </nav>
   );
 };
 
-export default function AppSidebar({
-  isMobile,
-  onToggle,
-}: {
-  isMobile: boolean;
-  onToggle: () => void;
-}) {
-  const { mobileOpen, collapsed } = useSidebarStore();
 
-  if (isMobile) {
-    return <MobileSidebar isOpen={mobileOpen} onClose={onToggle} />;
-  }
-  return <DesktopSidebar isCollapsed={collapsed} onToggle={onToggle} />;
-}

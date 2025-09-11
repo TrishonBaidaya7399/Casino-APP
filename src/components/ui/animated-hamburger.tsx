@@ -1,19 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { X, Menu } from "lucide-react";
+import { X, Menu, Hamburger } from "lucide-react";
+import HamburgerSVG from "../common/svg_icons/HamburgerSVG";
+import CloseSVG from "../common/svg_icons/CloseSVG";
 
 interface AnimatedHamburgerProps {
   isOpen: boolean;
   onClick: () => void;
   color?: string;
-  size?: number;
 }
 
 export default function AnimatedHamburger({
   isOpen,
-  onClick,
-  size = 24,
+  onClick
 }: AnimatedHamburgerProps) {
   return (
     <motion.button
@@ -29,8 +29,9 @@ export default function AnimatedHamburger({
         animate={{ rotate: 0, opacity: 1, scale: 1 }}
         exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
         transition={{ duration: 0.2 }}
+        className="flex items-center justify-center size-6"
       >
-        {isOpen ? <X size={size} className="bg-muted" strokeWidth={2.5} /> : <Menu size={size} className="bg-muted" strokeWidth={2.5} />}
+        {isOpen ? <CloseSVG className="stroke-white-3"/> : <HamburgerSVG className="stroke-white-3" />}
       </motion.div>
     </motion.button>
   );

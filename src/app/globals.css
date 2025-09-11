@@ -37,14 +37,28 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
+  /* new variables */
+  --color-background-1: var(--background-1);
+  --color-background-2: var(--background-2);
+  --color-sports: var(--sports);
+  --color-white-3: var(--white-3);
+  --color-green-1: var(--green-1);
+  --color-cyan-1: var(--cyan-1);
+  --color-purple-1: var(--purple-1);
+  --color-blue-1: var(--blue-1);
+  --color-orange-1: var(--orange-1);
+  --color-yellow-1: var(--yellow-1);
 }
 
 :root {
- --background: oklch(0.145 0 0);
+  --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -59,7 +73,7 @@
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(100% 0.00011 271.152 / 0.15);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --radius: 0.625rem;
@@ -68,7 +82,7 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(26.26% 0.00572 300.998);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -76,6 +90,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* new variables */
+  --background-1: oklch(26.26% 0.00572 300.998);
+  --background-2: oklch(34.15% 0.0124 298.709);
+  --white-3: oklch(49.294% 0.00162 285.83);
+  --sports: oklch(65.997% 0.15604 154.512);
+
+  --green-1: oklch(82.93% 0.2299 149.741);
+  --cyan-1: oklch(57.469% 0.19154 256.088);
+
+  --purple-1: oklch(60.32% 0.28059 310.287);
+  --blue-1: oklch(76.674% 0.13693 223.772);
+
+  --orange-1: oklch(69.213% 0.1701 20.44);
+  --yellow-1: oklch(79.173% 0.1665 75.228);
 }
 
 .dark {
@@ -94,7 +123,7 @@
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(100% 0.00011 271.152 / 0.15);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --radius: 0.625rem;
@@ -103,7 +132,7 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(26.26% 0.00572 300.998);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -111,48 +140,34 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* new variables   */
+  --background-1: oklch(26.26% 0.00572 300.998);
+  --background-2: oklch(34.15% 0.0124 298.709);
+  --white-3: oklch(49.294% 0.00162 285.83);
+  --sports: oklch(65.997% 0.15604 154.512);
+
+  --green-1: oklch(82.93% 0.2299 149.741);
+  --cyan-1: oklch(57.469% 0.19154 256.088);
+
+  --purple-1: oklch(60.32% 0.28059 310.287);
+  --blue-1: oklch(76.674% 0.13693 223.772);
+
+  --orange-1: oklch(69.213% 0.1701 20.44);
+  --yellow-1: oklch(79.173% 0.1665 75.228);
+
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-
-
 .app-container {
-  width: 100%;
-  max-width: 77rem; /* 1232px */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem; /* 16px */
-  box-sizing: border-box;
-}
-
-@media (max-width: 64rem) and (min-width: 48.0625rem) { /* 1024px and 769px */
-  .app-container {
-    padding: 0 1rem !important; /* 16px */
-  }
-}
-
-@media (max-width: 48rem) { /* 768px */
-  .app-container {
-    padding: 0 1rem; /* 16px */
-  }
-}
-
-@media (max-width: 32rem) { /* 512px */
-  .app-container {
-    padding: 0 0.5rem; /* 8px */
-  }
-}
-
-@media (max-width: 25rem) { /* 400px */
-  .app-container {
-    padding: 0 0.5rem; /* 8px */
-  }
+  @apply w-full max-w-[77rem] mx-auto px-4 box-border;
 }
