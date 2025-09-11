@@ -5,57 +5,52 @@ import { useSidebarStore } from "@/store/sidebar-store";
 import AnimatedHamburger from "@/components/ui/animated-hamburger";
 
 import { Button } from "../ui/button";
+import BrandLogoSVG from "../common/svg_icons/BrandLogoSVG";
+import HamburgerSVG from "../common/svg_icons/HamburgerSVG";
 
 export default function AppHeader() {
   const { mobileOpen, toggleMobileOpen } = useSidebarStore();
 
   return (
-    <header className="fixed top-0 left-0 z-40 w-full border-b border bg-background transition-all lg:ml-60 lg:w-[calc(100%-15rem)] py-5.5">
+    <header className="sticky top-0 left-0 z-40 w-full border-b border-border bg-background transition-all">
       <div className="app-container flex items-center justify-between py-4">
-        {/* Logo + Brand */}
-        <div className="flex items-center">
-          <div className="mr-2 h-8 w-8 overflow-hidden rounded-lg">
-            <Image
-              width={32}
-              height={32}
-              alt="brand name"
-              src="/default.avif"
-              placeholder="blur"
-              blurDataURL="/default.webp"
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+        
+
+        <div className="flex items-center gap-4">
+          <div className="block md:hidden">
+            <button onClick={toggleMobileOpen}>
+              <HamburgerSVG className="stroke-white-3" />
+            </button>
           </div>
-          <span className="hidden text-lg font-semibold text-foreground lg:block">
-            BRAND NAME
-          </span>
+          
+          {/* Logo + Brand */}
+          <div className="flex items-center gap-3">
+            <span>
+              <BrandLogoSVG size={26} />
+            </span>
+            <span className="hidden text-lg font-semibold text-foreground lg:block">
+              BRAND NAME
+            </span>
+          </div>
         </div>
 
         {/* Right side actions */}
         <div className="flex items-center gap-3">
+
           <Button
+            href="/login"
             variant="outline"
-            size="lg"
-            className="rounded-lg border border-foreground px-6 text-base font-medium text-foreground hover:bg-foreground/10"
           >
             Login
           </Button>
+
+
           <Button
-            variant="default"
-            size="lg"
-            className="rounded-lg bg-foreground px-6 text-base font-medium text-background hover:bg-foreground/70"
+            href="/register"
+            variant="orangeGradient"
           >
             Register
           </Button>
-
-          {/* Hamburger visible only on mobile */}
-          <div className="ml-2 lg:hidden">
-            <AnimatedHamburger
-              isOpen={mobileOpen}
-              onClick={toggleMobileOpen}
-              size={24}
-            />
-          </div>
         </div>
       </div>
     </header>
