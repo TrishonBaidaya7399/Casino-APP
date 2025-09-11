@@ -1,6 +1,6 @@
 import WhiteArrowSVG from '@/components/common/svg_icons/WhiteArrowSVG';
 import WhiteStarSVG from '@/components/common/svg_icons/WhiteStarSVG';
-import PlayerStatus from '@/components/ui/player-status';
+import PlayerStatus from '@/components/global-components/player-status';
 import Image from 'next/image';
 
 const HeroSection = () => {
@@ -78,7 +78,7 @@ const HeroSection = () => {
             </div>
 
             {/* types */}
-            <div className="grid col-span-1 sm:grid-cols-2 sm:col-span-2 gap-4 lg:gap-8 xl:gap-12">
+            <div className="grid grid-cols-2 sm:col-span-2 gap-4 lg:gap-8 xl:gap-12">
                 {types.map((type, index) => (
                     <div key={index} className="relative w-full h-full space-y-2">
                         

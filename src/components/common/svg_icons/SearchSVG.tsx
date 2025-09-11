@@ -16,7 +16,6 @@ function SearchSVG({
       >
         <mask
           id="mask0_1_281"
-        //   style="mask-type:luminance"
           maskUnits="userSpaceOnUse"
           x="3"
           y="3"

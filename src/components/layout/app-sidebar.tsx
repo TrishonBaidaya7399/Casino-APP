@@ -2,12 +2,25 @@
 
 import type { LucideIcon } from "lucide-react";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Book, Lock, Crown, Users, Award, Calendar, ChevronUp, Handshake, Briefcase, Headphones, ChevronDown, MessageCircle } from "lucide-react";
-
-import AnimatedHamburger from "../ui/animated-hamburger";
+import {
+  Star,
+  Book,
+  Lock,
+  Crown,
+  Users,
+  Award,
+  Calendar,
+  ChevronUp,
+  Handshake,
+  Briefcase,
+  Headphones,
+  ChevronDown,
+  MessageCircle,
+} from "lucide-react";
+import AnimatedHamburger from "../global-components/animated-hamburger";
 import { Button } from "../ui/button";
 import CloseSVG from "../common/svg_icons/CloseSVG";
 
@@ -24,7 +37,7 @@ const menuItems1: MenuItem[] = [
       { text: "Welcome Bonus", icon: Star },
       { text: "Daily Rewards", icon: Calendar },
       { text: "VIP Rewards", icon: Crown },
-    ]
+    ],
   },
   { text: "Affiliate", icon: Users },
   { text: "VIP Club", icon: Award },
@@ -37,7 +50,7 @@ const menuItems2: MenuItem[] = [
     text: "Sponsorships", icon: Handshake, children: [
       { text: "Partner Program", icon: Handshake },
       { text: "Brand Deals", icon: Briefcase },
-    ]
+    ],
   },
   { text: "Responsible Gambling", icon: Lock },
   { text: "Live Support", icon: Headphones },
@@ -146,5 +159,6 @@ export default function AppSidebar() {
       </div>
     </nav>
   );
-}
+};
+
 
