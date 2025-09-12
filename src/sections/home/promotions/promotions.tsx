@@ -7,7 +7,7 @@ const PromotionCadsCarousel = dynamic(
 function Promotions() {
   return (
     <div className="">
-      <PromotionCadsCarousel title="Trending Games" items={promotions} />
+      <PromotionCadsCarousel title="Promotions" items={promotions} />
     </div>
   );
 }
