@@ -72,10 +72,10 @@ const HeroSection = () => {
         {types.map((type, index) => (
           <div key={index} className="relative w-full h-full space-y-2">
             <div
-              className={`w-full bg-secondary rounded-lg overflow-hidden ${
+              className={`w-full bg-secondary rounded-lg overflow-hidden border border-transapent ${
                 type?.title === "Casino"
-                  ? "hover:border hover:border-chart-1 duration-300"
-                  : "hover:border hover:border-chart-2 duration-300"
+                  ? "hover:border-chart-1 duration-300"
+                  : "hover:border-chart-2 duration-300"
               }`}
             >
               <Image
