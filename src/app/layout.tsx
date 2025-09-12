@@ -1,10 +1,10 @@
 import "../app/globals.css";
-
 import type React from "react";
 import type { Metadata } from "next";
-
 import { Inter } from "next/font/google";
-import GlobalProvider from "@/providers/GlobalProvider";
+import dynamic from "next/dynamic";
+
+const  GlobalProvider = dynamic(()=> import("@/providers/GlobalProvider"));
 
 export const runtime = "edge";
 

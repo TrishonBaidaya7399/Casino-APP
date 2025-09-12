@@ -1,12 +1,13 @@
 "use client";
 
-import { ThemeProvider } from "next-themes";
 import React, { Suspense, useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { ThemeProvider } from "next-themes";
 
-import AppHeader from "../components/layout/app-header";
-import AppSidebar from "../components/layout/app-sidebar";
-import Footer from "@/components/common/footer/footer";
-
+const AppHeader = dynamic(() => import("../components/layout/app-header"));
+const AppSidebar = dynamic(() => import("../components/layout/app-sidebar"));
+const Footer = dynamic(() => import("@/components/common/footer/footer"));
+const MobileFooter = dynamic(() => import("@/components/layout/mobile-footer"));
 
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   const [isClient, setIsClient] = useState(false);
@@ -26,11 +27,10 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
           <AppSidebar />
           <div className="w-full">
             <AppHeader />
-            <main className="app-container">
-              {children}
-            </main>
-            <Footer/>
+            <main className="app-container">{children}</main>
+            <Footer />
           </div>
+          <MobileFooter />
         </div>
       </Suspense>
     </ThemeProvider>
