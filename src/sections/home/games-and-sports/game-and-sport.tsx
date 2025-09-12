@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const GlobalCadCarousel = dynamic(
-  () => import("@/sections/home/game-card-carousel")
+  () => import("@/sections/home/games-and-sports/game-card-carousel")
 );
 
 const GameAndSport = () => {

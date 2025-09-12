@@ -17,7 +17,7 @@ function GameDetailsCard({
 }) {
   return (
     <div>
-      <div className="w-full h-full max-w-98 max-h-47 rounded-lg bg-sidebar p-6 flex flex-row gap-5 justify-between items-center">
+      <div className="w-full h-full min-w-98 max-h-47 rounded-lg bg-sidebar p-6 flex flex-row gap-5 justify-between items-center">
         <div className="left flex flex-col justify-between h-full min-h-35">
           <div className="flex flex-col gap-3">
             {type && (

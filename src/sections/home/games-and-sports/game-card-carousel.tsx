@@ -1,8 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-const GameCard = dynamic(() => import("../../components/global-components/cards/game-card"));
-const GlobalCarousel = dynamic(() => import("../../components/global-components/carousel/global-carousel"));
+const GameCard = dynamic(() => import("../../../components/global-components/cards/game-card"));
+const GlobalCarousel = dynamic(() => import("../../../components/global-components/carousel/global-carousel"));
 
 export interface GameData {
   src: string;
