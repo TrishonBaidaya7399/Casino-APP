@@ -57,6 +57,9 @@
   --color-yellow-1: var(--yellow-1);
   --svg-stop-color: var(----svg-stop-color);
   --svg-stop-color-2: var(----svg-stop-color-2);
+
+  /* custom space */
+  --spacing-1_5: 0.094rem;
 }
 
 :root {
@@ -111,6 +114,7 @@
 
   --svg-stop-color: oklch(79.173% 0.1665 75.228);
   --svg-stop-color-2: oklch(69.213% 0.1701 20.44);
+
 }
 
 .dark {

@@ -90,7 +90,7 @@ export default function AppSidebar() {
     <nav className={`z-50 fixed md:sticky top-0 left-0 h-screen overflow-y-auto border-r border-border bg-sidebar shrink-0
       transition-all duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 max-w-2xl w-full md:w-auto md:max-w-auto`}>
 
-      {/* Mobile toggle */}
+      {/* toggle bar and casino sports buttons */}
       <div className="sticky top-0 left-0 z-40 flex items-center gap-4 p-4 bg-sidebar">
 
         <button onClick={toggleMobileOpen} className="flex md:hidden items-center justify-center size-6">
@@ -119,7 +119,7 @@ export default function AppSidebar() {
                         w-full p-3 rounded-t-lg overflow-hidden transition-all duration-300
                         ${isExpanded ? 'bg-background-2' : 'bg-transparent'}`}
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="flex items-center gap-2 relative z-10">
 
                       <item.icon className="size-5" />
 
@@ -139,22 +139,27 @@ export default function AppSidebar() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className="px-3 flex flex-col mt-1"
+                          className="pl-5 pr-3 flex flex-col mt-1"
                         >
                           {item.children.map((child) => (
-                            <button key={child.text} className="flex rounded hover:bg-sidebar-hover">
+                            <button key={child.text} className="flex rounded hover:bg-sidebar-hover gap-2 relative">
                               {/* <child.icon className="w-4 h-4" /> */}
-                              {/* <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 11C10.5 11 8.6 11 5 11C1.4 11 0.99995 8 1 6V0L1 24" stroke="white" stroke-opacity="0.15" stroke-width="1.5" />
-                              </svg> */}
 
-                              <span className="w-6 inline-flex items-center justify-center relative">
-                                <span className="bg-background-2 inline-block h-full w-0.5 mx-auto -translate-y-3 absolute top-0 left-1/2 -translate-1/2"></span>
+                              {/* line start */}
+                              <span className="bg-background-2 inline-block h-full w-1_5 absolute -top-5 left-0"></span>
+
+                              <span className="flex items-start relative gap-2 py-1">
+
+                                {/* rounded bottom svg */}
+                                <svg className="w-3 h-3 stroke-background-2 stroke-2 shrink-0 mt-0.5" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 0V6C0.99995 8 1.4 11 5 11C8.6 11 10.5 11 13 11" />
+                                </svg>
+
+                                <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
+                                  {child.text}
+                                </span>
                               </span>
 
-                              <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 py-1 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
-                                {child.text}
-                              </span>
                             </button>
                           ))}
                         </motion.div>
