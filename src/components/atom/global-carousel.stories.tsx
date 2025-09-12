@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import GlobalCarousel from "../global-components/carousel/global-carousel";
 import GameCard from "../global-components/cards/game-card";
+import Image from "next/image";
 
 const meta: Meta<typeof GlobalCarousel> = {
   title: "Components/Global Carousel",
@@ -184,7 +185,7 @@ const samplePromotionData = [
 // Mock render function for PromotionCard
 const renderPromotionCard = (item: any) => (
   <div className="w-[143px] h-[188px] bg-card rounded-lg p-2 flex flex-col justify-between shadow-md">
-    <img
+    <Image
       src={item.image}
       alt={item.title}
       className="w-full h-3/4 object-cover rounded"
