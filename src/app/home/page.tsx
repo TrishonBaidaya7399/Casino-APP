@@ -20,6 +20,7 @@ export default function HomePage() {
       <div className="w-full pt-9">
         <GameAndSport />
       </div>
+
       {/* promotions section */}
       <div className="w-full pt-9">
         <Promotions />

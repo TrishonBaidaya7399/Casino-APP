@@ -4,21 +4,6 @@ const GlobalCadCarousel = dynamic(
   () => import("@/sections/home/games-and-sports/game-card-carousel")
 );
 
-const GameAndSport = () => {
-  return (
-    <div className="">
-      {/* trending games */}
-      <GlobalCadCarousel title="Trending Games" items={trendingGames} />
-      {/* trending sports */}
-      <div className="pt-9">
-        <GlobalCadCarousel title="Trending Sports" items={trendingSports} />
-      </div>
-    </div>
-  );
-};
-
-export default GameAndSport;
-
 const trendingGames: any[] = [
   {
     id: 1,
@@ -93,6 +78,7 @@ const trendingGames: any[] = [
     players: 22,
   },
 ];
+
 const trendingSports: any[] = [
   {
     id: 1,
@@ -155,3 +141,20 @@ const trendingSports: any[] = [
     alt: "Cricket",
   },
 ];
+
+const GameAndSport = () => {
+  return (
+    <div className="w-full">
+      {/* trending games */}
+      <GlobalCadCarousel title="Trending Games" items={trendingGames} />
+      {/* trending sports */}
+      <div className="pt-9">
+        <GlobalCadCarousel title="Trending Sports" items={trendingSports} />
+      </div>
+    </div>
+  );
+};
+
+export default GameAndSport;
+
+
