@@ -120,7 +120,7 @@ export default function Footer() {
       <div className="lg:hidden">
         <GlobalAccordion data={accordionData} />
       </div>
-      <footer className="hidden lg:flex bg-background-1 p-6 rounded-lg overflow-hidden text-sm">
+      <footer className="hidden lg:block bg-background-1 p-6 rounded-lg overflow-hidden text-sm">
         {/* Grid for large displays */}
         <div className="grid grid-cols-6 gap-6">
           {Object.entries(footerLinks).map(([title, links]) => (
