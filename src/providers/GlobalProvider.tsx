@@ -23,7 +23,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider attribute="class">
       <Suspense>
-        <div className="bg-background text-foreground relative flex items-start min-h-screen">
+        <div className="bg-background text-foreground relative flex items-start min-h-screen pb-24 md:pb-0">
           <AppSidebar />
           <div className="w-full">
             <AppHeader />
