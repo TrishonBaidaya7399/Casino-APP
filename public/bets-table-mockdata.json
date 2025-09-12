@@ -6,7 +6,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$1,995.30",
       "multiplier": "1.00x",
-      "payout": "-$1,995.30"
+      "payout": "-$1,995.30",
+      "type": "bitcoin"
     },
     {
       "game": "Stake Roulette",
@@ -14,7 +15,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$4,800.00",
       "multiplier": "6.00x",
-      "payout": "$28,800.00"
+      "payout": "$28,800.00",
+      "type": "ethereum"
     },
     {
       "game": "Big Bass Halloween",
@@ -22,7 +24,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$1,172.19",
       "multiplier": "0.50x",
-      "payout": "-$586.10"
+      "payout": "-$586.10",
+      "type": "bitcoin"
     },
     {
       "game": "Keno",
@@ -30,7 +33,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$1,995.30",
       "multiplier": "1.00x",
-      "payout": "-$1,995.30"
+      "payout": "-$1,995.30",
+      "type": "ethereum"
     },
     {
       "game": "Stake Roulette",
@@ -38,6 +42,7 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$4,800.00",
       "multiplier": "6.00x",
+      "type": "bitcoin",
       "payout": "$28,800.00"
     },
     {
@@ -46,7 +51,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$1,172.19",
       "multiplier": "0.50x",
-      "payout": "-$586.10"
+      "payout": "-$586.10",
+      "type": "ethereum"
     },
     {
       "game": "Keno",
@@ -54,7 +60,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$1,995.30",
       "multiplier": "1.00x",
-      "payout": "-$1,995.30"
+      "payout": "-$1,995.30",
+      "type": "bitcoin"
     },
     {
       "game": "Stake Roulette",
@@ -62,7 +69,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$4,800.00",
       "multiplier": "6.00x",
-      "payout": "$28,800.00"
+      "payout": "$28,800.00",
+      "type": "ethereum"
     },
     {
       "game": "Big Bass Halloween",
@@ -70,7 +78,8 @@
       "time": "2024-01-15T22:31:00.000Z",
       "betAmount": "$1,172.19",
       "multiplier": "0.50x",
-      "payout": "-$586.10"
+      "payout": "-$586.10",
+      "type": "ethereum"
     },
     {
       "game": "Blackjack",
@@ -78,7 +87,8 @@
       "time": "2024-01-15T22:30:45.000Z",
       "betAmount": "$2,250.00",
       "multiplier": "2.00x",
-      "payout": "$4,500.00"
+      "payout": "$4,500.00",
+      "type": "bitcoin"
     },
     {
       "game": "Baccarat",
@@ -86,7 +96,8 @@
       "time": "2024-01-15T22:30:30.000Z",
       "betAmount": "$3,100.50",
       "multiplier": "1.95x",
-      "payout": "$6,045.98"
+      "payout": "$6,045.98",
+      "type": "ethereum"
     },
     {
       "game": "Crash",
@@ -94,7 +105,8 @@
       "time": "2024-01-15T22:30:15.000Z",
       "betAmount": "$892.75",
       "multiplier": "15.7x",
-      "payout": "$14,016.18"
+      "payout": "$14,016.18",
+      "type": "bitcoin"
     }
   ],
   "sports": [

@@ -7,17 +7,21 @@ import { BetData } from "@/types/bets-table-types";
 import { BetsTableTabs } from "./bets-table-tabs";
 import dayjs from "dayjs";
 import { ColumnType } from "@/types/global-table-types";
+import PointerIcon from "@/components/common/svg_icons/PointerIcon";
+import BitCoinSVG from "@/components/common/svg_icons/BitCoinSVG";
+import EthereumSVG from "@/components/common/svg_icons/EthereumSVG";
 
 const renderPayout = (row: BetData) => {
   const payoutValue = parseFloat(row.payout.replace(/[$,]/g, ""));
   const isPositive = payoutValue >= 0;
   return (
     <span
-      className={`${
+      className={`inline-flex items-center gap-1 ${
         isPositive ? "text-success" : "text-destructive"
       } font-semibold`}
     >
       {row.payout}
+      {row.type === "bitcoin" ? <BitCoinSVG /> : <EthereumSVG />}
     </span>
   );
 };
@@ -27,11 +31,12 @@ const renderBetAmount = (row: BetData) => {
   const isPositive = betValue >= 0;
   return (
     <span
-      className={`${
+      className={`inline-flex items-center gap-1 ${
         isPositive ? "text-success" : "text-destructive"
       } font-semibold"`}
     >
       {row.betAmount}
+      {row.type === "bitcoin" ? <BitCoinSVG /> : <EthereumSVG />}
     </span>
   );
 };
@@ -71,9 +76,23 @@ export default function BetsTable() {
     {
       key: "game",
       label: "Game",
-      render: (row: any) => <span className="font-medium">{row.game}</span>,
+      render: (row: any) => (
+        <span className="font-medium inline-flex items-center gap-1">
+          <PointerIcon />
+          {row.game}
+        </span>
+      ),
     },
-    { key: "user", label: "User" },
+    {
+      key: "user",
+      label: "User",
+      render: (row: any) => (
+        <span className="font-medium inline-flex items-center gap-1">
+          <PointerIcon />
+          {row.user}
+        </span>
+      ),
+    },
     {
       key: "time",
       label: "Time",
