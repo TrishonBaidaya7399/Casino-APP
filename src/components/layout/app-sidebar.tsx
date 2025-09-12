@@ -36,15 +36,15 @@ const menuItems1: MenuItem[] = [
     text: "Promotions",
     icon: Star,
     children: [
-      { text: "Welcome Bonus", icon: Star, href: "/welcome-bonus" },
-      { text: "Daily Rewards", icon: Calendar, href: "/daily-rewards" },
-      { text: "VIP Rewards", icon: Crown, href: "/vip-rewards" },
+      { text: "Welcome Bonus", icon: Star, href: "/" },
+      { text: "Daily Rewards", icon: Calendar, href: "/" },
+      { text: "VIP Rewards", icon: Crown, href: "/" },
     ],
   },
-  { text: "Affiliate", icon: Users, href: "/affiliate" },
-  { text: "VIP Club", icon: Award, href: "/vip-club" },
-  { text: "Blog", icon: Book, href: "/blog" },
-  { text: "Forum", icon: MessageCircle, href: "/forum" },
+  { text: "Affiliate", icon: Users, href: "/" },
+  { text: "VIP Club", icon: Award, href: "/" },
+  { text: "Blog", icon: Book, href: "/" },
+  { text: "Forum", icon: MessageCircle, href: "/" },
 ];
 
 const menuItems2: MenuItem[] = [
@@ -52,12 +52,12 @@ const menuItems2: MenuItem[] = [
     text: "Sponsorships",
     icon: Handshake,
     children: [
-      { text: "Partner Program", icon: Handshake, href: "/partner-program" },
-      { text: "Brand Deals", icon: Briefcase, href: "/brand-deals" },
+      { text: "Partner Program", icon: Handshake, href: "/" },
+      { text: "Brand Deals", icon: Briefcase, href: "/" },
     ],
   },
-  { text: "Responsible Gambling", icon: Lock, href: "/responsible-gambling" },
-  { text: "Live Support", icon: Headphones, href: "/live-support" },
+  { text: "Responsible Gambling", icon: Lock, href: "/" },
+  { text: "Live Support", icon: Headphones, href: "/" },
 ];
 
 const menuSections: { items: MenuItem[] }[] = [
@@ -126,10 +126,10 @@ export default function AppSidebar() {
         <div
           className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${mobileOpen ? "max-w-auto md:max-w-0 pl-4 md:pl-0" : "max-w-auto md:max-w-50 pl-4"}`}
         >
-          <Button href="/casino" variant="gray" asChild>
+          <Button href="/" variant="gray" asChild>
             Casino
           </Button>
-          <Button href="/sports" variant="gray" asChild>
+          <Button href="/" variant="gray" asChild>
             Sports
           </Button>
         </div>

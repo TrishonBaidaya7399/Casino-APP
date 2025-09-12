@@ -39,11 +39,11 @@ export default function AppHeader() {
 
         {/* Right side actions */}
         <div className="flex items-center gap-3">
-          <Button href="/login" variant="outline" asChild>
+          <Button href="/" variant="outline" asChild>
             Login
           </Button>
 
-          <Button href="/register" variant="orangeGradient" asChild>
+          <Button href="/" variant="orangeGradient" asChild>
             Register
           </Button>
         </div>
