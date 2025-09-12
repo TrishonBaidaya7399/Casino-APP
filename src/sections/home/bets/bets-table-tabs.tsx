@@ -18,13 +18,10 @@ export function BetsTableTabs() {
     <Tabs value={activeTab} className="w-full mb-2.5 bg-sidebar rounded-lg">
       <TabsList className="grid grid-cols-3 bg-sidebar p-2 h-auto">
         {tabs.map((tab) => (
-          <TabsTrigger
-            key={tab.value}
-            value={tab.value}
-            asChild
-          >
+          <TabsTrigger key={tab.value} value={tab.value} asChild>
             <Link
-              href={`?tab=${tab.value}#bets`}
+              scroll={false}
+              href={`?tab=${tab.value}`}
               className="w-full h-full flex items-center justify-center"
             >
               {tab.label}

@@ -120,7 +120,7 @@ export default function BetsTable() {
   return (
     <div className="w-full">
       <BetsTableTabs />
-      <div id="bets">
+      <div>
         <GlobalTable<BetData>
           columns={columns}
           data={data}
