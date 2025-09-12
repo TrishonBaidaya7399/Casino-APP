@@ -6,7 +6,7 @@ const PlayerStatus: React.FC<PlayerStatusProps> = ({ players }) => {
   return (
     <p className="text-xs flex items-center gap-1">
       <span
-        className={`inline-block size-1.5 rounded-full ${
+        className={`inline-block size-2 rounded-full shrink-0 ${
           players ? "bg-sports" : "bg-red-500"
         }`}
       ></span>
