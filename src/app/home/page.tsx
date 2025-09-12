@@ -16,9 +16,9 @@ export default function HomePage() {
       </div>
 
       {/* promotions section */}
-      {/* <div className="w-full pt-9">
+      <div className="w-full pt-9">
         <Promotions />
-      </div> */}
+      </div>
 
     </div>
   );
