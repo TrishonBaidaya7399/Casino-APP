@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation";
 import { GlobalTable } from "@/components/global-components/global-table/global-table";
 import { BetData } from "@/types/bets-table-types";
 import { BetsTableTabs } from "./bets-table-tabs";
+import dayjs from "dayjs";
+import { ColumnType } from "@/types/global-table-types";
 
 const renderPayout = (row: BetData) => {
   const payoutValue = parseFloat(row.payout.replace(/[$,]/g, ""));
@@ -65,14 +67,20 @@ export default function BetsTable() {
     fetchData();
   }, [tab]);
 
-  const columns = [
+  const columns: ColumnType<BetData>[] = [
     {
       key: "game",
       label: "Game",
       render: (row: any) => <span className="font-medium">{row.game}</span>,
     },
     { key: "user", label: "User" },
-    { key: "time", label: "Time" },
+    {
+      key: "time",
+      label: "Time",
+      render: (row: any) => (
+        <span className="font-medium">{dayjs(row.time).format("hh:mm A")}</span>
+      ),
+    },
     {
       key: "betAmount",
       label: "Bet Amount",
@@ -94,7 +102,7 @@ export default function BetsTable() {
     <div className="w-full">
       <BetsTableTabs />
       <div id="bets">
-        <GlobalTable
+        <GlobalTable<BetData>
           columns={columns}
           data={data}
           loading={loading}
