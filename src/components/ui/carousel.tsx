@@ -62,7 +62,7 @@ function Carousel({
   const [canScrollNext, setCanScrollNext] = React.useState(false)
 
   const onSelect = React.useCallback((api: CarouselApi) => {
-    if (!api) return
+    if (!api) {return}
     setCanScrollPrev(api.canScrollPrev())
     setCanScrollNext(api.canScrollNext())
   }, [])
@@ -89,12 +89,12 @@ function Carousel({
   )
 
   React.useEffect(() => {
-    if (!api || !setApi) return
+    if (!api || !setApi) {return}
     setApi(api)
   }, [api, setApi])
 
   React.useEffect(() => {
-    if (!api) return
+    if (!api) {return}
     onSelect(api)
     api.on("reInit", onSelect)
     api.on("select", onSelect)
@@ -174,7 +174,6 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 function CarouselPrevious({
   className,
   variant = "outline",
-  size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
@@ -183,7 +182,6 @@ function CarouselPrevious({
     <Button
       data-slot="carousel-previous"
       variant={variant}
-      size={size}
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
@@ -204,7 +202,6 @@ function CarouselPrevious({
 function CarouselNext({
   className,
   variant = "outline",
-  size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
@@ -213,7 +210,6 @@ function CarouselNext({
     <Button
       data-slot="carousel-next"
       variant={variant}
-      size={size}
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
