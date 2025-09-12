@@ -17,7 +17,7 @@ const renderPayout = (row: BetData) => {
   return (
     <span
       className={`inline-flex items-center gap-1 ${
-        isPositive ? "text-success" : "text-destructive"
+        isPositive ? "!text-green-500" : "text-destructive"
       } font-semibold`}
     >
       {row.payout}
