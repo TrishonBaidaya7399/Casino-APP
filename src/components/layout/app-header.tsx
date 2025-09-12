@@ -5,6 +5,7 @@ import { useSidebarStore } from "@/store/sidebar-store";
 import { Button } from "../ui/button";
 import HamburgerSVG from "../common/svg_icons/HamburgerSVG";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AppHeader() {
   const { toggleMobileOpen } = useSidebarStore();
@@ -20,7 +21,7 @@ export default function AppHeader() {
           </div>
 
           {/* Logo + Brand */}
-          <div className="flex items-center gap-3">
+          <Link href={'/'} className="inline-flex items-center gap-3">
             <span>
               <Image
                 src={"/logos/logo.webp"}
@@ -33,16 +34,16 @@ export default function AppHeader() {
             <span className="hidden text-lg font-semibold text-foreground lg:block">
               BRAND NAME
             </span>
-          </div>
+          </Link>
         </div>
 
         {/* Right side actions */}
         <div className="flex items-center gap-3">
-          <Button href="/login" variant="outline">
+          <Button href="/login" variant="outline" asChild>
             Login
           </Button>
 
-          <Button href="/register" variant="orangeGradient">
+          <Button href="/register" variant="orangeGradient" asChild>
             Register
           </Button>
         </div>
