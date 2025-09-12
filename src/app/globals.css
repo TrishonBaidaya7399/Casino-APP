@@ -177,6 +177,10 @@
   }
 }
 
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
 .app-container {
   @apply w-full max-w-[77rem] mx-auto px-4 box-border;
 }

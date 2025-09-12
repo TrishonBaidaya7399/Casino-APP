@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import GameCard from "../global-components/cards/game-card";
 
 const meta: Meta<typeof GameCard> = {
-  title: "Components/GameCard",
+  title: "Components/Game Card",
   component: GameCard,
   tags: ["autodocs"],
   argTypes: {

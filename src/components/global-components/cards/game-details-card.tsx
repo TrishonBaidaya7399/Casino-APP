@@ -48,7 +48,8 @@ function GameDetailsCard({
             alt={title}
             height={140}
             width={140}
-            loading="lazy"
+            placeholder="blur"
+            blurDataURL="/default.webp"
             className="object-cover rounded-lg"
           />
         </div>

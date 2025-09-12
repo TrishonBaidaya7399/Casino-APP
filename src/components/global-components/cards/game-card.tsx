@@ -19,13 +19,14 @@ function GameCard({
 }) {
   return (
     <div>
-      <div className="relative rounded-lg bg-background-2 flex flex-col gap-2 w-35.75 m:w-31.75 h-47">
+      <div className="relative flex flex-col gap-2 w-35.75 m:w-31.75 h-auto">
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
-          loading="lazy"
+          placeholder="blur"
+          blurDataURL="/default.webp"
           className="rounded-lg"
         />
         {id && (
@@ -33,7 +34,7 @@ function GameCard({
             {id}
           </div>
         )}
-        {players !== 0 && <PlayerStatus key={id} players={players} />}
+        {players && players > 0 && <PlayerStatus key={id} players={players} />}
       </div>
     </div>
   );

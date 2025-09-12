@@ -8,7 +8,7 @@ type User = {
 };
 
 const meta: Meta<typeof GlobalTable<User>> = {
-  title: "Components/GlobalTable",
+  title: "Components/Global Table",
   component: GlobalTable<User>,
   tags: ["autodocs"],
   args: {

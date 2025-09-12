@@ -3,24 +3,18 @@
 import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import GameCard from "../cards/game-card";
 
-export interface GameData {
-  src: string;
-  alt: string;
-  id: number;
-  players?: number;
-}
-
-interface GlobalHorizontalSliderProps {
+interface GlobalCarouselProps<T extends unknown = unknown> {
   title: string;
-  items: GameData[];
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
 }
 
-export default function GlobalHorizontalSlider({
+export default function GlobalCarousel<T>({
   title,
   items,
-}: GlobalHorizontalSliderProps) {
+  renderItem,
+}: GlobalCarouselProps<T>) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -62,9 +56,11 @@ export default function GlobalHorizontalSlider({
   }, []);
 
   return (
-    <div className="w-full app-container">
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-foreground text-2xl font-semibold">{title}</h2>
+    <div className="w-full">
+      <div className="flex items-center justify-between mb-2.5">
+        <h2 className="text-foreground-muted text-base font-semibold">
+          {title}
+        </h2>
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
@@ -112,19 +108,11 @@ export default function GlobalHorizontalSlider({
       </div>
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto gap-4 scrollbar-hide w-full h-60"
+        className="flex overflow-x-auto gap-2 no-scrollbar w-full h-auto"
         onScroll={checkScroll}
       >
-        {items.map((item) => (
-          <GameCard
-            key={item.id}
-            src={item.src}
-            alt={item.alt}
-            id={item.id}
-            players={item.players}
-            width={143}
-            height={188}
-          />
+        {items.map((item, index) => (
+          <div key={index}>{renderItem(item)}</div>
         ))}
       </div>
     </div>
