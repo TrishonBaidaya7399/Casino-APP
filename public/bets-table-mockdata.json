@@ -1,0 +1,64 @@
+{
+  "casino": [
+    {
+      "game": "Keno Roulette",
+      "user": "Hidden",
+      "time": "10:31 PM",
+      "betAmount": "$1,995.00",
+      "multiplier": "10.31x",
+      "payout": "$1,995.00"
+    },
+    {
+      "game": "Stake Roulette",
+      "user": "Hidden",
+      "time": "10:31 PM",
+      "betAmount": "$4,800.00",
+      "multiplier": "10.31x",
+      "payout": "$28,800.00"
+    },
+    {
+      "game": "Big Bass Halloween",
+      "user": "Hidden",
+      "time": "10:31 PM",
+      "betAmount": "$1,719.00",
+      "multiplier": "10.31x",
+      "payout": "-$586.00"
+    }
+  ],
+  "sports": [
+    {
+      "game": "Soccer",
+      "user": "Hidden",
+      "time": "10:32 PM",
+      "betAmount": "$2,500.00",
+      "multiplier": "5.2x",
+      "payout": "$13,000.00"
+    },
+    {
+      "game": "Basketball",
+      "user": "Hidden",
+      "time": "10:32 PM",
+      "betAmount": "$1,200.00",
+      "multiplier": "3.5x",
+      "payout": "$4,200.00"
+    }
+  ],
+  "race-leaderboard": [
+    {
+      "game": "Horse Race",
+      "user": "Hidden",
+      "time": "10:33 PM",
+      "betAmount": "$3,200.00",
+      "multiplier": "8.1x",
+      "payout": "$25,920.00"
+    },
+    {
+      "game": "Dog Race",
+      "user": "Hidden",
+      "time": "10:34 PM",
+      "betAmount": "$1,800.00",
+      "multiplier": "6.7x",
+      "payout": "$12,060.00"
+    }
+  ]
+}

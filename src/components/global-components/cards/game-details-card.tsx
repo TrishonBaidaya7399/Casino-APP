@@ -21,7 +21,7 @@ function GameDetailsCard({
         <div className="left flex flex-col justify-between h-full min-h-35">
           <div className="flex flex-col gap-3">
             {type && (
-              <div className="capitalize badge px-2 py-1 rounded-full bg-muted-foreground text-xs w-fit font-normal text-foreground">
+              <div className="capitalize badge px-2 py-1 rounded-full bg-foreground/15 text-xs w-fit font-normal text-foreground">
                 {type}
               </div>
             )}

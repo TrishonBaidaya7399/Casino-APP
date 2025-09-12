@@ -1,7 +1,13 @@
-import Promotions from "@/sections/home/promotions/promotions";
 import dynamic from "next/dynamic";
 const HeroSection = dynamic(() => import("@/sections/home/hero-section"));
-const GameAndSport = dynamic(() => import("@/sections/home/games-and-sports/game-and-sport"));
+const GameAndSport = dynamic(
+  () => import("@/sections/home/games-and-sports/game-and-sport")
+);
+const Promotions = dynamic(
+  () => import("@/sections/home/promotions/promotions")
+);
+const BetsTable = dynamic(() => import("@/sections/home/bets/bets-page"));
+const Question = dynamic(() => import("@/sections/home/questions/question"));
 
 export default function HomePage() {
   return (
@@ -17,6 +23,14 @@ export default function HomePage() {
       {/* promotions section */}
       <div className="w-full pt-9">
         <Promotions />
+      </div>
+      {/* bets table section */}
+      <div className="w-full pt-9">
+        <BetsTable />
+      </div>
+      {/* bets table section */}
+      <div className="w-full py-9">
+        <Question />
       </div>
     </div>
   );
