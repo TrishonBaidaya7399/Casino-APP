@@ -33,6 +33,8 @@ export default function GlobalCadCarousel({
   );
 
   return (
-    <GlobalCarousel title={title} items={items} renderItem={renderGameCard} />
+    <div className="w-full">
+      <GlobalCarousel title={title} items={items} renderItem={renderGameCard} />
+    </div>
   );
 }

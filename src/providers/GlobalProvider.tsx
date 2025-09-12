@@ -24,7 +24,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
       <Suspense>
         <div className="bg-background text-foreground relative flex items-start min-h-screen">
           <AppSidebar />
-          <div className="flex-grow">
+          <div className="w-full">
             <AppHeader />
             <main className="app-container">
               {children}

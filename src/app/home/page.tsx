@@ -14,10 +14,12 @@ export default function HomePage() {
       <div className="w-full pt-9">
         <GameAndSport />
       </div>
+
       {/* promotions section */}
-      <div className="w-full pt-9">
+      {/* <div className="w-full pt-9">
         <Promotions />
-      </div>
+      </div> */}
+
     </div>
   );
 }

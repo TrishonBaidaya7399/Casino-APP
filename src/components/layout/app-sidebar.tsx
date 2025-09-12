@@ -115,7 +115,9 @@ export default function AppSidebar() {
                 <div key={item.text}>
                   <button
                     onClick={() => item.children && handleItemClick(item.text)}
-                    className="flex gap-0.5 items-center justify-between w-full p-3 rounded overflow-hidden"
+                    className={`flex gap-0.5 items-center justify-between cursor-pointer
+                        w-full p-3 rounded-t-lg overflow-hidden transition-all duration-300
+                        ${isExpanded ? 'bg-background-2' : 'bg-transparent'}`}
                   >
                     <span className="flex items-center gap-2">
 
@@ -137,12 +139,20 @@ export default function AppSidebar() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className="pl-6 flex flex-col gap-1 mt-1"
+                          className="px-3 flex flex-col mt-1"
                         >
                           {item.children.map((child) => (
-                            <button key={child.text} className="flex items-center gap-2 p-1 rounded hover:bg-sidebar-hover">
-                              <child.icon className="w-4 h-4" />
-                              <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
+                            <button key={child.text} className="flex rounded hover:bg-sidebar-hover">
+                              {/* <child.icon className="w-4 h-4" /> */}
+                              {/* <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 11C10.5 11 8.6 11 5 11C1.4 11 0.99995 8 1 6V0L1 24" stroke="white" stroke-opacity="0.15" stroke-width="1.5" />
+                              </svg> */}
+
+                              <span className="w-6 inline-flex items-center justify-center relative">
+                                <span className="bg-background-2 inline-block h-full w-0.5 mx-auto -translate-y-3 absolute top-0 left-1/2 -translate-1/2"></span>
+                              </span>
+
+                              <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 py-1 ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}>
                                 {child.text}
                               </span>
                             </button>
