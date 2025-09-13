@@ -82,11 +82,10 @@ export default function MobileBrowsePanel() {
                           className={`flex gap-0.5 items-center justify-between cursor-pointer relative
                         w-full p-3 overflow-hidden transition-all duration-300
                         hover:bg-background-2
-                        ${
-                          isExpanded
-                            ? "bg-background-2 rounded-t-lg"
-                            : "bg-transparent rounded-lg"
-                        }`}
+                        ${isExpanded
+                              ? "bg-background-2 rounded-t-lg"
+                              : "bg-transparent rounded-lg"
+                            }`}
                         >
                           <span className="flex items-center relative z-10">
                             <item.icon className="size-5" />
@@ -127,9 +126,7 @@ export default function MobileBrowsePanel() {
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              className={`pl-5 pr-3 flex flex-col rounded-b-lg ${
-                                isExpanded ? "bg-background" : "bg-transparent"
-                              }`}
+                              className={`px-3 flex flex-col rounded-b-lg ${isExpanded ? "bg-background" : "bg-transparent"}`}
                             >
                               {item.children.map((child) => (
                                 <Link
@@ -137,23 +134,20 @@ export default function MobileBrowsePanel() {
                                   href={child.href || "#"}
                                   className="flex rounded hover:bg-sidebar-hover gap-2 relative"
                                 >
-                                  {/* line start */}
-                                  <span className="bg-background-2 inline-block h-full w-1_5 absolute -top-5 left-0" />
 
-                                  <span className="flex items-start relative gap-2 py-1">
-                                    {/* rounded bottom svg */}
-                                    <svg
-                                      className="w-3 h-3 stroke-background-2 stroke-2 shrink-0 mt-0.5"
-                                      viewBox="0 0 13 12"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path d="M1 0V6C0.99995 8 1.4 11 5 11C8.6 11 10.5 11 13 11" />
-                                    </svg>
+                                  <span className="flex items-start relative py-1 pl-1">
 
-                                    <span
-                                      className="whitespace-nowrap overflow-hidden transition-all duration-300 
-                                    text-white/55 cursor-pointer hover:text-white max-w-auto md:max-w-0"
+                                    <div className="relative size-6">
+
+                                      <svg className="absolute left-1/2 -translate-x-1/2 -translate-y-[65%] stroke-2 stroke-background-2 h-9" viewBox="0 0 13 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 24V30C0.99995 32 1.4 35 5 35C8.6 35 10.5 35 13 35" />
+                                        <path d="M1 0V24" />
+                                      </svg>
+
+                                    </div>
+
+                                    <span className="whitespace-nowrap overflow-hidden transition-all duration-300 
+                                    text-white/55 cursor-pointer hover:text-white"
                                     >
                                       {child.text}
                                     </span>

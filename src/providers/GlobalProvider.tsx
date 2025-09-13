@@ -30,7 +30,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
       <Suspense>
         <div className="bg-background text-foreground relative flex items-start min-h-screen pb-24 md:pb-0">
           <AppSidebar />
-          <div className={`mx-auto transition-all duration-300 ${mobileOpen ? 'w-full md:w-[calc(100%-4.75rem)]' : 'w-full md:w-[calc(100%-15.209rem)]'}`}>
+          <div className={`mx-auto ${mobileOpen ? 'w-full md:w-[calc(100%-4.75rem)]' : 'w-full md:w-[calc(100%-15.209rem)]'}`}>
             <AppHeader />
             <main className="app-container">{children}</main>
             <Footer />
