@@ -105,7 +105,7 @@ export default function Footer() {
         <div className="flex flex-row justify-center items-center gap-3 w-full mb-6">
           <span>
             <Image
-              src={"/logos/logo.webp"}
+              src="/logos/logo.webp"
               alt="Branch logo"
               width={32}
               height={32}

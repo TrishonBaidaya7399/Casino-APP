@@ -56,8 +56,8 @@ function SearchBar() {
   );
 
   const debouncedUpdateQueryParams = useMemo(() => {
-    return debounce((searchTerm: string) => {
-      updateQueryParams({ searchTerm, type });
+    return debounce((text: string) => {
+      updateQueryParams({ searchTerm: text, type });
     }, 500);
   }, [type, updateQueryParams]);
 

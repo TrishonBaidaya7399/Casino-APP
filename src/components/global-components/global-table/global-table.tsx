@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
-import { GlobalTableProps } from "@/types/global-table-types";
+import type  { GlobalTableProps } from "@/types/global-table-types";
 
 export function GlobalTable<T>({
   columns,

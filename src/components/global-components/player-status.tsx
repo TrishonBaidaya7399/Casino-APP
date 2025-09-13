@@ -9,7 +9,7 @@ const PlayerStatus: React.FC<PlayerStatusProps> = ({ players }) => {
         className={`inline-block size-2 rounded-full shrink-0 ${
           players ? "bg-sports" : "bg-red-500"
         }`}
-      ></span>
+      />
       <span className="inline-block space-x-1">
         <span className="font-semibold">{players ?? 0}</span>
         <span className="text-white-3">playing</span>
