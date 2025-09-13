@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import {
@@ -15,7 +15,7 @@ import { Search } from "lucide-react";
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
   let timeout: ReturnType<typeof setTimeout> | null = null;
 
-  return function (...args: Parameters<T>) {
+  return (...args: Parameters<T>) => {
     if (timeout) {
       clearTimeout(timeout);
     }
@@ -55,12 +55,11 @@ function SearchBar() {
     [router, searchParams]
   );
 
-  const debouncedUpdateQueryParams = useCallback(
-    debounce((searchTerm: string) => {
+  const debouncedUpdateQueryParams = useMemo(() => {
+    return debounce((searchTerm: string) => {
       updateQueryParams({ searchTerm, type });
-    }, 500),
-    [type, updateQueryParams]
-  );
+    }, 500);
+  }, [type, updateQueryParams]);
 
   const handleTypeChange = (value: string) => {
     setType(value);

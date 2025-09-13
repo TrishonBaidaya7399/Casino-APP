@@ -1,3 +1,4 @@
+import withBundleAnalyzer from "@next/bundle-analyzer";
 /** @type {import('next').NextConfig} */
 
 const securityHeaders = [
@@ -44,7 +45,7 @@ const nextConfig = {
   },
 
   images: {
-   formats: ["image/avif", "image/webp"],
+    formats: ["image/avif" as const, "image/webp" as const],
   },
 
   async headers() {
@@ -58,8 +59,6 @@ const nextConfig = {
 };
 
 // Conditional bundle analyzer wrapper (ES module compatible)
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
+export default withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
-});
-
-module.exports = withBundleAnalyzer(nextConfig);
+})(nextConfig);
