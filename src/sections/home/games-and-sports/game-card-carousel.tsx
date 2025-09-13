@@ -1,5 +1,6 @@
 "use client";
 
+import GlobalSwiper from "@/components/global-components/swiper/global-swiper";
 import dynamic from "next/dynamic";
 const GameCard = dynamic(() => import("../../../components/global-components/cards/game-card"));
 const GlobalCarousel = dynamic(() => import("../../../components/global-components/carousel/global-carousel"));
@@ -34,7 +35,8 @@ export default function GlobalCadCarousel({
 
   return (
     <div className="w-full">
-      <GlobalCarousel title={title} items={items} renderItem={renderGameCard} />
+      {/* <GlobalCarousel title={title} items={items} renderItem={renderGameCard} /> */}
+      <GlobalSwiper title={title} items={items} renderItem={renderGameCard} />
     </div>
   );
 }

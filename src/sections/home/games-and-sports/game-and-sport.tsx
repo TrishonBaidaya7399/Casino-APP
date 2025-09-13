@@ -145,6 +145,7 @@ const trendingSports: any[] = [
 const GameAndSport = () => {
   return (
     <div className="w-full">
+      
       {/* trending games */}
       <GlobalCadCarousel title="Trending Games" items={trendingGames} />
       {/* trending sports */}
