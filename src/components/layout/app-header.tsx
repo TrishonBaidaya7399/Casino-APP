@@ -21,10 +21,10 @@ export default function AppHeader() {
           </div>
 
           {/* Logo + Brand */}
-          <Link href={'/'} className="inline-flex items-center gap-3">
+          <Link href="/" className="inline-flex items-center gap-3">
             <span>
               <Image
-                src={"/logos/logo.webp"}
+                src="/logos/logo.webp"
                 alt="Branch logo"
                 width={32}
                 height={32}

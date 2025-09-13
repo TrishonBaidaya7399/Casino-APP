@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { ReactNode } from "react";
+import type  { ReactNode } from "react";
 
 interface SliderData {
   title: string;

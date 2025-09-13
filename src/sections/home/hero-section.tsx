@@ -48,7 +48,7 @@ const HeroSection = () => {
             <div
               className="bg-gradient-to-t from-orange-1 to-yellow-1 h-3 rounded-full"
               style={{ width: `${user.vipProgress}%` }}
-            ></div>
+            />
           </div>
 
           <div className="w-full grid grid-cols-5 text-sm">

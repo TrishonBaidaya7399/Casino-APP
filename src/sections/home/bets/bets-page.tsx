@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { GlobalTable } from "@/components/global-components/global-table/global-table";
-import { BetData } from "@/types/bets-table-types";
+import type { BetData } from "@/types/bets-table-types";
 import { BetsTableTabs } from "./bets-table-tabs";
 import dayjs from "dayjs";
-import { ColumnType } from "@/types/global-table-types";
+import type { ColumnType } from "@/types/global-table-types";
 import PointerIcon from "@/components/common/svg_icons/PointerIcon";
 import BitCoinSVG from "@/components/common/svg_icons/BitCoinSVG";
 import EthereumSVG from "@/components/common/svg_icons/EthereumSVG";

@@ -217,7 +217,7 @@ export default function AppSidebar() {
                               className="flex rounded hover:bg-sidebar-hover gap-2 relative"
                             >
                               {/* line start */}
-                              <span className="bg-background-2 inline-block h-full w-1_5 absolute -top-5 left-0"></span>
+                              <span className="bg-background-2 inline-block h-full w-1_5 absolute -top-5 left-0"/>
 
                               <span className="flex items-start relative gap-2 py-1">
                                 {/* rounded bottom svg */}
