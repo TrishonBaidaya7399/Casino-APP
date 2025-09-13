@@ -9,6 +9,10 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import importPlugin from "eslint-plugin-import";
 import unusedImportsPlugin from "eslint-plugin-unused-imports";
 
+// TypeScript & JS recommended configs
+import eslintJs from "@eslint/js";
+import eslintTs from "typescript-eslint";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -19,6 +23,10 @@ const compat = new FlatCompat({
 const eslintConfig = [
   // Base configs from Next.js
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // ESLint recommended JS + TS rules
+  eslintJs.configs.recommended,
+  ...eslintTs.configs.recommended,
 
   // Ignore patterns
   {
@@ -82,7 +90,6 @@ const eslintConfig = [
       "react/react-in-jsx-scope": "off",
       "react/no-children-prop": "off",
       "react/no-danger": "error",
-      // Extra useful React rules from client config
       "react/jsx-boolean-value": "error",
       "react/self-closing-comp": "error",
       "react/jsx-no-useless-fragment": ["warn", { allowExpressions: true }],
