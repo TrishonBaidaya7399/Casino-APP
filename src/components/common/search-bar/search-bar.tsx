@@ -25,7 +25,7 @@ function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
   };
 }
 
-function SearchBar() {
+function SearchBar({ isMobileSidebar }: { isMobileSidebar?: boolean }) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -80,7 +80,11 @@ function SearchBar() {
   return (
     <div className="flex flex-row gap-4 w-full">
       <Select value={type} onValueChange={handleTypeChange}>
-        <SelectTrigger className="w-25 !h-10 rounded-md bg-sidebar">
+        <SelectTrigger
+          className={`w-25 !h-10 rounded-md ${
+            isMobileSidebar ? "!bg-sidebar-light" : "bg-sidebar"
+          }`}
+        >
           <SelectValue placeholder="Select" />
         </SelectTrigger>
         <SelectContent>
@@ -89,7 +93,9 @@ function SearchBar() {
         </SelectContent>
       </Select>
       <Input
-        className="!h-10 rounded-md bg-sidebar w-full"
+        className={`!h-10 rounded-md ${
+          isMobileSidebar ? "!bg-sidebar-light" : "bg-sidebar"
+        } w-full`}
         prefix={<Search className="text-muted-foreground" />}
         value={searchTerm}
         onChange={handleSearchTermChange}

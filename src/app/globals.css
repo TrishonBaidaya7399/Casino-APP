@@ -15,6 +15,7 @@
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-light: var(--sidebar-light);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
   --color-chart-5: var(--chart-5);
@@ -89,6 +90,7 @@
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(26.26% 0.00572 300.998);
+  --sidebar-light: oklch(34.15% 0.0124 298.709);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -114,7 +116,6 @@
 
   --svg-stop-color: oklch(79.173% 0.1665 75.228);
   --svg-stop-color-2: oklch(69.213% 0.1701 20.44);
-
 }
 
 .dark {
@@ -144,6 +145,7 @@
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(26.26% 0.00572 300.998);
+  --sidebar-light: oklch(34.15% 0.0124 298.709);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);

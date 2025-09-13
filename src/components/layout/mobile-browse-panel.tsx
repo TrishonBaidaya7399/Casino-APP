@@ -6,8 +6,12 @@ import { menuSections } from "./app-sidebar";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
+import SearchBar from "../common/search-bar/search-bar";
+import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 export default function MobileBrowsePanel() {
+  const pathname = usePathname();
   const { browseOpen } = useSidebarStore();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const handleItemClick = (itemText: string) => {
@@ -28,6 +32,28 @@ export default function MobileBrowsePanel() {
           transition={{ type: "tween", duration: 0.3 }}
           className="fixed top-19 bottom-19 inset-0 z-40 bg-sidebar overflow-y-auto"
         >
+          {/* search panel */}
+          <div className="p-4">
+            <SearchBar isMobileSidebar />
+          </div>
+          <div className="flex gap-4 items-center flex-row px-4">
+            <Button
+              href="/casino"
+              variant={pathname === "/casino" ? "purpleGradient" : "gray"}
+              asChild
+              className="w-full"
+            >
+              Casino
+            </Button>
+            <Button
+              href="/sports"
+              variant={pathname === "/sports" ? "greenGradient" : "gray"}
+              asChild
+              className="w-full"
+            >
+              Sports
+            </Button>
+          </div>
           {/* menu sections */}
           <div className="text-sidebar-foreground flex flex-col gap-2 p-4">
             {menuSections.map((section, index) => (
