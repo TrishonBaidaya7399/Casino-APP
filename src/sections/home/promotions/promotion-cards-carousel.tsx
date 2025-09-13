@@ -5,9 +5,9 @@ import dynamic from "next/dynamic";
 const GameDetailsCard = dynamic(
   () => import("@/components/global-components/cards/game-details-card")
 );
-const GlobalCarousel = dynamic(
-  () => import("../../../components/global-components/carousel/global-carousel")
-);
+// const GlobalCarousel = dynamic(
+//   () => import("../../../components/global-components/carousel/global-carousel")
+// );
 
 export interface GameData {
   src: string;
