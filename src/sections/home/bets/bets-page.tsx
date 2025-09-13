@@ -177,6 +177,7 @@ export default function BetsTable() {
     {
       key: "payout",
       label: "Payout",
+      align: "right",
       render: renderPayout,
     },
   ];

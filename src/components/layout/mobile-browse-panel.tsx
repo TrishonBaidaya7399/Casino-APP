@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useSidebarStore } from "@/store/sidebar-store";
 import { menuSections } from "./app-sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
 import SearchBar from "../common/search-bar/search-bar";
@@ -22,6 +22,18 @@ export default function MobileBrowsePanel() {
       setExpandedItems([...expandedItems, itemText]);
     }
   };
+
+  useEffect(() => {
+    if (browseOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [browseOpen]);
+
   return (
     <AnimatePresence>
       {browseOpen && (

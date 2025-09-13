@@ -198,3 +198,26 @@
 .screen-minus-32 {
   @apply max-w-[calc(100dvw-2.15rem)];
 }
+/* styles/global.css */
+.custom-scrollbar {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 9999px;
+    background-color: var(--foreground);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: var(--foreground-muted);
+  }
+  @media (prefers-color-scheme: dark) {
+    &::-webkit-scrollbar-track {
+      background-color: var(--background);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--sidebar);
+    }
+  }
+}
