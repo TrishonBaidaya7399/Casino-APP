@@ -25,7 +25,7 @@
       "betAmount": "$1,172.19",
       "multiplier": "0.50x",
       "payout": "-$586.10",
-      "type": "bitcoin"
+      "type": "binance"
     },
     {
       "game": "Keno",
@@ -52,7 +52,7 @@
       "betAmount": "$1,172.19",
       "multiplier": "0.50x",
       "payout": "-$586.10",
-      "type": "ethereum"
+      "type": "binance"
     },
     {
       "game": "Keno",
@@ -88,7 +88,7 @@
       "betAmount": "$2,250.00",
       "multiplier": "2.00x",
       "payout": "$4,500.00",
-      "type": "bitcoin"
+      "type": "binance"
     },
     {
       "game": "Baccarat",

@@ -7,9 +7,7 @@ import type { BetData } from "@/types/bets-table-types";
 import { BetsTableTabs } from "./bets-table-tabs";
 import dayjs from "dayjs";
 import type { ColumnType } from "@/types/global-table-types";
-import PointerIcon from "@/components/common/svg_icons/PointerIcon";
-import BitCoinSVG from "@/components/common/svg_icons/BitCoinSVG";
-import EthereumSVG from "@/components/common/svg_icons/EthereumSVG";
+import Image from "next/image";
 
 const renderPayout = (row: BetData) => {
   const payoutValue = parseFloat(row.payout.replace(/[$,]/g, ""));
@@ -21,7 +19,35 @@ const renderPayout = (row: BetData) => {
       } font-semibold`}
     >
       {row.payout}
-      {row.type === "bitcoin" ? <BitCoinSVG /> : <EthereumSVG />}
+      {row.type === "bitcoin" ? (
+        <Image
+          src="/icons/bit-coin-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      ) : row.type === "ethereum" ? (
+        <Image
+          src="/icons/ethereum-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      ) : row.type === "binance" ? (
+        <Image
+          src="/icons/binance-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      ) : (
+        <Image
+          src="/icons/pointer-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      )}
     </span>
   );
 };
@@ -36,7 +62,35 @@ const renderBetAmount = (row: BetData) => {
       } font-semibold"`}
     >
       {row.betAmount}
-      {row.type === "bitcoin" ? <BitCoinSVG /> : <EthereumSVG />}
+      {row.type === "bitcoin" ? (
+        <Image
+          src="/icons/bit-coin-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      ) : row.type === "ethereum" ? (
+        <Image
+          src="/icons/ethereum-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      ) : row.type === "binance" ? (
+        <Image
+          src="/icons/binance-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      ) : (
+        <Image
+          src="/icons/pointer-svg.svg"
+          alt="pointer"
+          height={16}
+          width={16}
+        />
+      )}
     </span>
   );
 };
@@ -72,13 +126,18 @@ export default function BetsTable() {
     fetchData();
   }, [tab]);
 
-  const columns: ColumnType<BetData>[] = [
+  const desktopColumns: ColumnType<BetData>[] = [
     {
       key: "game",
       label: "Game",
       render: (row: any) => (
         <span className="font-medium inline-flex items-center gap-1">
-          <PointerIcon />
+          <Image
+            src="/icons/pointer-svg.svg"
+            alt="pointer"
+            height={16}
+            width={16}
+          />
           {row.game}
         </span>
       ),
@@ -88,7 +147,12 @@ export default function BetsTable() {
       label: "User",
       render: (row: any) => (
         <span className="font-medium inline-flex items-center gap-1">
-          <PointerIcon />
+          <Image
+            src="/icons/pointer-svg.svg"
+            alt="pointer"
+            height={16}
+            width={16}
+          />
           {row.user}
         </span>
       ),
@@ -116,13 +180,46 @@ export default function BetsTable() {
       render: renderPayout,
     },
   ];
+  const mobileColumns: ColumnType<BetData>[] = [
+    {
+      key: "game",
+      label: "Game",
+      render: (row: any) => (
+        <span className="font-medium inline-flex items-center gap-1">
+          <Image
+            src="/icons/pointer-svg.svg"
+            alt="pointer"
+            height={16}
+            width={16}
+          />
+          {row.game}
+        </span>
+      ),
+    },
+
+    {
+      key: "payout",
+      label: "Payout",
+      align: "right",
+      render: renderPayout,
+    },
+  ];
 
   return (
     <div className="w-full">
       <BetsTableTabs />
-      <div>
+      <div className="hidden md:block">
         <GlobalTable<BetData>
-          columns={columns}
+          columns={desktopColumns}
+          data={data}
+          loading={loading}
+          emptyMessage={`No ${tab.replace("-", " ")} bets found.`}
+          maxHeight={440}
+        />
+      </div>
+      <div className="block md:hidden">
+        <GlobalTable<BetData>
+          columns={mobileColumns}
           data={data}
           loading={loading}
           emptyMessage={`No ${tab.replace("-", " ")} bets found.`}

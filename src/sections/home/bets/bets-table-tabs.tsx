@@ -15,14 +15,17 @@ export function BetsTableTabs() {
   ];
 
   return (
-    <Tabs value={activeTab} className="w-full mb-2.5 bg-sidebar rounded-lg">
-      <TabsList className="grid grid-cols-3 bg-sidebar p-2 h-auto">
+    <Tabs
+      value={activeTab}
+      className="w-full mb-2.5 bg-sidebar rounded-lg overflow-x-auto"
+    >
+      <TabsList className="grid grid-cols-3 bg-sidebar p-2 h-auto overflow-x-auto">
         {tabs.map((tab) => (
           <TabsTrigger key={tab.value} value={tab.value} asChild>
             <Link
               scroll={false}
               href={`?tab=${tab.value}`}
-              className="w-full h-full flex items-center justify-center"
+              className="w-fit h-full flex items-center justify-center"
             >
               {tab.label}
             </Link>
