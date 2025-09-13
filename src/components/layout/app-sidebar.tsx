@@ -76,10 +76,10 @@ export default function AppSidebar() {
   }, []);
 
   useEffect(() => {
-    toggleMobileOpen(); // initial
+    toggleMobileOpen(); 
   }, [toggleMobileOpen]);
 
-  // close children if sidebar collapses
+
   useEffect(() => {
     if (isDesktop && mobileOpen) {
       setExpandedItems([]);
@@ -155,7 +155,6 @@ export default function AppSidebar() {
               return (
                 <div key={item.text}>
                   {item.children ? (
-                    // parent with children → button
                     <button
                       onClick={() => handleItemClick(item.text)}
                       className={`flex gap-0.5 items-center justify-between cursor-pointer relative
@@ -199,7 +198,6 @@ export default function AppSidebar() {
                       </span>
                     </button>
                   ) : (
-                    // parent without children → Link
                     <Link
                       href={item.href || "#"}
                       className="flex gap-0.5 items-center justify-between relative
