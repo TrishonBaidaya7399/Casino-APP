@@ -84,6 +84,8 @@ const HeroSection = () => {
                 width={400}
                 height={225}
                 className="w-full h-full object-cover"
+                priority
+                fetchPriority="high"
               />
             </div>
 
