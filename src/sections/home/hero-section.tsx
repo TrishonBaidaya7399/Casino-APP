@@ -1,5 +1,5 @@
-import WhiteArrowSVG from "@/components/common/svg_icons/WhiteArrowSVG";
-import WhiteStarSVG from "@/components/common/svg_icons/WhiteStarSVG";
+import WhiteArrowSVG from "@/components/common/svg_icons/white-arrow-svg";
+import WhiteStarSVG from "@/components/common/svg_icons/white-star-svg";
 import PlayerStatus from "@/components/global-components/player-status";
 import Image from "next/image";
 

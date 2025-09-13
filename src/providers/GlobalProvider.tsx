@@ -8,6 +8,9 @@ const AppHeader = dynamic(() => import("../components/layout/app-header"));
 const AppSidebar = dynamic(() => import("../components/layout/app-sidebar"));
 const Footer = dynamic(() => import("@/components/common/footer/footer"));
 const MobileFooter = dynamic(() => import("@/components/layout/mobile-footer"));
+const MobileBrowsePanel = dynamic(
+  () => import("@/components/layout/mobile-browse-panel")
+);
 
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   const [isClient, setIsClient] = useState(false);
@@ -31,6 +34,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
             <Footer />
           </div>
           <MobileFooter />
+          <MobileBrowsePanel />
         </div>
       </Suspense>
     </ThemeProvider>

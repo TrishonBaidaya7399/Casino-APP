@@ -16,9 +16,14 @@ export default function GlobalCarousel<T>({
   renderItem,
 }: GlobalCarouselProps<T>) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isClient, setIsClient] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [cardWidth, setCardWidth] = useState(392);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     const updateCardWidth = () => {
@@ -54,7 +59,9 @@ export default function GlobalCarousel<T>({
   useEffect(() => {
     checkScroll();
   }, []);
-
+  if (!isClient) {
+    return null;
+  }
   return (
     <div className="w-full h-auto">
       <div className="flex items-center justify-between mb-2.5">
@@ -66,9 +73,10 @@ export default function GlobalCarousel<T>({
             variant="outline"
             className={`
               size-6 p-0.5 rounded-sm border
-              ${canScrollLeft
-                ? "border-foreground text-foreground bg-foreground/10 hover:bg-foreground/20"
-                : "border-foreground-muted text-foreground-muted bg-transparent"
+              ${
+                canScrollLeft
+                  ? "border-foreground text-foreground bg-foreground/10 hover:bg-foreground/20"
+                  : "border-foreground-muted text-foreground-muted bg-transparent"
               }
               flex items-center justify-center
             `}
@@ -76,8 +84,9 @@ export default function GlobalCarousel<T>({
             onClick={() => scroll("left")}
           >
             <ChevronLeft
-              className={`size-6 p-0.5 ${canScrollLeft ? "text-foreground" : "text-muted-foreground"
-                }`}
+              className={`size-6 p-0.5 ${
+                canScrollLeft ? "text-foreground" : "text-muted-foreground"
+              }`}
             />
             <span className="sr-only">Scroll left</span>
           </Button>
@@ -85,9 +94,10 @@ export default function GlobalCarousel<T>({
             variant="outline"
             className={`
               size-6 p-0.5 rounded-sm border
-              ${canScrollRight
-                ? "border-foreground text-foreground bg-foreground/10 hover:bg-foreground/20"
-                : "border-foreground-muted text-foreground-muted bg-transparent"
+              ${
+                canScrollRight
+                  ? "border-foreground text-foreground bg-foreground/10 hover:bg-foreground/20"
+                  : "border-foreground-muted text-foreground-muted bg-transparent"
               }
               flex items-center justify-center
             `}
@@ -95,8 +105,9 @@ export default function GlobalCarousel<T>({
             onClick={() => scroll("right")}
           >
             <ChevronRight
-              className={`size-6 p-0.5 ${canScrollRight ? "text-foreground" : "text-muted-foreground"
-                }`}
+              className={`size-6 p-0.5 ${
+                canScrollRight ? "text-foreground" : "text-muted-foreground"
+              }`}
             />
             <span className="sr-only">Scroll right</span>
           </Button>

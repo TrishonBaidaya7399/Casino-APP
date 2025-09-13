@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { GlobalAccordion } from "@/components/global-components/global-accordion";
-import FacebookIconSVG from "../svg_icons/FacebookIconSVG";
-import XIconSVG from "../svg_icons/XIconSVG";
-import MessageIconSVG from "../svg_icons/MessageIconSVG";
-import InstaIconSVG from "../svg_icons/InstaIconSVG";
-import YoutubeIconSVG from "../svg_icons/YoutubeIconSVG";
-import TiktokIconSVG from "../svg_icons/TiktokIconSVG";
-import LinkedinIconSVG from "../svg_icons/LinkedinIconSVG";
+import FacebookIconSVG from "../svg_icons/facebook-icon-svg";
+import XIconSVG from "../svg_icons/x-Icon-svg";
+import MessageIconSVG from "../svg_icons/message-Icon-svg";
+import InstaIconSVG from "../svg_icons/Insta-Icon-svg";
+import YoutubeIconSVG from "../svg_icons/youtube-Icon-svg";
+import TiktokIconSVG from "../svg_icons/tiktok-Icon-svg";
+import LinkedinIconSVG from "../svg_icons/linkedin-Icon-svg";
 import { Dot } from "lucide-react";
 import Image from "next/image";
 

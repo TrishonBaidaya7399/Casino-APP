@@ -1,59 +1,60 @@
 import React from "react";
 import Link from "next/link";
 import { useSidebarStore } from "@/store/sidebar-store";
-import { BetsIcon, BrowsIcon, CasinoIcon, ChatIcon, SportsIcon } from "../common/svg_icons/mobile-footer-icons-svg";
+import { usePathname } from "next/navigation";
+import { BrowsIcon } from "../common/svg_icons/brows-icon-svg";
+import { CasinoIcon } from "../common/svg_icons/casino-icon-svg";
+import { BetsIcon } from "../common/svg_icons/bets-icon";
+import { SportsIcon } from "../common/svg_icons/sports-icon-svg";
+import { ChatIcon } from "../common/svg_icons/chat-icons.svg";
 
 function MobileFooter() {
-  const { toggleMobileOpen } = useSidebarStore();
+  const pathname = usePathname();
+  const { toggleBrowseOpen, browseOpen } = useSidebarStore();
+  console.log({ pathname });
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background border-t border-border flex justify-around py-1">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border flex pt-2 mt-0.5 ">
       <button
-        onClick={toggleMobileOpen}
-        className="flex flex-col items-center text-primary gap-2 p-1 relative groups"
+        onClick={toggleBrowseOpen}
+        className="flex flex-col items-center text-primary w-1/5 relative groups hover:bg-gradient-to-t hover:from-foreground/15 hover:to-background duration-300 pb-4"
       >
-        <BrowsIcon />
+        <BrowsIcon active={browseOpen} />
         <span>Browse</span>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded" />
       </button>
       <Link
-        href="/"
+        href="/casino"
         scroll={false}
-        className="flex flex-col items-center text-primary gap-2 p-1 relative groups"
+        className="flex flex-col items-center text-primary w-1/5 relative groups hover:bg-gradient-to-t hover:from-foreground/15 hover:to-background duration-300 pb-4"
       >
-        <CasinoIcon />
+        <CasinoIcon active={pathname === "/casino" ? true : false} />
         <span>Casino</span>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded" />
       </Link>
       <Link
-        href="/"
+        href="/bets"
         scroll={false}
-        className="flex flex-col items-center text-primary gap-2 p-1 relative groups"
+        className="flex flex-col items-center text-primary w-1/5 relative groups hover:bg-gradient-to-t hover:from-foreground/15 hover:to-background duration-300 pb-4"
       >
-        <BetsIcon />
+        <BetsIcon active={pathname === "/bets" ? true : false} />
         <span>Bets</span>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded" />
       </Link>
       <Link
-        href="/"
+        href="/sports"
         scroll={false}
-        className="flex flex-col items-center text-primary gap-2 p-1 relative groups"
+        className="flex flex-col items-center text-primary w-1/5 relative groups hover:bg-gradient-to-t hover:from-foreground/15 hover:to-background duration-300 pb-4"
       >
-        <SportsIcon />
+        <SportsIcon active={pathname === "/sports" ? true : false} />
         <span>Sports</span>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded" />
       </Link>
       <Link
-        href="/"
+        href="/chat"
         scroll={false}
-        className="flex flex-col items-center text-primary gap-2 p-1 relative groups"
+        className="flex flex-col items-center text-primary w-1/5 relative groups hover:bg-gradient-to-t hover:from-foreground/15 hover:to-background duration-300 pb-4"
       >
-        <ChatIcon />
+        <ChatIcon active={pathname === "/chat" ? true : false} />
         <span>Chat</span>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 to-foreground/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded" />
       </Link>
     </nav>
   );
 }
 
 export default MobileFooter;
-

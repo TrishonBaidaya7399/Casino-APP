@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import HamburgerSVG from "../common/svg_icons/HamburgerSVG";
-import CloseSVG from "../common/svg_icons/CloseSVG";
+import HamburgerSVG from "../common/svg_icons/hamburger-svg";
+import CloseSVG from "../common/svg_icons/close-svg";
 
 interface AnimatedHamburgerProps {
   isOpen: boolean;

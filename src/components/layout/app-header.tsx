@@ -3,7 +3,7 @@
 import { useSidebarStore } from "@/store/sidebar-store";
 
 import { Button } from "../ui/button";
-import HamburgerSVG from "../common/svg_icons/HamburgerSVG";
+import HamburgerSVG from "../common/svg_icons/hamburger-svg";
 import Image from "next/image";
 import Link from "next/link";
 

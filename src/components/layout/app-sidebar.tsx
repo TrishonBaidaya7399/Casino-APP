@@ -21,17 +21,17 @@ import {
 } from "lucide-react";
 import AnimatedHamburger from "../global-components/animated-hamburger";
 import { Button } from "../ui/button";
-import CloseSVG from "../common/svg_icons/CloseSVG";
+import CloseSVG from "../common/svg_icons/close-svg";
 import Link from "next/link";
 
-interface MenuItem {
+export interface MenuItem {
   text: string;
   icon: LucideIcon;
   href?: string;
   children?: MenuItem[];
 }
 
-const menuItems1: MenuItem[] = [
+export const menuItems1: MenuItem[] = [
   {
     text: "Promotions",
     icon: Star,
@@ -47,7 +47,7 @@ const menuItems1: MenuItem[] = [
   { text: "Forum", icon: MessageCircle, href: "/" },
 ];
 
-const menuItems2: MenuItem[] = [
+export const menuItems2: MenuItem[] = [
   {
     text: "Sponsorships",
     icon: Handshake,
@@ -60,7 +60,7 @@ const menuItems2: MenuItem[] = [
   { text: "Live Support", icon: Headphones, href: "/" },
 ];
 
-const menuSections: { items: MenuItem[] }[] = [
+export const menuSections: { items: MenuItem[] }[] = [
   { items: menuItems1 },
   { items: menuItems2 },
 ];
@@ -69,7 +69,11 @@ export default function AppSidebar() {
   const { mobileOpen, toggleMobileOpen } = useSidebarStore();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
-  const isDesktop = typeof window !== "undefined" && window.innerWidth >= 768;
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 768);
+  }, []);
 
   useEffect(() => {
     toggleMobileOpen(); // initial
@@ -105,7 +109,9 @@ export default function AppSidebar() {
   return (
     <nav
       className={`z-50 fixed md:sticky top-0 left-0 h-screen overflow-y-auto border-r border-border bg-sidebar shrink-0
-      transition-all duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 max-w-2xl w-full md:w-auto md:max-w-auto`}
+      transition-all duration-300 ${
+        mobileOpen ? "translate-x-0" : "-translate-x-full"
+      } md:translate-x-0 max-w-2xl w-full md:w-auto md:max-w-auto`}
     >
       {/* top bar */}
       <div className="sticky top-0 left-0 z-40 flex items-center p-4 bg-sidebar">
@@ -124,7 +130,11 @@ export default function AppSidebar() {
 
         {/* Casino / Sports buttons */}
         <div
-          className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${mobileOpen ? "max-w-auto md:max-w-0 pl-4 md:pl-0" : "max-w-auto md:max-w-50 pl-4"}`}
+          className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${
+            mobileOpen
+              ? "max-w-auto md:max-w-0 pl-4 md:pl-0"
+              : "max-w-auto md:max-w-50 pl-4"
+          }`}
         >
           <Button href="/" variant="gray" asChild>
             Casino
@@ -151,13 +161,21 @@ export default function AppSidebar() {
                       className={`flex gap-0.5 items-center justify-between cursor-pointer relative
                         w-full p-3 overflow-hidden transition-all duration-300
                         hover:bg-background-2
-                        ${isExpanded ? "bg-background-2 rounded-t-lg" : "bg-transparent rounded-lg"}`}
+                        ${
+                          isExpanded
+                            ? "bg-background-2 rounded-t-lg"
+                            : "bg-transparent rounded-lg"
+                        }`}
                     >
                       <span className="flex items-center relative z-10">
                         <item.icon className="size-5" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${mobileOpen ? "max-w-auto md:max-w-0 pl-2 md:pl-0" : "max-w-auto md:max-w-50 pl-2"}`}
+                            ${
+                              mobileOpen
+                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
+                                : "max-w-auto md:max-w-50 pl-2"
+                            }`}
                         >
                           {item.text}
                         </span>
@@ -173,8 +191,9 @@ export default function AppSidebar() {
                           <ChevronUp className="w-4 h-4" />
                         ) : (
                           <ChevronDown
-                            className={`w-4 h-4 transform transition-transform duration-300 ${mobileOpen ? "md:-rotate-90" : "rotate-0"
-                              }`}
+                            className={`w-4 h-4 transform transition-transform duration-300 ${
+                              mobileOpen ? "md:-rotate-90" : "rotate-0"
+                            }`}
                           />
                         )}
                       </span>
@@ -191,7 +210,11 @@ export default function AppSidebar() {
                         <item.icon className="size-5" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${mobileOpen ? "max-w-auto md:max-w-0 pl-2 md:pl-0" : "max-w-auto md:max-w-50 pl-2"}`}
+                            ${
+                              mobileOpen
+                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
+                                : "max-w-auto md:max-w-50 pl-2"
+                            }`}
                         >
                           {item.text}
                         </span>
@@ -207,8 +230,9 @@ export default function AppSidebar() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className={`pl-5 pr-3 flex flex-col rounded-b-lg ${isExpanded ? "bg-background" : "bg-transparent"
-                            }`}
+                          className={`pl-5 pr-3 flex flex-col rounded-b-lg ${
+                            isExpanded ? "bg-background" : "bg-transparent"
+                          }`}
                         >
                           {item.children.map((child) => (
                             <Link
@@ -217,7 +241,7 @@ export default function AppSidebar() {
                               className="flex rounded hover:bg-sidebar-hover gap-2 relative"
                             >
                               {/* line start */}
-                              <span className="bg-background-2 inline-block h-full w-1_5 absolute -top-5 left-0"/>
+                              <span className="bg-background-2 inline-block h-full w-1_5 absolute -top-5 left-0" />
 
                               <span className="flex items-start relative gap-2 py-1">
                                 {/* rounded bottom svg */}
@@ -233,7 +257,11 @@ export default function AppSidebar() {
                                 <span
                                   className={`whitespace-nowrap overflow-hidden transition-all duration-300 
                                     text-white/55 cursor-pointer hover:text-white
-                                    ${mobileOpen ? "max-w-auto md:max-w-0" : "max-w-auto md:max-w-50"}`}
+                                    ${
+                                      mobileOpen
+                                        ? "max-w-auto md:max-w-0"
+                                        : "max-w-auto md:max-w-50"
+                                    }`}
                                 >
                                   {child.text}
                                 </span>
