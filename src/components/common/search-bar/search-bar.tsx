@@ -25,7 +25,13 @@ function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
   };
 }
 
-function SearchBar({ isMobileSidebar }: { isMobileSidebar?: boolean }) {
+function SearchBar({
+  isMobileSidebar,
+  tab = true,
+}: {
+  isMobileSidebar?: boolean;
+  tab?: boolean;
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -79,19 +85,21 @@ function SearchBar({ isMobileSidebar }: { isMobileSidebar?: boolean }) {
 
   return (
     <div className="flex flex-row gap-4 w-full">
-      <Select value={type} onValueChange={handleTypeChange}>
-        <SelectTrigger
-          className={`w-25 !h-10 rounded-md ${
-            isMobileSidebar ? "!bg-sidebar-light" : "bg-sidebar"
-          }`}
-        >
-          <SelectValue placeholder="Select" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="casino">Casino</SelectItem>
-          <SelectItem value="sports">Sports</SelectItem>
-        </SelectContent>
-      </Select>
+      {tab && (
+        <Select value={type} onValueChange={handleTypeChange}>
+          <SelectTrigger
+            className={`w-25 !h-10 rounded-md ${
+              isMobileSidebar ? "!bg-sidebar-light" : "bg-sidebar"
+            }`}
+          >
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="casino">Casino</SelectItem>
+            <SelectItem value="sports">Sports</SelectItem>
+          </SelectContent>
+        </Select>
+      )}
       <Input
         className={`!h-10 rounded-md ${
           isMobileSidebar ? "!bg-sidebar-light" : "bg-sidebar"

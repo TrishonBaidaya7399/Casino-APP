@@ -11,7 +11,6 @@ import { ChatIcon } from "../common/svg_icons/chat-icons.svg";
 function MobileFooter() {
   const pathname = usePathname();
   const { toggleBrowseOpen, browseOpen } = useSidebarStore();
-  console.log({ pathname });
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border flex pt-2 mt-0.5 ">
       <button

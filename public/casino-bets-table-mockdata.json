@@ -1,0 +1,370 @@
+{
+  "myBets": [
+    {
+      "game": "Keno",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$1,995.30",
+      "multiplier": "1.00x",
+      "payout": "-$1,995.30",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Stake Roulette",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$4,800.00",
+      "multiplier": "6.00x",
+      "payout": "$28,800.00",
+      "type": "ethereum"
+    },
+    {
+      "game": "Big Bass Halloween",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$1,172.19",
+      "multiplier": "0.50x",
+      "payout": "-$586.10",
+      "type": "binance"
+    },
+    {
+      "game": "Keno",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$1,995.30",
+      "multiplier": "1.00x",
+      "payout": "-$1,995.30",
+      "type": "ethereum"
+    },
+    {
+      "game": "Stake Roulette",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$4,800.00",
+      "multiplier": "6.00x",
+      "type": "bitcoin",
+      "payout": "$28,800.00"
+    },
+    {
+      "game": "Big Bass Halloween",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$1,172.19",
+      "multiplier": "0.50x",
+      "payout": "-$586.10",
+      "type": "binance"
+    },
+    {
+      "game": "Keno",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$1,995.30",
+      "multiplier": "1.00x",
+      "payout": "-$1,995.30",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Stake Roulette",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$4,800.00",
+      "multiplier": "6.00x",
+      "payout": "$28,800.00",
+      "type": "ethereum"
+    },
+    {
+      "game": "Big Bass Halloween",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$1,172.19",
+      "multiplier": "0.50x",
+      "payout": "-$586.10",
+      "type": "ethereum"
+    },
+    {
+      "game": "Blackjack",
+      "user": "Hidden",
+      "time": "2024-01-15T22:30:45.000Z",
+      "betAmount": "$2,250.00",
+      "multiplier": "2.00x",
+      "payout": "$4,500.00",
+      "type": "binance"
+    },
+    {
+      "game": "Baccarat",
+      "user": "Hidden",
+      "time": "2024-01-15T22:30:30.000Z",
+      "betAmount": "$3,100.50",
+      "multiplier": "1.95x",
+      "payout": "$6,045.98",
+      "type": "ethereum"
+    },
+    {
+      "game": "Crash",
+      "user": "Hidden",
+      "time": "2024-01-15T22:30:15.000Z",
+      "betAmount": "$892.75",
+      "multiplier": "15.7x",
+      "payout": "$14,016.18",
+      "type": "bitcoin"
+    }
+  ],
+  "allBets": [
+    {
+      "game": "Soccer - Premier League",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:00.000Z",
+      "betAmount": "$2,500.00",
+      "multiplier": "5.20x",
+      "payout": "$13,000.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Basketball - NBA",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:15.000Z",
+      "betAmount": "$1,200.00",
+      "multiplier": "3.50x",
+      "payout": "$4,200.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Tennis - ATP",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:45.000Z",
+      "betAmount": "$1,850.00",
+      "multiplier": "2.40x",
+      "payout": "$4,440.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Football - NFL",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:30.000Z",
+      "betAmount": "$3,750.00",
+      "multiplier": "1.85x",
+      "payout": "$6,937.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Hockey - NHL",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$950.00",
+      "multiplier": "4.25x",
+      "payout": "$4,037.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Baseball - MLB",
+      "user": "Hidden",
+      "time": "2024-01-15T22:30:45.000Z",
+      "betAmount": "$2,100.00",
+      "multiplier": "2.80x",
+      "payout": "$5,880.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Soccer - Champions League",
+      "user": "Hidden",
+      "time": "2024-01-15T22:30:30.000Z",
+      "betAmount": "$1,675.00",
+      "multiplier": "0.90x",
+      "payout": "-$167.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Boxing - Heavyweight",
+      "user": "Hidden",
+      "time": "2024-01-15T22:30:15.000Z",
+      "betAmount": "$4,200.00",
+      "multiplier": "7.50x",
+      "payout": "$31,500.00",
+      "type": "bitcoin"
+    }
+  ],
+  "highRollers": [
+    {
+      "game": "Horse Race - Track 1",
+      "user": "Hidden",
+      "time": "2024-01-15T22:33:00.000Z",
+      "betAmount": "$3,200.00",
+      "multiplier": "8.10x",
+      "payout": "$25,920.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Dog Race - Track 2",
+      "user": "Hidden",
+      "time": "2024-01-15T22:34:00.000Z",
+      "betAmount": "$1,800.00",
+      "multiplier": "6.70x",
+      "payout": "$12,060.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Derby",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:45.000Z",
+      "betAmount": "$5,500.00",
+      "multiplier": "12.30x",
+      "payout": "$67,650.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Formula 1 - Monaco GP",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:30.000Z",
+      "betAmount": "$2,750.00",
+      "multiplier": "4.85x",
+      "payout": "$13,337.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Stakes",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:15.000Z",
+      "betAmount": "$1,450.00",
+      "multiplier": "0.75x",
+      "payout": "-$362.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "NASCAR - Cup Series",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:00.000Z",
+      "betAmount": "$3,850.00",
+      "multiplier": "9.20x",
+      "payout": "$35,420.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Dog Race - Championship",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:45.000Z",
+      "betAmount": "$1,275.00",
+      "multiplier": "5.60x",
+      "payout": "$7,140.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Classic",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:30.000Z",
+      "betAmount": "$6,200.00",
+      "multiplier": "15.75x",
+      "payout": "$97,650.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "MotoGP - Grand Prix",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:15.000Z",
+      "betAmount": "$2,950.00",
+      "multiplier": "3.40x",
+      "payout": "$10,030.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Maiden",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$980.00",
+      "multiplier": "2.15x",
+      "payout": "$2,107.00",
+      "type": "bitcoin"
+    }
+  ],
+  "raceLeaderBoard": [
+    {
+      "game": "Horse Race - Track 1",
+      "user": "Hidden",
+      "time": "2024-01-15T22:33:00.000Z",
+      "betAmount": "$3,200.00",
+      "multiplier": "8.10x",
+      "payout": "$25,920.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Dog Race - Track 2",
+      "user": "Hidden",
+      "time": "2024-01-15T22:34:00.000Z",
+      "betAmount": "$1,800.00",
+      "multiplier": "6.70x",
+      "payout": "$12,060.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Derby",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:45.000Z",
+      "betAmount": "$5,500.00",
+      "multiplier": "12.30x",
+      "payout": "$67,650.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Formula 1 - Monaco GP",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:30.000Z",
+      "betAmount": "$2,750.00",
+      "multiplier": "4.85x",
+      "payout": "$13,337.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Stakes",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:15.000Z",
+      "betAmount": "$1,450.00",
+      "multiplier": "0.75x",
+      "payout": "-$362.50",
+      "type": "bitcoin"
+    },
+    {
+      "game": "NASCAR - Cup Series",
+      "user": "Hidden",
+      "time": "2024-01-15T22:32:00.000Z",
+      "betAmount": "$3,850.00",
+      "multiplier": "9.20x",
+      "payout": "$35,420.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Dog Race - Championship",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:45.000Z",
+      "betAmount": "$1,275.00",
+      "multiplier": "5.60x",
+      "payout": "$7,140.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Classic",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:30.000Z",
+      "betAmount": "$6,200.00",
+      "multiplier": "15.75x",
+      "payout": "$97,650.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "MotoGP - Grand Prix",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:15.000Z",
+      "betAmount": "$2,950.00",
+      "multiplier": "3.40x",
+      "payout": "$10,030.00",
+      "type": "bitcoin"
+    },
+    {
+      "game": "Horse Race - Maiden",
+      "user": "Hidden",
+      "time": "2024-01-15T22:31:00.000Z",
+      "betAmount": "$980.00",
+      "multiplier": "2.15x",
+      "payout": "$2,107.00",
+      "type": "bitcoin"
+    }
+  ]
+}

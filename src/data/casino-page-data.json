@@ -1,0 +1,161 @@
+{
+  "casinoPromotions": [
+    {
+      "type": "Promotion",
+      "title": "Team Vitality",
+      "subTitle": "Kill Target Prize Pool",
+      "href": "#",
+      "playNow": true,
+      "image": "/promotions/promotion1.avif",
+      "_id": "1"
+    },
+    {
+      "type": "New Releases",
+      "title": "Angel vs Sinner",
+      "subTitle": "New Enhanced RTP game",
+      "href": "#",
+      "playNow": true,
+      "image": "/promotions/promotion2.avif",
+      "_id": "2"
+    },
+    {
+      "type": "Promotion",
+      "title": "Frankie's Ebor Raffle",
+      "subTitle": "Share in $40,000",
+      "href": "#",
+      "playNow": true,
+      "image": "/promotions/promotion3.avif",
+      "_id": "3"
+    },
+    {
+      "type": "Special Offer",
+      "title": "Golden Tournament",
+      "subTitle": "Win a $50,000 Jackpot",
+      "href": "#",
+      "playNow": true,
+      "image": "/promotions/promotion1.avif",
+      "_id": "4"
+    }
+  ],
+  "publishers": [
+    {
+      "img": "/publishers/publisher1.webp",
+      "name": "Hacksaw",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher2.webp",
+      "name": "Evolution",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher3.webp",
+      "name": "Nolimit",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher4.webp",
+      "name": "Massive",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher5.webp",
+      "name": "Twist",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher6.webp",
+      "name": "Tital",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher7.webp",
+      "name": "Shady Lady",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher8.webp",
+      "name": "Pragmatic Play",
+      "players": 348
+    },
+    {
+      "img": "/publishers/publisher1.webp",
+      "name": "Hacksaw",
+      "players": 348
+    }
+  ],
+  "liveCasino": [
+    {
+      "id": 1,
+      "src": "/TrendingSports/sports01.avif",
+      "alt": "Soccer",
+      "players": 22
+    },
+    {
+      "id": 2,
+      "src": "/TrendingSports/sports02.avif",
+      "alt": "Tennis",
+      "players": 22
+    },
+    {
+      "id": 3,
+      "src": "/TrendingSports/sports03.avif",
+      "alt": "Baseball",
+      "players": 22
+    },
+    {
+      "id": 4,
+      "src": "/TrendingSports/sports04.avif",
+      "alt": "Cricket",
+      "players": 22
+    },
+    {
+      "id": 5,
+      "src": "/TrendingSports/sports05.avif",
+      "alt": "Basketball",
+      "players": 22
+    },
+    {
+      "id": 6,
+      "src": "/TrendingSports/sports06.avif",
+      "alt": "Basketball",
+      "players": 22
+    },
+    {
+      "id": 7,
+      "src": "/TrendingSports/sports07.avif",
+      "alt": "Basketball",
+      "players": 22
+    },
+    {
+      "id": 8,
+      "src": "/TrendingSports/sports08.avif",
+      "alt": "Basketball",
+      "players": 22
+    },
+    {
+      "id": 9,
+      "src": "/TrendingSports/sports01.avif",
+      "alt": "Soccer",
+      "players": 22
+    },
+    {
+      "id": 10,
+      "src": "/TrendingSports/sports02.avif",
+      "alt": "Tennis",
+      "players": 22
+    },
+    {
+      "id": 11,
+      "src": "/TrendingSports/sports03.avif",
+      "alt": "Baseball",
+      "players": 22
+    },
+    {
+      "id": 12,
+      "src": "/TrendingSports/sports04.avif",
+      "alt": "Cricket",
+      "players": 22
+    }
+  ]
+}

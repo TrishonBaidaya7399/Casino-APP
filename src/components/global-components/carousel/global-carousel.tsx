@@ -118,7 +118,7 @@ export default function GlobalCarousel<T>({
         className="flex gap-2 app-container-2 h-auto overflow-x-auto no-scrollbar"
         onScroll={checkScroll}
       >
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <div key={index}>{renderItem(item)}</div>
         ))}
       </div>

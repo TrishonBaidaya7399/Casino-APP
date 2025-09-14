@@ -95,7 +95,8 @@ export default function AppSidebar() {
   };
 
   return (
-    <nav className={`hidden md:block z-50 sticky top-0 left-0 h-screen overflow-y-auto border-r border-border bg-sidebar shrink-0
+    <nav
+      className={`hidden md:block z-50 sticky top-0 left-0 h-screen overflow-y-auto border-r border-border bg-sidebar shrink-0
       transition-all duration-300`}
     >
       {/* top bar */}
@@ -106,15 +107,17 @@ export default function AppSidebar() {
         </div>
 
         {/* Casino / Sports buttons */}
-        <div className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${mobileOpen
-          ? "max-w-auto md:max-w-0 pl-4 md:pl-0"
-          : "max-w-auto md:max-w-50 pl-4"
+        <div
+          className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${
+            mobileOpen
+              ? "max-w-auto md:max-w-0 pl-4 md:pl-0"
+              : "max-w-auto md:max-w-50 pl-4"
           }`}
         >
-          <Button href="/" variant="gray" asChild>
+          <Button href="/casino" variant="gray" asChild>
             Casino
           </Button>
-          <Button href="/" variant="gray" asChild>
+          <Button href="/sports" variant="gray" asChild>
             Sports
           </Button>
         </div>
@@ -135,18 +138,20 @@ export default function AppSidebar() {
                       className={`flex gap-0.5 items-center justify-between cursor-pointer relative
                         w-full p-3 overflow-hidden transition-all duration-300
                         hover:bg-background-2
-                        ${isExpanded
-                          ? "bg-background-2 rounded-t-lg"
-                          : "bg-transparent rounded-lg"
+                        ${
+                          isExpanded
+                            ? "bg-background-2 rounded-t-lg"
+                            : "bg-transparent rounded-lg"
                         }`}
                     >
                       <span className="flex items-center relative z-10">
                         <item.icon className="size-5" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${mobileOpen
-                              ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
-                              : "max-w-auto md:max-w-50 pl-2"
+                            ${
+                              mobileOpen
+                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
+                                : "max-w-auto md:max-w-50 pl-2"
                             }`}
                         >
                           {item.text}
@@ -163,8 +168,9 @@ export default function AppSidebar() {
                           <ChevronUp className="w-4 h-4" />
                         ) : (
                           <ChevronDown
-                            className={`w-4 h-4 transform transition-transform duration-300 ${mobileOpen ? "md:-rotate-90" : "rotate-0"
-                              }`}
+                            className={`w-4 h-4 transform transition-transform duration-300 ${
+                              mobileOpen ? "md:-rotate-90" : "rotate-0"
+                            }`}
                           />
                         )}
                       </span>
@@ -180,9 +186,10 @@ export default function AppSidebar() {
                         <item.icon className="size-5" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${mobileOpen
-                              ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
-                              : "max-w-auto md:max-w-50 pl-2"
+                            ${
+                              mobileOpen
+                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
+                                : "max-w-auto md:max-w-50 pl-2"
                             }`}
                         >
                           {item.text}
@@ -199,7 +206,9 @@ export default function AppSidebar() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className={`px-3 flex flex-col rounded-b-lg ${isExpanded ? "bg-background" : "bg-transparent"}`}
+                          className={`px-3 flex flex-col rounded-b-lg ${
+                            isExpanded ? "bg-background" : "bg-transparent"
+                          }`}
                         >
                           {item.children.map((child) => (
                             <Link
@@ -207,24 +216,26 @@ export default function AppSidebar() {
                               href={child.href || "#"}
                               className="flex rounded hover:bg-sidebar-hover gap-2 relative"
                             >
-
                               <span className="flex items-start relative py-1 pl-1">
-
                                 <div className="relative size-6">
-
-                                  <svg className="absolute left-1/2 -translate-x-1/2 -translate-y-[65%] stroke-2 stroke-background-2 h-9" viewBox="0 0 13 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <svg
+                                    className="absolute left-1/2 -translate-x-1/2 -translate-y-[65%] stroke-2 stroke-background-2 h-9"
+                                    viewBox="0 0 13 36"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
                                     <path d="M1 24V30C0.99995 32 1.4 35 5 35C8.6 35 10.5 35 13 35" />
                                     <path d="M1 0V24" />
                                   </svg>
-
                                 </div>
 
                                 <span
                                   className={`whitespace-nowrap overflow-hidden transition-all duration-300 
                                     text-white/55 cursor-pointer hover:text-white
-                                    ${mobileOpen
-                                      ? "max-w-auto md:max-w-0"
-                                      : "max-w-auto md:max-w-50"
+                                    ${
+                                      mobileOpen
+                                        ? "max-w-auto md:max-w-0"
+                                        : "max-w-auto md:max-w-50"
                                     }`}
                                 >
                                   {child.text}

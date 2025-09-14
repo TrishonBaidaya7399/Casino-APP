@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -8,16 +9,18 @@ function GameDetailsCard({
   subTitle,
   href,
   imageUrl,
+  playNow,
 }: {
   type?: string;
   title: string;
   subTitle: string;
   href?: string;
   imageUrl: string;
+  playNow?: boolean;
 }) {
   return (
     <div>
-      <div className="w-full h-full min-w-98 max-h-47 rounded-lg bg-sidebar p-6 flex flex-row gap-5 justify-between items-center">
+      <div className="w-full h-full min-w-98 max-h-47 rounded-lg bg-sidebar p-6 flex flex-row gap-3 justify-between items-center">
         <div className="left flex flex-col justify-between h-full min-h-35">
           <div className="flex flex-col gap-3">
             {type && (
@@ -34,13 +37,20 @@ function GameDetailsCard({
               </div>
             </div>
           </div>
-          {href && (
-            <Link href={`${href}`}>
-              <span className="text-foreground font-semibold text-md">
-                Read More
-              </span>
-            </Link>
-          )}
+          <div className="flex flex-row items-center gap-3">
+            {playNow && (
+              <Button variant="outline" className="bg-background text-nowrap">
+                Play Now
+              </Button>
+            )}{" "}
+            {href && (
+              <Link href={`${href}`}>
+                <span className="text-foreground font-semibold text-md text-nowrap">
+                  Read More
+                </span>
+              </Link>
+            )}
+          </div>
         </div>
         <div className="right rounded-lg h-full w-full max-h-35 max-w-35">
           <Image
