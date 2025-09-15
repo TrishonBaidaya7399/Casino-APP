@@ -1,6 +1,4 @@
 "use client";
-
-import type { LucideIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,10 +20,18 @@ import {
 import AnimatedHamburger from "../global-components/animated-hamburger";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import PromotionsIconSVG from "../common/svg_icons/sidebar-icons/promotions-icon-svg";
+import AffiliateIconSVG from "../common/svg_icons/sidebar-icons/affiliate-icon-svg";
+import VipIconSVG from "../common/svg_icons/sidebar-icons/vip-icon-svg";
+import BlogIconSVG from "../common/svg_icons/sidebar-icons/blog-icon-svg";
+import ForumIconSVG from "../common/svg_icons/sidebar-icons/forum-icon-svg";
+import SponsorShipIconSVG from "../common/svg_icons/sidebar-icons/sponsorships-icon-svg";
+import ResponsibleIconSVG from "../common/svg_icons/sidebar-icons/responsible-icon-svg";
+import LiveSupportIconSVG from "../common/svg_icons/sidebar-icons/live-support-icon-svg";
 
 export interface MenuItem {
   text: string;
-  icon: LucideIcon;
+  icon: any;
   href?: string;
   children?: MenuItem[];
 }
@@ -33,30 +39,30 @@ export interface MenuItem {
 export const menuItems1: MenuItem[] = [
   {
     text: "Promotions",
-    icon: Star,
+    icon: PromotionsIconSVG,
     children: [
       { text: "Welcome Bonus", icon: Star, href: "/" },
       { text: "Daily Rewards", icon: Calendar, href: "/" },
       { text: "VIP Rewards", icon: Crown, href: "/" },
     ],
   },
-  { text: "Affiliate", icon: Users, href: "/" },
-  { text: "VIP Club", icon: Award, href: "/" },
-  { text: "Blog", icon: Book, href: "/" },
-  { text: "Forum", icon: MessageCircle, href: "/" },
+  { text: "Affiliate", icon: AffiliateIconSVG, href: "/" },
+  { text: "VIP Club", icon: VipIconSVG, href: "/" },
+  { text: "Blog", icon: BlogIconSVG, href: "/" },
+  { text: "Forum", icon: ForumIconSVG, href: "/" },
 ];
 
 export const menuItems2: MenuItem[] = [
   {
     text: "Sponsorships",
-    icon: Handshake,
+    icon: SponsorShipIconSVG,
     children: [
-      { text: "Partner Program", icon: Handshake, href: "/" },
+      { text: "Partner Program", icon: SponsorShipIconSVG, href: "/" },
       { text: "Brand Deals", icon: Briefcase, href: "/" },
     ],
   },
-  { text: "Responsible Gambling", icon: Lock, href: "/" },
-  { text: "Live Support", icon: Headphones, href: "/" },
+  { text: "Responsible Gambling", icon: ResponsibleIconSVG, href: "/" },
+  { text: "Live Support", icon: LiveSupportIconSVG, href: "/" },
 ];
 
 export const menuSections: { items: MenuItem[] }[] = [
@@ -145,7 +151,8 @@ export default function AppSidebar() {
                         }`}
                     >
                       <span className="flex items-center relative z-10">
-                        <item.icon className="size-5" />
+                        {/* <item.icon className="size-5" /> */}
+                        <item.icon className="fill-white" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
                             ${
