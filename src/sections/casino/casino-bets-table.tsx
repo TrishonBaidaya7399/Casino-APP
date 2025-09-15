@@ -5,9 +5,17 @@ import { useSearchParams } from "next/navigation";
 import dayjs from "dayjs";
 import Image from "next/image";
 import type { ColumnType } from "@/types/global-table-types";
-import { GlobalTable } from "@/components/global-components/global-table/global-table";
 import type { BetData } from "@/types/bets-table-types";
+import { GlobalTable } from "@/components/global-components/global-table/global-table";
 import { GlobalTabs } from "@/components/global-components/GlobalTabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 
 const renderPayout = (row: BetData) => {
   const payoutValue = parseFloat(row.payout.replace(/[$,]/g, ""));
@@ -99,11 +107,19 @@ const renderMultiplier = (row: BetData) => (
   <span className="text-foreground font-medium">{row.multiplier}</span>
 );
 
-export default function CasinoBetsTable() {
+export default function CasinoBetsTable({
+  gameDetails,
+}: {
+  gameDetails?: boolean;
+}) {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tabName") || "myBets";
   const [data, setData] = useState<BetData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [ghostMode, setGhostMode] = useState(
+    searchParams.get("ghostMode") === "true"
+  );
+  const [limit, setLimit] = useState(searchParams.get("limit") || "10");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -113,7 +129,10 @@ export default function CasinoBetsTable() {
           throw new Error("Failed to fetch mock data");
         }
         const allData = await response.json();
-        const tabData = allData?.[tab] || [];
+        let tabData = allData?.[tab] || [];
+        if (limit) {
+          tabData = tabData.slice(0, parseInt(limit));
+        }
         setData(tabData);
       } catch (error) {
         console.error("Error fetching mock data:", error);
@@ -122,9 +141,8 @@ export default function CasinoBetsTable() {
         setLoading(false);
       }
     };
-
     fetchData();
-  }, [tab]);
+  }, [tab, ghostMode, limit]);
 
   const desktopColumns: ColumnType<BetData>[] = [
     {
@@ -213,7 +231,32 @@ export default function CasinoBetsTable() {
   ];
   return (
     <div className="w-full">
-      <GlobalTabs data={tableTabs} tabName="tabName" />
+      <GlobalTabs
+        data={tableTabs}
+        tabName="tabName"
+        extraContent={
+          gameDetails && (
+            <div className="flex flex-row items-center gap-3">
+              <Switch
+                checked={ghostMode}
+                onCheckedChange={(val) => setGhostMode(val)}
+              />{" "}
+              Ghost Mode {ghostMode ? "on" : "off"}{" "}
+              <Select value={limit} onValueChange={(val) => setLimit(val)}>
+                <SelectTrigger className="w-18 rounded-md bg-foreground-muted">
+                  <SelectValue placeholder="Limit" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="5">5</SelectItem>
+                  <SelectItem value="10">10</SelectItem>
+                  <SelectItem value="15">15</SelectItem>
+                  <SelectItem value="20">20</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )
+        }
+      />
       <div className="hidden md:block">
         <GlobalTable<BetData>
           columns={desktopColumns}

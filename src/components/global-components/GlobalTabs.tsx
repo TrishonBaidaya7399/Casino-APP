@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -13,9 +14,11 @@ export interface TabProps {
 export function GlobalTabs({
   data,
   tabName = "tab",
+  extraContent,
 }: {
   data: TabProps[];
   tabName?: string;
+  extraContent?: ReactNode;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -32,14 +35,14 @@ export function GlobalTabs({
   return (
     <Tabs
       value={activeTab}
-      className="w-full mb-2.5 bg-sidebar rounded-lg overflow-x-auto"
+      className="w-full mb-2.5 bg-sidebar rounded-lg overflow-x-auto flex flex-row items-center gap-6 justify-between"
     >
       <TabsList className="flex flex-row items-center gap-3 bg-sidebar p-2 h-auto overflow-x-auto">
         {data.map((tab) => {
           const currentParams = new URLSearchParams(
             Array.from(searchParams.entries())
           );
-          currentParams.set(tabName, tab.value); // Update only this tabName
+          currentParams.set(tabName, tab.value);
           return (
             <TabsTrigger key={tab.value} value={tab.value} asChild>
               <Link
@@ -53,6 +56,11 @@ export function GlobalTabs({
           );
         })}
       </TabsList>
+      {extraContent && (
+        <div className="w-full md:w-auto md:ml-auto text-left md:text-right mr-2">
+          {extraContent}
+        </div>
+      )}
     </Tabs>
   );
 }
