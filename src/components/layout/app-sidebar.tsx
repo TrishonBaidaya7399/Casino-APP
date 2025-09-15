@@ -4,18 +4,11 @@ import { useSidebarStore } from "@/store/sidebar-store";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Star,
-  Book,
-  Lock,
   Crown,
-  Users,
-  Award,
   Calendar,
   ChevronUp,
-  Handshake,
   Briefcase,
-  Headphones,
   ChevronDown,
-  MessageCircle,
 } from "lucide-react";
 import AnimatedHamburger from "../global-components/animated-hamburger";
 import { Button } from "../ui/button";
