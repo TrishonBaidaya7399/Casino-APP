@@ -10,6 +10,7 @@ import {
   Briefcase,
   ChevronDown,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import AnimatedHamburger from "../global-components/animated-hamburger";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -21,6 +22,8 @@ import ForumIconSVG from "../common/svg_icons/sidebar-icons/forum-icon-svg";
 import SponsorShipIconSVG from "../common/svg_icons/sidebar-icons/sponsorships-icon-svg";
 import ResponsibleIconSVG from "../common/svg_icons/sidebar-icons/responsible-icon-svg";
 import LiveSupportIconSVG from "../common/svg_icons/sidebar-icons/live-support-icon-svg";
+import CasinoIconSVG from "../common/svg_icons/sidebar-icons/casino-icon-svg";
+import SportsIconSVG from "../common/svg_icons/sidebar-icons/sports-icon-svg";
 
 export interface MenuItem {
   text: string;
@@ -66,6 +69,7 @@ export const menuSections: { items: MenuItem[] }[] = [
 export default function AppSidebar() {
   const { mobileOpen, toggleMobileOpen } = useSidebarStore();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (mobileOpen) {
@@ -107,16 +111,23 @@ export default function AppSidebar() {
 
         {/* Casino / Sports buttons */}
         <div
-          className={`flex gap-2 items-center transition-all duration-300 overflow-hidden ${
-            mobileOpen
+          className={`flex gap-2 items-center transition-all duration-300 overflow-hidden 
+            ${mobileOpen
               ? "max-w-auto md:max-w-0 pl-4 md:pl-0"
               : "max-w-auto md:max-w-50 pl-4"
-          }`}
+            }`}
         >
-          <Button href="/casino" variant="gray" asChild>
+          <Button
+            href="/casino"
+            variant={pathname === "/casino" ? "purpleGradient" : "gray"}
+            asChild
+          >
             Casino
           </Button>
-          <Button href="/sports" variant="gray" asChild>
+          <Button href="/sports"
+            variant={pathname === "/sports" ? "greenGradient" : "gray"}
+            asChild
+          >
             Sports
           </Button>
         </div>
@@ -124,6 +135,44 @@ export default function AppSidebar() {
 
       {/* menu sections */}
       <div className="text-sidebar-foreground flex flex-col gap-2 p-4 text-sm">
+
+        {/* visible only in collapse state */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              key="mobileMenu"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="w-full flex items-start flex-col gap-2 overflow-hidden"
+            >
+              <Link
+                className={`inline-block p-3 transition-all duration-300 rounded-lg 
+                  ${pathname === "/casino"
+                    ? "bg-gradient-to-t from-purple-1 to-blue-1 hover:opacity-80"
+                    : "bg-background-2 hover:bg-background-2/55"
+                  }`}
+                  href='/casino'
+                >
+                <CasinoIconSVG />
+              </Link>
+
+              <Link
+                className={`inline-block p-3 transition-all duration-300 rounded-lg 
+                  ${pathname === "/sports"
+                    ? "bg-gradient-to-t from-cyan-1 to-green-1 hover:opacity-80"
+                    : "bg-background-2 hover:bg-background-2/55"
+                  }`}
+                  href="/sports"
+                >
+                <SportsIconSVG />
+              </Link>
+
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {menuSections.map((section, index) => (
           <div key={index} className="rounded-lg bg-background">
             {section.items.map((item) => {
@@ -137,10 +186,9 @@ export default function AppSidebar() {
                       className={`flex gap-0.5 items-center justify-between cursor-pointer relative
                         w-full p-3 overflow-hidden transition-all duration-300
                         hover:bg-background-2
-                        ${
-                          isExpanded
-                            ? "bg-background-2 rounded-t-lg"
-                            : "bg-transparent rounded-lg"
+                        ${isExpanded
+                          ? "bg-background-2 rounded-t-lg"
+                          : "bg-transparent rounded-lg"
                         }`}
                     >
                       <span className="flex items-center relative z-10">
@@ -148,10 +196,9 @@ export default function AppSidebar() {
                         <item.icon className="fill-white" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${
-                              mobileOpen
-                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
-                                : "max-w-auto md:max-w-50 pl-2"
+                            ${mobileOpen
+                              ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
+                              : "max-w-auto md:max-w-50 pl-2"
                             }`}
                         >
                           {item.text}
@@ -168,9 +215,8 @@ export default function AppSidebar() {
                           <ChevronUp className="w-4 h-4" />
                         ) : (
                           <ChevronDown
-                            className={`w-4 h-4 transform transition-transform duration-300 ${
-                              mobileOpen ? "md:-rotate-90" : "rotate-0"
-                            }`}
+                            className={`w-4 h-4 transform transition-transform duration-300 ${mobileOpen ? "md:-rotate-90" : "rotate-0"
+                              }`}
                           />
                         )}
                       </span>
@@ -186,10 +232,9 @@ export default function AppSidebar() {
                         <item.icon className="size-5" />
                         <span
                           className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${
-                              mobileOpen
-                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
-                                : "max-w-auto md:max-w-50 pl-2"
+                            ${mobileOpen
+                              ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
+                              : "max-w-auto md:max-w-50 pl-2"
                             }`}
                         >
                           {item.text}
@@ -206,9 +251,8 @@ export default function AppSidebar() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className={`px-3 flex flex-col rounded-b-lg ${
-                            isExpanded ? "bg-background" : "bg-transparent"
-                          }`}
+                          className={`px-3 flex flex-col rounded-b-lg ${isExpanded ? "bg-background" : "bg-transparent"
+                            }`}
                         >
                           {item.children.map((child) => (
                             <Link
@@ -232,10 +276,9 @@ export default function AppSidebar() {
                                 <span
                                   className={`whitespace-nowrap overflow-hidden transition-all duration-300 
                                     text-white/55 cursor-pointer hover:text-white
-                                    ${
-                                      mobileOpen
-                                        ? "max-w-auto md:max-w-0"
-                                        : "max-w-auto md:max-w-50"
+                                    ${mobileOpen
+                                      ? "max-w-auto md:max-w-0"
+                                      : "max-w-auto md:max-w-50"
                                     }`}
                                 >
                                   {child.text}

@@ -8,12 +8,6 @@ export default function AppHeader() {
     <header className="sticky top-0 left-0 z-40 w-full border-b border-border bg-background transition-all">
       <div className="app-container flex items-center justify-between py-4">
         <div className="flex items-center gap-4">
-          {/* <div className="block md:hidden">
-            <button onClick={toggleMobileOpen}>
-              <HamburgerSVG className="stroke-white-3" />
-            </button>
-          </div> */}
-
           {/* Logo + Brand */}
           <Link href="/" className="inline-flex items-center gap-3">
             <span>
