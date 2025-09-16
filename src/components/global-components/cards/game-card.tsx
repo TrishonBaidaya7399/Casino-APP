@@ -22,7 +22,7 @@ function GameCard({
 }) {
   return (
     <div>
-      <Link href={type !== "sport" ? `/game/id` : `/sport/id`}>
+      <Link href={type !== "sport" ? `/casino/id` : `/sport/id`}>
         <div className="relative flex flex-col gap-2 w-35.75 m:w-31.75 h-auto">
           <Image
             src={src}
