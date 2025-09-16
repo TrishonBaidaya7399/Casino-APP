@@ -27,7 +27,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     // setIsClient(true);
     console.log("Initial forgetPasswordModalOpen:", forgetPasswordModalOpen); // Debug initial state
-  }, []);
+  }, [forgetPasswordModalOpen]);
 
   useEffect(() => {
     console.log("forgetPasswordModalOpen updated:", forgetPasswordModalOpen); // Debug state changes
