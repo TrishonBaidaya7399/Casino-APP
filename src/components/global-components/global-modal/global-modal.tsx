@@ -28,7 +28,7 @@ const GlobalModal: React.FC<GlobalModalProps> = ({
   className,
 }) => {
   const contentStyles = cn(
-    "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-background p-0 shadow-lg",
+    "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-fit rounded-lg bg-background p-0 shadow-lg",
     `${className}`
   );
 
@@ -37,7 +37,7 @@ const GlobalModal: React.FC<GlobalModalProps> = ({
       <DialogPortal>
         <DialogOverlay className="fixed inset-0 z-50 bg-background/60 backdrop-blur-sm" />
         <DialogContent className={contentStyles}>
-          <DialogHeader className="flex flex-row justify-between items-center border-b p-6 bg-sidebar rounded-tr-lg rounded-tl-lg">
+          <DialogHeader className="flex flex-row justify-between h-fit items-center border-b p-6 bg-sidebar rounded-tr-lg rounded-tl-lg">
             <DialogTitle className="text-lg font-semibold text-foreground">
               {title}
             </DialogTitle>
@@ -48,7 +48,7 @@ const GlobalModal: React.FC<GlobalModalProps> = ({
               />
             </DialogClose>
           </DialogHeader>
-          <div className="text-foreground p-6 overflow-y-auto custom-scrollbar">
+          <div className="text-foreground p-6 overflow-y-auto custom-scrollbar h-full">
             {children}
           </div>
         </DialogContent>

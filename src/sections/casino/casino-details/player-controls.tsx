@@ -37,8 +37,8 @@ function PlayerControls() {
   const isFunPlay = searchParams.get("mode") === "fun";
 
   return (
-    <div className="rounded-lg bg-background-1 p-4 flex flex-row items-center justify-between">
-      <div className="left flex flex-row items-center gap-12">
+    <div className="rounded-lg bg-background-1 p-3 lg:p-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 lg:gap-6">
+      <div className="left flex flex-row items-center justify-between lg:justify-center gap-3 lg:gap-12">
         <div className="control_icons flex flex-row items-center gap-4">
           <GlobalTooltip tooltip="Resize player">
             <ResizeIcon />

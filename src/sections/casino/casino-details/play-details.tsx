@@ -34,8 +34,8 @@ function PlayDetails() {
   }, [searchParams, router]);
 
   return (
-    <div className="p-4 bg-background-1 rounded-lg flex flex-row items-start lg:items-center justify-start lg:justify-between gap-2 lg:gap-6">
-      <div className="left flex flex-row items-center gap-2">
+    <div className="p-4 bg-background-1 rounded-lg flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-2 lg:gap-6">
+      <div className="left flex flex-col lg:flex-row lg:items-center gap-2">
         <div className="text-foreground text-base font-semibold">
           Angel vs Sinner Eternal Battle Enhanced RTP
         </div>
@@ -44,7 +44,7 @@ function PlayDetails() {
         </div>
       </div>
       <Select value={type} onValueChange={handleTypeChange}>
-        <SelectTrigger className="w-fit !h-10 rounded-md !bg-background-2">
+        <SelectTrigger className="w-full lg:w-fit !h-10 rounded-md !bg-background-2">
           <SelectValue placeholder="Select" />
         </SelectTrigger>
         <SelectContent>
