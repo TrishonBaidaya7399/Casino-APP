@@ -1,11 +1,10 @@
 "use client";
 
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
 import dynamic from "next/dynamic";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import ForgetPasswordModal from "@/components/modals/forget-password-modal";
 
 const AppHeader = dynamic(() => import("../components/layout/app-header"));
 const AppSidebar = dynamic(() => import("../components/layout/app-sidebar"));
@@ -17,21 +16,11 @@ const MobileBrowsePanel = dynamic(
 
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   // const [isClient, setIsClient] = useState(false);
-  const { mobileOpen, forgetPasswordModalOpen, toggleForgetPasswordModalOpen } =
-    useSidebarStore();
+  const { mobileOpen } = useSidebarStore();
 
   // useEffect(() => {
   //   setIsClient(true);
   // }, []);
-
-  useEffect(() => {
-    // setIsClient(true);
-    console.log("Initial forgetPasswordModalOpen:", forgetPasswordModalOpen); // Debug initial state
-  }, [forgetPasswordModalOpen]);
-
-  useEffect(() => {
-    console.log("forgetPasswordModalOpen updated:", forgetPasswordModalOpen); // Debug state changes
-  }, [forgetPasswordModalOpen]);
 
   // if (!isClient) {
   //   return null;
@@ -55,13 +44,6 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
               <Footer />
             </div>
             <MobileFooter />
-            {/* Forget Password Modal open */}
-            {forgetPasswordModalOpen && (
-              <ForgetPasswordModal
-                open={forgetPasswordModalOpen}
-                close={toggleForgetPasswordModalOpen}
-              />
-            )}
             <MobileBrowsePanel />
           </div>
         </Suspense>

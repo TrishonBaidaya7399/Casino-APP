@@ -48,7 +48,7 @@ const GlobalModal: React.FC<GlobalModalProps> = ({
               />
             </DialogClose>
           </DialogHeader>
-          <div className="text-foreground p-6 overflow-y-auto custom-scrollbar h-full">
+          <div className="text-foreground p-6 overflow-y-auto custom-scrollbar h-full max-h-screen lg:max-h-200">
             {children}
           </div>
         </DialogContent>

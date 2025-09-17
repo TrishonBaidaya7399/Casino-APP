@@ -15,10 +15,12 @@ export function GlobalTabs({
   data,
   tabName = "tab",
   extraContent,
+  tabButtonFull = false,
 }: {
   data: TabProps[];
   tabName?: string;
   extraContent?: ReactNode;
+  tabButtonFull?: boolean;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -37,7 +39,11 @@ export function GlobalTabs({
       value={activeTab}
       className="w-full mb-2.5 bg-sidebar rounded-lg overflow-x-auto flex flex-row items-center gap-6 justify-between"
     >
-      <TabsList className="flex flex-row items-center gap-3 bg-sidebar p-2 h-auto overflow-x-auto">
+      <TabsList
+        className={`flex flex-row items-center gap-3 bg-sidebar p-2 h-auto overflow-x-auto ${
+          tabButtonFull && "w-full"
+        }`}
+      >
         {data.map((tab) => {
           const currentParams = new URLSearchParams(
             Array.from(searchParams.entries())
@@ -48,7 +54,9 @@ export function GlobalTabs({
               <Link
                 scroll={false}
                 href={`?${currentParams.toString()}`}
-                className="w-fit h-full flex items-center justify-center"
+                className={`${
+                  tabButtonFull ? "w-full" : "w-fit"
+                } h-full flex items-center justify-center`}
               >
                 {tab.label}
               </Link>

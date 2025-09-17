@@ -9,7 +9,6 @@ import {
   ChevronUp,
   Briefcase,
   ChevronDown,
-  Lock,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import AnimatedHamburger from "../global-components/animated-hamburger";
@@ -60,7 +59,6 @@ export const menuItems2: MenuItem[] = [
   },
   { text: "Responsible Gambling", icon: ResponsibleIconSVG, href: "/" },
   { text: "Live Support", icon: LiveSupportIconSVG, href: "/" },
-  { text: "Forget Password", icon: Lock, href: "/" },
 ];
 
 export const menuSections: { items: MenuItem[] }[] = [
@@ -69,7 +67,7 @@ export const menuSections: { items: MenuItem[] }[] = [
 ];
 
 export default function AppSidebar() {
-  const { mobileOpen, toggleMobileOpen, toggleForgetPasswordModalOpen } =
+  const { mobileOpen, toggleMobileOpen } =
     useSidebarStore();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const pathname = usePathname();
@@ -229,27 +227,6 @@ export default function AppSidebar() {
                         )}
                       </span>
                     </button>
-                  ) : item.text !== "Forget Password" ? (
-                    <div
-                      onClick={() =>{ console.log('forget clicked--------');toggleForgetPasswordModalOpen()}}
-                      className="flex gap-0.5 items-center justify-between relative
-                        w-full p-3 overflow-hidden transition-all duration-300
-                        hover:bg-background-2 rounded-lg"
-                    >
-                      <span className="flex items-center relative z-10">
-                        <item.icon className="size-5" />
-                        <span
-                          className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${
-                              mobileOpen
-                                ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
-                                : "max-w-auto md:max-w-50 pl-2"
-                            }`}
-                        >
-                          {item.text}
-                        </span>
-                      </span>
-                    </div>
                   ) : (
                     <div
                       className="flex gap-0.5 items-center justify-between relative

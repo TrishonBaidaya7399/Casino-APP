@@ -1,8 +1,21 @@
+"use client";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import ForgetPasswordModal from "../modals/forget-password-modal";
+import { useRouter } from "next/navigation";
+import AuthModal from "../modals/login-register-flow/auth-modal";
 
 export default function AppHeader() {
+  const router = useRouter();
+
+  const handleLoginClick = () => {
+    router.push("?auth-tab=login");
+  };
+
+  const handleRegisterClick = () => {
+    router.push("?auth-tab=register");
+  };
 
   return (
     <header className="sticky top-0 left-0 z-40 w-full border-b border-border bg-background transition-all">
@@ -27,14 +40,22 @@ export default function AppHeader() {
 
         {/* Right side actions */}
         <div className="flex items-center gap-3">
-          <Button href="/" variant="outline" asChild>
+          <Button variant="outline" asChild onClick={() => handleLoginClick()}>
             Login
           </Button>
 
-          <Button href="/" variant="orangeGradient" asChild>
+          <Button
+            onClick={() => handleRegisterClick()}
+            variant="orangeGradient"
+            asChild
+          >
             Register
           </Button>
         </div>
+        {/* Auth Modal */}
+        <AuthModal />
+        {/* Forget Password Modal open */}
+        <ForgetPasswordModal />
       </div>
     </header>
   );
