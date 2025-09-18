@@ -1,5 +1,3 @@
-"use client";
-import React, { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { GlobalTabs } from "@/components/global-components/GlobalTabs";
 import type { TabProps } from "@/components/global-components/GlobalTabs";
@@ -8,6 +6,8 @@ import LoginContent from "./login-content";
 import RegisterContent from "./register-content";
 import OTPVerificationContent from "./otp-verification-content";
 import Image from "next/image";
+import { useSidebarStore } from "@/store/sidebar-store";
+import { ArrowLeft } from "lucide-react";
 
 export default function AuthModal({
   initialOpen = false,
@@ -17,11 +17,7 @@ export default function AuthModal({
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeTab = searchParams.get("auth-tab") || "login";
-  const [open, setOpen] = useState(initialOpen);
-
-  useEffect(() => {
-    setOpen(!!activeTab);
-  }, [activeTab]);
+  const { authModalOpen, toggleAuthModalOpen } = useSidebarStore();
 
   const tabs: TabProps[] = [
     { value: "login", label: "Login" },
@@ -45,21 +41,25 @@ export default function AuthModal({
 
   return (
     <GlobalModal
-      open={open}
-      onOpenChange={(newOpen) => {
-        if (!newOpen) {
-          const currentParams = new URLSearchParams(window.location.search);
-          currentParams.delete("auth-tab");
-          router.push(
-            currentParams.toString() ? `?${currentParams.toString()}` : "/",
-            { scroll: false }
-          );
-        }
-        setOpen(newOpen);
+      open={initialOpen ? true : authModalOpen}
+      onOpenChange={() => {
+        const currentParams = new URLSearchParams(window.location.search);
+        currentParams.delete("auth-tab");
+        router.push(
+          currentParams.toString() ? `?${currentParams.toString()}` : "/",
+          { scroll: false }
+        );
+        toggleAuthModalOpen();
       }}
       title={
         <div className="flex items-center gap-4">
           <div className="inline-flex items-center gap-3">
+            {activeTab === "otp" && (
+              <ArrowLeft
+                className="cursor-pointer size-5"
+                onClick={() => router.push(`?auth-tab=login`)}
+              />
+            )}
             <span>
               <Image
                 src="/logos/logo.webp"

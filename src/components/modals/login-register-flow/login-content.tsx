@@ -151,9 +151,9 @@ export default function LoginContent() {
       </Form>
       <div className="w-26 -mt-4 flex flex-col items-center gap-4">
         <div className="flex items-center gap-4 my-4">
-          <div className="w-full h-1 bg-foreground/15 rounded-xl" />
+          <div className="w-22 h-0.5 bg-foreground/15 rounded-xl" />
           <div className="text-foreground/55 text-xs">Or</div>
-          <div className="w-full h-1 bg-foreground/15 rounded-xl" />
+          <div className="w-22 h-0.5 bg-foreground/15 rounded-xl" />
         </div>
         <div className="flex flex-row items-center gap-3 justify-between text-foreground/55">
           <FacebookIconSVG />

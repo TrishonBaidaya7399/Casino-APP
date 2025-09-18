@@ -5,6 +5,7 @@ import { useSidebarStore } from "@/store/sidebar-store";
 import dynamic from "next/dynamic";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/sonner";
 
 const AppHeader = dynamic(() => import("../components/layout/app-header"));
 const AppSidebar = dynamic(() => import("../components/layout/app-sidebar"));
@@ -41,6 +42,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
             >
               <AppHeader />
               <main className="app-container">{children}</main>
+              <Toaster/>
               <Footer />
             </div>
             <MobileFooter />

@@ -5,16 +5,20 @@ import Link from "next/link";
 import ForgetPasswordModal from "../modals/forget-password-modal";
 import { useRouter } from "next/navigation";
 import AuthModal from "../modals/login-register-flow/auth-modal";
+import { useSidebarStore } from "@/store/sidebar-store";
 
 export default function AppHeader() {
   const router = useRouter();
+  const { toggleAuthModalOpen } = useSidebarStore();
 
   const handleLoginClick = () => {
     router.push("?auth-tab=login");
+    toggleAuthModalOpen();
   };
 
   const handleRegisterClick = () => {
     router.push("?auth-tab=register");
+    toggleAuthModalOpen();
   };
 
   return (
