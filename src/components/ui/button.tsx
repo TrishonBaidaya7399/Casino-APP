@@ -4,6 +4,7 @@ import Link from "next/link";
 
 type ButtonVariant =
   | "gray"
+  | "ghost"
   | "outline"
   | "orangeGradient"
   | "purpleGradient"
@@ -16,10 +17,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
   asChild?: boolean;
   href?: string;
+  // Optional index signature to allow additional props
+  [key: string]: any;
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
   gray: "bg-background-2 text-white hover:bg-gray-500",
+  ghost: "bg-transparent text-white hover:bg-gray-500",
   outline:
     "border border-2 border-white-3 bg-background text-white hover:bg-gray-900 transition-colors",
   orangeGradient:

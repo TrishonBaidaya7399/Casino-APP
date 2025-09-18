@@ -17,6 +17,7 @@ import { z } from "zod";
 import { CheckCircle, Eye, EyeClosed } from "lucide-react";
 import CheckedBadgeSVG from "../common/svg_icons/checked-badge-svg";
 import { useSidebarStore } from "@/store/sidebar-store";
+import { useRouter } from "next/navigation";
 
 type Step =
   | "email"
@@ -52,8 +53,11 @@ const passwordSchema = z
   });
 
 function ForgetPasswordModal() {
-  const { forgetPasswordModalOpen, toggleForgetPasswordModalOpen } =
-    useSidebarStore();
+  const {
+    forgetPasswordModalOpen,
+    toggleForgetPasswordModalOpen
+  } = useSidebarStore();
+  const router = useRouter();
   const [step, setStep] = useState<Step>("default");
   const [eyeOpen, setEyeOpen] = useState<boolean>(false);
   const [eyeReOpen, setEyeReOpen] = useState<boolean>(false);
@@ -195,7 +199,7 @@ function ForgetPasswordModal() {
             onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}
             className="space-y-8 flex flex-col justify-between h-full"
           >
-            <div className="flex flex-col lg:flex-row items-center gap-6 w-full h-full">
+            <div className="flex flex-col lg:flex-row items-center gap-6 w-full mb-auto">
               <FormField
                 control={passwordForm.control}
                 name="password"
@@ -213,14 +217,14 @@ function ForgetPasswordModal() {
                           className="w-full h-12 pr-12"
                         />
                       </FormControl>
-                      {eyeOpen ? (
+                      {!eyeOpen ? (
                         <EyeClosed
-                          onClick={() => setEyeOpen(!eyeOpen)}
+                          onClick={() => setEyeOpen(true)}
                           className='className="bg-foreground-55 absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-foreground'
                         />
                       ) : (
                         <Eye
-                          onClick={() => setEyeOpen(!eyeOpen)}
+                          onClick={() => setEyeOpen(false)}
                           className='className="bg-foreground-55 absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-foreground'
                         />
                       )}
@@ -246,14 +250,14 @@ function ForgetPasswordModal() {
                           className="w-full h-12 pr-12"
                         />
                       </FormControl>
-                      {eyeReOpen ? (
+                      {!eyeReOpen ? (
                         <EyeClosed
-                          onClick={() => setEyeReOpen(!eyeReOpen)}
+                          onClick={() => setEyeReOpen(true)}
                           className='className="bg-foreground-55 absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-foreground'
                         />
                       ) : (
                         <Eye
-                          onClick={() => setEyeReOpen(!eyeReOpen)}
+                          onClick={() => setEyeReOpen(false)}
                           className='className="bg-foreground-55 absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-foreground'
                         />
                       )}
@@ -295,7 +299,15 @@ function ForgetPasswordModal() {
               lectus pulvinar.
             </p>
           </div>
-          <Button className="w-full" variant="orangeGradient">
+          <Button
+            className="w-full"
+            variant="orangeGradient"
+            onClick={() => {
+              router.push("?auth-tab=login");
+              toggleForgetPasswordModalOpen();
+              // toggleAuthModalOpen();
+            }}
+          >
             Login
           </Button>
         </div>
