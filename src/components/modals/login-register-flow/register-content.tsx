@@ -29,7 +29,7 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
 
 const formSchema = z.object({
@@ -82,58 +82,62 @@ export default function RegisterContent() {
   // const password = watch("password");
   // const terms = watch("terms");
 
-  // step-specific validity state (used to enable/disable the submit button for the current step)
   const [isStepValid, setIsStepValid] = useState<boolean>(false);
+
+  const watchDependencies = useMemo(
+    () => [
+      watch("language"),
+      watch("email"),
+      watch("password"),
+      watch("terms"),
+    ],
+    [watch]
+  );
 
   useEffect(() => {
     let mounted = true;
     const validateForCurrentStep = async () => {
       try {
         if (step === 1) {
-          // Step 1 only needs a language value (always present from default)
           const val = !!getValues("language");
-          if (mounted) {setIsStepValid(val)};
+          if (mounted) {
+            setIsStepValid(val);
+          }
         } else if (step === 2) {
-          // Step 2 requires email & password
           const valid = await trigger(["email", "password"]);
-          if (mounted) {setIsStepValid(valid)};
+          if (mounted) {
+            setIsStepValid(valid);
+          }
         } else if (step === 3) {
-          // Step 3 requires terms
           const valid = await trigger(["terms"]);
-          if (mounted) {setIsStepValid(valid)};
+          if (mounted) {
+            setIsStepValid(valid);
+          }
         } else {
-          if (mounted) {setIsStepValid(false)};
+          if (mounted) {
+            setIsStepValid(false);
+          }
         }
       } catch {
-        if (mounted) {setIsStepValid(false)};
+        if (mounted) {
+          setIsStepValid(false);
+        }
       }
     };
 
-    // run validation when relevant watched fields change
     validateForCurrentStep();
 
     return () => {
       mounted = false;
     };
-    // watch() calls in deps ensure effect reruns when fields change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    step,
-    watch("language"),
-    watch("email"),
-    watch("password"),
-    watch("terms"),
-  ]);
+  }, [step, watchDependencies, getValues, trigger]);
 
-  // navigation guard for top progress bar
   const goToStep = async (target: number) => {
-    // allow backward navigation anytime
     if (target <= step) {
       router.replace(`?auth-tab=register&reg-step=${target}`);
       return;
     }
 
-    // forward navigation: validate current step first
     let valid = false;
     if (step === 1) {
       valid = !!getValues("language");
@@ -155,13 +159,11 @@ export default function RegisterContent() {
   };
 
   const handleConfirmLang = (data: FormData) => {
-    // Step 1 submit action
     router.replace("?auth-tab=register&reg-step=2");
     console.log({ SelectedLanguage: data });
   };
 
   const handleContinue = (data: FormData) => {
-    // Step 2 submit action
     console.log({ Confirm: data });
     router.replace("?auth-tab=register&reg-step=3");
   };
@@ -405,9 +407,6 @@ export default function RegisterContent() {
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <FormControl>
-                          {/* DatePicker uses react-hook-form Controller internally.
-                              Provide the form control and the field name so DatePicker
-                              registers with the same form instance. */}
                           <DatePicker
                             name={field.name}
                             control={control}
@@ -432,7 +431,6 @@ export default function RegisterContent() {
                               id="phoneOpt"
                               checked={!!field.value}
                               onCheckedChange={(checked) => {
-                                // keep same behavior as your original code
                                 field.onChange(checked ? "" : undefined);
                               }}
                               className="mt-0.5"

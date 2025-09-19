@@ -36,7 +36,7 @@ export default function AuthModal({
         { scroll: false }
       );
     }
-  }, [!authModalOpen]);
+  }, [authModalOpen, pathName, router]);
 
   let content;
   switch (activeTab) {
