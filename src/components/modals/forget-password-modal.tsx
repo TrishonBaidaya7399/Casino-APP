@@ -53,10 +53,8 @@ const passwordSchema = z
   });
 
 function ForgetPasswordModal() {
-  const {
-    forgetPasswordModalOpen,
-    toggleForgetPasswordModalOpen
-  } = useSidebarStore();
+  const { forgetPasswordModalOpen, toggleForgetPasswordModalOpen } =
+    useSidebarStore();
   const router = useRouter();
   const [step, setStep] = useState<Step>("default");
   const [eyeOpen, setEyeOpen] = useState<boolean>(false);
@@ -76,13 +74,17 @@ function ForgetPasswordModal() {
     },
   });
 
-  function onEmailSubmit(values: z.infer<typeof emailSchema>) {
-    console.log(values);
+  // function onEmailSubmit(values: z.infer<typeof emailSchema>) {
+  //   setStep("successSent");
+  // }
+  function onEmailSubmit() {
     setStep("successSent");
   }
 
-  function onPasswordSubmit(values: z.infer<typeof passwordSchema>) {
-    console.log(values);
+  // function onPasswordSubmit(values: z.infer<typeof passwordSchema>) {
+  //   setStep("successCreated");
+  // }
+  function onPasswordSubmit() {
     setStep("successCreated");
   }
 

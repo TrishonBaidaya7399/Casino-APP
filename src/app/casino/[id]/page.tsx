@@ -20,7 +20,7 @@ const CasinoBetsTable = dynamic(
 );
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const { id } =await params;
+  const { id } = await params;
   const gameTitle = "Angel vs Sinner Eternal Battle Enhanced RTP";
   const description =
     "Dive into the thrilling Angel vs Sinner Eternal Battle Enhanced RTP by Pragmatic Play on Casino App Turkey. Enjoy top slots and betting!";
@@ -87,9 +87,8 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 function CasinoDetailsPage({ id }: { id: string }) {
-  console.log({ GameDetailsId: id });
   return (
-    <div className="pt-6">
+    <div className="pt-6" id={id}>
       <PlayerComponent />
       <div className="pt-4">
         <PlayerControls />

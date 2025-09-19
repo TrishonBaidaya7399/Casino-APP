@@ -172,7 +172,11 @@
   --svg-stop-color: oklch(79.173% 0.1665 75.228);
   --svg-stop-color-2: oklch(69.213% 0.1701 20.44);
 }
-
+.toaster {
+  --normal-bg: var(--popover);
+  --normal-text: var(--popover-foreground);
+  --normal-border: var(--border);
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;

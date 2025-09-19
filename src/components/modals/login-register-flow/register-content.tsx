@@ -158,19 +158,22 @@ export default function RegisterContent() {
     router.push("?auth-tab=login");
   };
 
-  const handleConfirmLang = (data: FormData) => {
+  // const handleConfirmLang = (data: FormData) => {
+  //   router.replace("?auth-tab=register&reg-step=2");
+  // };
+  const handleConfirmLang = () => {
     router.replace("?auth-tab=register&reg-step=2");
-    console.log({ SelectedLanguage: data });
   };
 
-  const handleContinue = (data: FormData) => {
-    console.log({ Confirm: data });
+  // const handleContinue = (data: FormData) => {
+  //   router.replace("?auth-tab=register&reg-step=3");
+  // };
+  const handleContinue = () => {
     router.replace("?auth-tab=register&reg-step=3");
   };
 
   const handleFinalSubmit = async (data: FormData) => {
     try {
-      console.log({ Submit: data });
       await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
