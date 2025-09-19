@@ -6,6 +6,7 @@ type ButtonVariant =
   | "gray"
   | "ghost"
   | "outline"
+  | "link"
   | "orangeGradient"
   | "purpleGradient"
   | "greenGradient";
@@ -26,6 +27,8 @@ const variantClasses: Record<ButtonVariant, string> = {
   ghost: "bg-transparent text-white hover:bg-gray-500",
   outline:
     "border border-2 border-white-3 bg-background text-white hover:bg-gray-900 transition-colors",
+  link:
+    "border-b border-foreground/55 bg-transparent text-foreground/80 hover:text-foreground duration-300 transition-colors !h-fit !w-fit !p-0 rounded-none ",
   orangeGradient:
     "bg-gradient-to-t from-orange-1 to-yellow-1 text-white hover:opacity-80",
   purpleGradient:
