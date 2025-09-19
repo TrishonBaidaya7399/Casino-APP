@@ -30,7 +30,7 @@ const HeroSection = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
       {/* User Info */}
       <div className="w-full col-span-1 sm:col-span-2 lg:col-span-1 text-white space-y-8 place-content-center">
-        <div className=" font-medium text-2xl">{user.username}</div>
+        <div className=" font-medium text-2xl">{user?.username}</div>
 
         <div className="w-full space-y-6">
           <div className="w-full grid grid-cols-5 text-base ">
@@ -39,7 +39,7 @@ const HeroSection = () => {
               <WhiteArrowSVG className="w-4" />
             </div>
             <div className="text-right col-span-2">
-              {user.vipProgress.toFixed(1)}%
+              {user?.vipProgress?.toFixed(1)}%
             </div>
           </div>
 
@@ -47,21 +47,21 @@ const HeroSection = () => {
           <div className="w-full bg-background-1 rounded-full">
             <div
               className="bg-gradient-to-t from-orange-1 to-yellow-1 h-3 rounded-full"
-              style={{ width: `${user.vipProgress}%` }}
+              style={{ width: `${user?.vipProgress}%` }}
             />
           </div>
 
           <div className="w-full grid grid-cols-5 text-sm">
             <div className="flex items-center gap-2 justify-start col-span-2">
               <WhiteStarSVG className="stroke-white" />
-              <span>{user.Level}</span>
+              <span>{user?.Level}</span>
             </div>
             <div className="flex items-center justify-center">
               <WhiteArrowSVG className="w-4" />
             </div>
             <div className="flex items-center gap-2 justify-end col-span-2">
               <WhiteStarSVG className="fill-white" />
-              <span>{user.NextLevel}</span>
+              <span>{user?.NextLevel}</span>
             </div>
           </div>
         </div>
@@ -79,10 +79,11 @@ const HeroSection = () => {
               }`}
             >
               <Image
-                src={type.imageSrc}
-                alt={`${type.title} type`}
+                src={type?.imageSrc}
+                alt={`${type?.title} type`}
                 width={400}
                 height={225}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="w-full h-full object-cover"
                 priority
                 fetchPriority="high"
@@ -90,9 +91,9 @@ const HeroSection = () => {
             </div>
 
             <div className="text-white flex items-center justify-between">
-              <h3 className="text-sm font-semibold">{type.title}</h3>
+              <h3 className="text-sm font-semibold">{type?.title}</h3>
 
-              <PlayerStatus players={type.players} />
+              <PlayerStatus players={type?.players} />
             </div>
           </div>
         ))}

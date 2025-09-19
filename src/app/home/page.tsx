@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-const HeroSection = dynamic(() => import("@/sections/home/hero-section"));
+import HeroSection from "@/sections/home/hero-section";
 const SearchBar = dynamic(
   () => import("@/components/common/search-bar/search-bar")
 );
