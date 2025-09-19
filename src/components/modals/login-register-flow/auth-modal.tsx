@@ -1,4 +1,4 @@
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { GlobalTabs } from "@/components/global-components/GlobalTabs";
 import type { TabProps } from "@/components/global-components/GlobalTabs";
 import GlobalModal from "@/components/global-components/global-modal/global-modal";
@@ -8,7 +8,6 @@ import OTPVerificationContent from "./otp-verification-content";
 import Image from "next/image";
 import { useSidebarStore } from "@/store/sidebar-store";
 import { ArrowLeft } from "lucide-react";
-import { useEffect } from "react";
 
 export default function AuthModal({
   initialOpen = false,
@@ -17,7 +16,6 @@ export default function AuthModal({
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const pathName = usePathname();
   const activeTab = searchParams.get("auth-tab") || "login";
   const { authModalOpen, toggleAuthModalOpen } = useSidebarStore();
 
@@ -26,17 +24,6 @@ export default function AuthModal({
     { value: "register", label: "Register" },
   ];
 
-  useEffect(() => {
-    if (!authModalOpen) {
-      const currentParams = new URLSearchParams(window.location.search);
-      currentParams.delete("auth-tab");
-      currentParams.delete("reg-step");
-      router.push(
-        currentParams.toString() ? `?${currentParams.toString()}` : pathName,
-        { scroll: false }
-      );
-    }
-  }, [authModalOpen, pathName, router]);
 
   let content;
   switch (activeTab) {
