@@ -30,25 +30,27 @@ const tabs = [
 
 function CasinoPage() {
   return (
-    <div className="pt-6">
-      <TopCardSlider />
-      <div className="py-6">
-        <SearchBar tab={false} />
-      </div>
-      <div className="pb-2.5">
-        <GlobalTabs data={tabs} />
-      </div>
-      <div className="pb-2.5">
-        <BranchAndSlots />
-      </div>
-      <div className="py-9">
-        <PublisherCardsCarousel />
-      </div>
-      <div className="pb-9">
-        <LiveCasino />
-      </div>
-      <div className="pb-9">
-        <CasinoBetsTable />
+    <div className="app-container">
+      <div className="pt-6">
+        <TopCardSlider />
+        <div className="py-6">
+          <SearchBar tab={false} />
+        </div>
+        <div className="pb-2.5">
+          <GlobalTabs data={tabs} />
+        </div>
+        <div className="pb-2.5">
+          <BranchAndSlots />
+        </div>
+        <div className="py-9">
+          <PublisherCardsCarousel />
+        </div>
+        <div className="pb-9">
+          <LiveCasino />
+        </div>
+        <div className="pb-9">
+          <CasinoBetsTable />
+        </div>
       </div>
     </div>
   );

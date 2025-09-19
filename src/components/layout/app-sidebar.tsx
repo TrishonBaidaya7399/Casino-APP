@@ -3,17 +3,15 @@ import { useState, useEffect } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Star,
-  Crown,
-  Calendar,
   ChevronUp,
-  Briefcase,
   ChevronDown,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import AnimatedHamburger from "../global-components/animated-hamburger";
 import { Button } from "../ui/button";
 import Link from "next/link";
+
+// sidebar icons
 import PromotionsIconSVG from "../common/svg_icons/sidebar-icons/promotions-icon-svg";
 import AffiliateIconSVG from "../common/svg_icons/sidebar-icons/affiliate-icon-svg";
 import VipIconSVG from "../common/svg_icons/sidebar-icons/vip-icon-svg";
@@ -24,22 +22,54 @@ import ResponsibleIconSVG from "../common/svg_icons/sidebar-icons/responsible-ic
 import LiveSupportIconSVG from "../common/svg_icons/sidebar-icons/live-support-icon-svg";
 import CasinoIconSVG from "../common/svg_icons/sidebar-icons/casino-icon-svg";
 import SportsIconSVG from "../common/svg_icons/sidebar-icons/sports-icon-svg";
+import FavouritesIconSvg from "../common/svg_icons/sidebar-icons/favourites-icon-svg";
+import RecentIconSvg from "../common/svg_icons/sidebar-icons/recent-icon-svg";
+import ChallengesIconSvg from "../common/svg_icons/sidebar-icons/challenges-icon-svg";
+import MyBetsIconSvg from "../common/svg_icons/sidebar-icons/my-bets-icon-svg";
+import GameIconSvg from "../common/svg_icons/sidebar-icons/game-icon-svg";
+
 
 export interface MenuItem {
   text: string;
-  icon: any;
+  icon?: any;
   href?: string;
   children?: MenuItem[];
 }
+
+export const authItems: MenuItem[] = [
+  { text: "Favourites", icon: FavouritesIconSvg, href: "/" },
+  { text: "Recent", icon: RecentIconSvg, href: "/" },
+  { text: "Challenges", icon: ChallengesIconSvg, href: "/" },
+  { text: "My Bets", icon: MyBetsIconSvg, href: "/" },
+  {
+    text: "Games",
+    icon: GameIconSvg,
+    children: [
+      { text: "New Releases", href: "/" },
+      { text: "Slots", href: "/" },
+      { text: "Stake Originals", href: "/" },
+      { text: "ForuStake Exclusivesm", href: "/" },
+      { text: "Live Casino", href: "/" },
+      { text: "Game Shows", href: "/" },
+      { text: "Burst Games", href: "/" },
+      { text: "Stake Poker", href: "/" },
+      { text: "Bonus Buy", href: "/" },
+      { text: "Blackjack", href: "/" },
+      { text: "Baccarat", href: "/" },
+      { text: "Roulette", href: "/" },
+      { text: "Publishers", href: "/" },
+    ],
+  },
+];
 
 export const menuItems1: MenuItem[] = [
   {
     text: "Promotions",
     icon: PromotionsIconSVG,
     children: [
-      { text: "Welcome Bonus", icon: Star, href: "/" },
-      { text: "Daily Rewards", icon: Calendar, href: "/" },
-      { text: "VIP Rewards", icon: Crown, href: "/" },
+      { text: "Welcome Bonus", href: "/" },
+      { text: "Daily Rewards", href: "/" },
+      { text: "VIP Rewards", href: "/" },
     ],
   },
   { text: "Affiliate", icon: AffiliateIconSVG, href: "/" },
@@ -53,23 +83,24 @@ export const menuItems2: MenuItem[] = [
     text: "Sponsorships",
     icon: SponsorShipIconSVG,
     children: [
-      { text: "Partner Program", icon: SponsorShipIconSVG, href: "/" },
-      { text: "Brand Deals", icon: Briefcase, href: "/" },
+      { text: "Partner Program", href: "/" },
+      { text: "Brand Deals", href: "/" },
     ],
   },
   { text: "Responsible Gambling", icon: ResponsibleIconSVG, href: "/" },
   { text: "Live Support", icon: LiveSupportIconSVG, href: "/" },
 ];
 
-export const menuSections: { items: MenuItem[] }[] = [
+export const menuSections: { items: MenuItem[]; isAuth?: boolean }[] = [
+  { items: authItems, isAuth: true },
   { items: menuItems1 },
   { items: menuItems2 },
 ];
 
 export default function AppSidebar() {
-  const { mobileOpen, toggleMobileOpen } =
-    useSidebarStore();
+  const { mobileOpen, toggleMobileOpen } = useSidebarStore();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const [isAuthenticated] = useState<boolean>(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -113,10 +144,9 @@ export default function AppSidebar() {
         {/* Casino / Sports buttons */}
         <div
           className={`flex gap-2 items-center transition-all duration-300 overflow-hidden 
-            ${
-              mobileOpen
-                ? "max-w-auto md:max-w-0 pl-4 md:pl-0"
-                : "max-w-auto md:max-w-50 pl-4"
+            ${mobileOpen
+              ? "max-w-auto md:max-w-0 pl-4 md:pl-0"
+              : "max-w-auto md:max-w-50 pl-4"
             }`}
         >
           <Button
@@ -151,10 +181,9 @@ export default function AppSidebar() {
             >
               <Link
                 className={`inline-block p-3 transition-all duration-300 rounded-lg 
-                  ${
-                    pathname === "/casino"
-                      ? "bg-gradient-to-t from-purple-1 to-blue-1 hover:opacity-80"
-                      : "bg-background-2 hover:bg-background-2/55"
+                  ${pathname === "/casino"
+                    ? "bg-gradient-to-t from-purple-1 to-blue-1 hover:opacity-80"
+                    : "bg-background-2 hover:bg-background-2/55"
                   }`}
                 href="/casino"
               >
@@ -163,10 +192,9 @@ export default function AppSidebar() {
 
               <Link
                 className={`inline-block p-3 transition-all duration-300 rounded-lg 
-                  ${
-                    pathname === "/sports"
-                      ? "bg-gradient-to-t from-cyan-1 to-green-1 hover:opacity-80"
-                      : "bg-background-2 hover:bg-background-2/55"
+                  ${pathname === "/sports"
+                    ? "bg-gradient-to-t from-cyan-1 to-green-1 hover:opacity-80"
+                    : "bg-background-2 hover:bg-background-2/55"
                   }`}
                 href="/sports"
               >
@@ -176,133 +204,135 @@ export default function AppSidebar() {
           )}
         </AnimatePresence>
 
-        {menuSections.map((section, index) => (
-          <div key={index} className="rounded-lg bg-background">
-            {section.items.map((item) => {
-              const isExpanded = expandedItems.includes(item.text);
+        {menuSections.map((section, index) => {
 
-              return (
-                <div key={item.text}>
-                  {item.children ? (
-                    <button
-                      onClick={() => handleItemClick(item.text)}
-                      className={`flex gap-0.5 items-center justify-between cursor-pointer relative
+          // if Authenticated then show
+          if (section.isAuth && !isAuthenticated) {
+            return null; 
+          }
+
+          return (
+            <div key={index} className={`rounded-lg ${
+                section.isAuth ? "bg-transparent" : "bg-background"
+              }`} >
+              {section.items.map((item) => {
+                const isExpanded = expandedItems.includes(item.text);
+                return (
+                  <div key={item.text}>
+                    {item.children ? (
+                      <button
+                        onClick={() => handleItemClick(item.text)}
+                        className={`flex gap-0.5 items-center justify-between cursor-pointer relative
                         w-full p-3 overflow-hidden transition-all duration-300
                         hover:bg-background-2
-                        ${
-                          isExpanded
+                        ${isExpanded
                             ? "bg-background-2 rounded-t-lg"
                             : "bg-transparent rounded-lg"
-                        }`}
-                    >
-                      <span className="flex items-center relative z-10">
-                        {/* <item.icon className="size-5" /> */}
-                        <item.icon className="fill-white" />
-                        <span
-                          className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${
-                              mobileOpen
+                          }`}
+                      >
+                        <span className="flex items-center relative z-10">
+                          <item.icon className="fill-white" />
+                          <span
+                            className={`whitespace-nowrap overflow-hidden transition-all duration-300 
+                            ${mobileOpen
                                 ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
                                 : "max-w-auto md:max-w-50 pl-2"
-                            }`}
-                        >
-                          {item.text}
+                              }`}
+                          >
+                            {item.text}
+                          </span>
                         </span>
-                      </span>
-                      <span
-                        className={
-                          mobileOpen
-                            ? "static md:absolute md:-right-0.5 md:top-1/2 md:-translate-y-1/2"
-                            : "relative"
-                        }
-                      >
-                        {isExpanded ? (
-                          <ChevronUp className="w-4 h-4" />
-                        ) : (
-                          <ChevronDown
-                            className={`w-4 h-4 transform transition-transform duration-300 ${
-                              mobileOpen ? "md:-rotate-90" : "rotate-0"
-                            }`}
-                          />
-                        )}
-                      </span>
-                    </button>
-                  ) : (
-                    <div
-                      className="flex gap-0.5 items-center justify-between relative
+                        <span
+                          className={
+                            mobileOpen
+                              ? "static md:absolute md:-right-0.5 md:top-1/2 md:-translate-y-1/2"
+                              : "relative"
+                          }
+                        >
+                          {isExpanded ? (
+                            <ChevronUp className="w-4 h-4" />
+                          ) : (
+                            <ChevronDown
+                              className={`w-4 h-4 transform transition-transform duration-300 ${mobileOpen ? "md:-rotate-90" : "rotate-0"
+                                }`}
+                            />
+                          )}
+                        </span>
+                      </button>
+                    ) : (
+                      <div
+                        className="flex gap-0.5 items-center justify-between relative
                         w-full p-3 overflow-hidden transition-all duration-300
                         hover:bg-background-2 rounded-lg cursor-pointer"
-                    >
-                      <span className="flex items-center relative z-10">
-                        <item.icon className="size-5" />
-                        <span
-                          className={`whitespace-nowrap overflow-hidden transition-all duration-300 
-                            ${
-                              mobileOpen
+                      >
+                        <span className="flex items-center relative z-10">
+                          <item.icon className="size-5" />
+                          <span
+                            className={`whitespace-nowrap overflow-hidden transition-all duration-300 
+                            ${mobileOpen
                                 ? "max-w-auto md:max-w-0 pl-2 md:pl-0"
                                 : "max-w-auto md:max-w-50 pl-2"
-                            }`}
-                        >
-                          {item.text}
+                              }`}
+                          >
+                            {item.text}
+                          </span>
                         </span>
-                      </span>
-                    </div>
-                  )}
+                      </div>
+                    )}
 
-                  {/* children */}
-                  {item.children && (
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className={`px-3 flex flex-col rounded-b-lg ${
-                            isExpanded ? "bg-background" : "bg-transparent"
-                          }`}
-                        >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.text}
-                              href={child.href || "#"}
-                              className="flex rounded hover:bg-sidebar-hover gap-2 relative"
-                            >
-                              <span className="flex items-start relative py-1 pl-1">
-                                <div className="relative size-6">
-                                  <svg
-                                    className="absolute left-1/2 -translate-x-1/2 -translate-y-[65%] stroke-2 stroke-background-2 h-9"
-                                    viewBox="0 0 13 36"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path d="M1 24V30C0.99995 32 1.4 35 5 35C8.6 35 10.5 35 13 35" />
-                                    <path d="M1 0V24" />
-                                  </svg>
-                                </div>
+                    {/* children */}
+                    {item.children && (
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className={`px-3 flex flex-col rounded-b-lg ${isExpanded ? "bg-background" : "bg-transparent"
+                              }`}
+                          >
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.text}
+                                href={child.href || "#"}
+                                className="flex rounded hover:bg-sidebar-hover gap-2 relative"
+                              >
+                                <span className="flex items-start relative py-1 pl-1">
+                                  <div className="relative size-6">
+                                    <svg
+                                      className="absolute left-1/2 -translate-x-1/2 -translate-y-[65%] stroke-2 stroke-background-2 h-9"
+                                      viewBox="0 0 13 36"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path d="M1 24V30C0.99995 32 1.4 35 5 35C8.6 35 10.5 35 13 35" />
+                                      <path d="M1 0V24" />
+                                    </svg>
+                                  </div>
 
-                                <span
-                                  className={`whitespace-nowrap overflow-hidden transition-all duration-300 
+                                  <span
+                                    className={`whitespace-nowrap overflow-hidden transition-all duration-300 
                                     text-white/55 cursor-pointer hover:text-white
-                                    ${
-                                      mobileOpen
+                                    ${mobileOpen
                                         ? "max-w-auto md:max-w-0"
                                         : "max-w-auto md:max-w-50"
-                                    }`}
-                                >
-                                  {child.text}
+                                      }`}
+                                  >
+                                    {child.text}
+                                  </span>
                                 </span>
-                              </span>
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        ))}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )
+        })}
       </div>
     </nav>
   );

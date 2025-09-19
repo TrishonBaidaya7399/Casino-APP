@@ -41,7 +41,7 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
               }`}
             >
               <AppHeader />
-              <main className="app-container">{children}</main>
+              <main>{children}</main>
               <Toaster/>
               <Footer />
             </div>

@@ -88,22 +88,24 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
 function CasinoDetailsPage({ id }: { id: string }) {
   return (
-    <div className="pt-6" id={id}>
-      <PlayerComponent />
-      <div className="pt-4">
-        <PlayerControls />
-      </div>
-      <div className="pt-6">
-        <PlayDetails />
-      </div>
-      <div className="pb-2.5">
-        <SlotSection />
-      </div>
-      <div className="py-9">
-        <PublisherCardsCarousel />
-      </div>
-      <div className="pb-9">
-        <CasinoBetsTable gameDetails />
+    <div className="app-container">
+      <div className="pt-6" id={id}>
+        <PlayerComponent />
+        <div className="pt-4">
+          <PlayerControls />
+        </div>
+        <div className="pt-6">
+          <PlayDetails />
+        </div>
+        <div className="pb-2.5">
+          <SlotSection />
+        </div>
+        <div className="py-9">
+          <PublisherCardsCarousel />
+        </div>
+        <div className="pb-9">
+          <CasinoBetsTable gameDetails />
+        </div>
       </div>
     </div>
   );

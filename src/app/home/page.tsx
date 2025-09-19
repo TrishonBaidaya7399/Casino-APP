@@ -14,7 +14,7 @@ const Question = dynamic(() => import("@/sections/home/questions/question"));
 
 export default function HomePage() {
   return (
-    <div className="w-full">
+    <div className="app-container">
       <div className="w-full pt-8">
         <HeroSection />
       </div>
