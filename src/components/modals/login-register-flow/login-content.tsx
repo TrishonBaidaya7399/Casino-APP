@@ -156,10 +156,18 @@ export default function LoginContent() {
           <div className="w-22 h-0.5 bg-foreground/15 rounded-xl" />
         </div>
         <div className="flex flex-row items-center gap-3 justify-between text-foreground/55">
-          <FacebookIconSVG />
-          <XIconSVG />
-          <YoutubeIconSVG />
-          <LinkedinIconSVG />
+          <Link href="#">
+            <FacebookIconSVG />
+          </Link>
+          <Link href="#">
+            <XIconSVG />
+          </Link>
+          <Link href="#">
+            <YoutubeIconSVG />
+          </Link>
+          <Link href="#">
+            <LinkedinIconSVG />
+          </Link>
         </div>
       </div>
     </div>

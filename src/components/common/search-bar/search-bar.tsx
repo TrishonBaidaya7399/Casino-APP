@@ -88,6 +88,7 @@ function SearchBar({
       {tab && (
         <Select value={type} onValueChange={handleTypeChange}>
           <SelectTrigger
+            aria-label="Select game type"
             className={`w-25 !h-10 rounded-md ${
               isMobileSidebar ? "!bg-sidebar-light" : "bg-sidebar"
             }`}

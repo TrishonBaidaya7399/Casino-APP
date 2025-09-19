@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/form";
 import { useState, useEffect, useMemo } from "react";
 import { useSidebarStore } from "@/store/sidebar-store";
+import Link from "next/link";
 
 const formSchema = z.object({
   language: z.string().default("en"),
@@ -581,30 +582,18 @@ export default function RegisterContent() {
               <div className="w-22 h-0.5 bg-foreground/55 rounded-xl" />
             </div>
             <div className="flex flex-row items-center gap-12 justify-center text-foreground/55">
-              <button
-                onClick={() => router.push("?auth-tab=register")}
-                aria-label="Register with Facebook"
-              >
+              <Link href="#">
                 <FacebookIconSVG />
-              </button>
-              <button
-                onClick={() => router.push("?auth-tab=register")}
-                aria-label="Register with X"
-              >
+              </Link>
+              <Link href="#">
                 <XIconSVG />
-              </button>
-              <button
-                onClick={() => router.push("?auth-tab=register")}
-                aria-label="Register with YouTube"
-              >
+              </Link>
+              <Link href="#">
                 <YoutubeIconSVG />
-              </button>
-              <button
-                onClick={() => router.push("?auth-tab=register")}
-                aria-label="Register with LinkedIn"
-              >
+              </Link>
+              <Link href="#">
                 <LinkedinIconSVG />
-              </button>
+              </Link>
             </div>
           </div>
           <p className="text-center text-xs text-foreground/55 w-full mt-4">

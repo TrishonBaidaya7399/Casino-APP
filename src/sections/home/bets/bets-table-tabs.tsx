@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 export function BetsTableTabs() {
   const searchParams = useSearchParams();
@@ -19,18 +20,25 @@ export function BetsTableTabs() {
       value={activeTab}
       className="w-full mb-2.5 bg-sidebar rounded-lg overflow-x-auto"
     >
-      <TabsList className="grid grid-cols-3 bg-sidebar p-2 h-auto overflow-x-auto">
-        {tabs.map((tab) => (
-          <TabsTrigger key={tab.value} value={tab.value} asChild>
+      <TabsList className="grid grid-cols-3 bg-sidebar p-2 h-auto">
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.value;
+          return (
             <Link
+              key={tab.value}
               scroll={false}
               href={`?tab=${tab.value}`}
-              className="w-fit h-full flex items-center justify-center"
+              className={cn(
+                "w-fit h-full flex items-center justify-center rounded-md px-4 py-1 text-sm font-medium",
+                isActive
+                  ? "bg-foreground/15 text-foreground shadow-sm"
+                  : "text-muted-foreground"
+              )}
             >
               {tab.label}
             </Link>
-          </TabsTrigger>
-        ))}
+          );
+        })}
       </TabsList>
     </Tabs>
   );
