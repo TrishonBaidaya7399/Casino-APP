@@ -6,10 +6,11 @@ import ForgetPasswordModal from "../modals/forget-password-modal";
 import { useRouter } from "next/navigation";
 import AuthModal from "../modals/login-register-flow/auth-modal";
 import { useSidebarStore } from "@/store/sidebar-store";
+import WalletSetupModal from "../modals/wallet/wallet-setup-modal/wallet-setup-modal";
 
 export default function AppHeader() {
   const router = useRouter();
-  const { toggleAuthModalOpen } = useSidebarStore();
+  const { toggleAuthModalOpen, toggleWalletSetupModalOpen } = useSidebarStore();
 
   const handleLoginClick = () => {
     router.push("?auth-tab=login");
@@ -19,6 +20,11 @@ export default function AppHeader() {
   const handleRegisterClick = () => {
     router.push("?auth-tab=register");
     toggleAuthModalOpen();
+  };
+
+  const handleWalletClick = () => {
+    router.push("?wallet-tab=welcome");
+    toggleWalletSetupModalOpen();
   };
 
   return (
@@ -41,7 +47,11 @@ export default function AppHeader() {
             </span>
           </Link>
         </div>
-
+        <div className="flex flex-row items-center gap-4">
+          <Button variant="outline" asChild onClick={handleWalletClick}>
+            Wallet
+          </Button>
+        </div>
         {/* Right side actions */}
         <div className="flex items-center gap-3">
           <Button variant="outline" asChild onClick={() => handleLoginClick()}>
@@ -60,6 +70,8 @@ export default function AppHeader() {
         <AuthModal />
         {/* Forget Password Modal open */}
         <ForgetPasswordModal />
+        {/* Wallet Setup Modal */}
+        <WalletSetupModal />
       </div>
     </header>
   );

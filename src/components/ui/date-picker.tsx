@@ -56,11 +56,11 @@ export function DatePicker({
               </Label>
             )}
             <Popover>
-              <PopoverTrigger asChild>
+              <PopoverTrigger asChild >
                 <Button
                   variant="outline"
                   id={name}
-                  className="w-full justify-between font-normal bg-sidebar h-12 border-none"
+                  className="w-full justify-between font-normal bg-sidebar !h-12 border-none"
                 >
                   {dateValue ? dateValue.toLocaleDateString() : placeholder || "Select date"}
                   <ChevronDown />
