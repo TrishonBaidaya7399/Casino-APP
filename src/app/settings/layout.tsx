@@ -30,7 +30,7 @@ export default function SettingsLayout({ children }: { children: ReactNode }) {
                 </div>
             </div>
             <div className="app-container py-6">
-                <div className="flex gap-6">
+                <div className="flex items-start gap-6">
                     {/* Sidebar */}
                     <aside className="max-w-52 w-full text-white rounded-md overflow-hidden bg-background-1">
                         <ul className="">
