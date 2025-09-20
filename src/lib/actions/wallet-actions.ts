@@ -10,3 +10,12 @@ export async function submitFormAction(data: any) {
     return { success: false, error: error };
   }
 }
+
+
+export async function submitForm(data: any) {
+   console.log({ Submitted_Wallet_opening_data: data });
+  // Dummy API call
+  return new Promise((resolve) =>
+    setTimeout(() => resolve({ success: true, message: "Submission successful!" }), 1000)
+  );
+}

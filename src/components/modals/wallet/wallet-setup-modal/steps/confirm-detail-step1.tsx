@@ -72,187 +72,246 @@ export default function ConfirmDetailStep1() {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col">
       <div className="w-full">
         <p className="text-sm text-foreground">
           Please fill in your details & confirm your identity to unlock
           additional services. All information is private & secure.
         </p>
       </div>
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4 w-full flex flex-col"
-        >
-          <div className="relative w-full">
-            <div className="absolute top-0 left-0 w-full h-6 bg-gradient-to-b from-background to-transparent pointer-events-none" />
-            <div className="flex flex-col overflow-y-auto max-h-95 no-scrollbar space-y-4">
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel className="text-sm text-foreground/55">
-                      First Name (including middle name, if applicable)*
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        className="w-full !h-12"
-                        placeholder="Enter first name"
-                      />
-                    </FormControl>
-                    <FormMessage className="text-xs text-red-500" />
-                  </FormItem>
-                )}
-              />
-              <div className="flex flex-col lg:flex-row gap-4 w-full">
+      {/* form content */}
+      <div className="overflow-y-auto h-75 no-scrollbar">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-4 w-full flex flex-col"
+          >
+            <div className="relative w-full">
+              <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-background to-transparent pointer-events-none" />
+              <div className="flex flex-col space-y-4 pt-4">
                 <FormField
                   control={form.control}
-                  name="lastName"
+                  name="firstName"
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormLabel className="text-sm text-foreground/55">
-                        Last Name*
+                        First Name (including middle name, if applicable)*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           className="w-full !h-12"
-                          placeholder="Enter last name"
+                          placeholder="Enter first name"
                         />
                       </FormControl>
                       <FormMessage className="text-xs text-red-500" />
                     </FormItem>
                   )}
                 />
+                <div className="flex flex-col lg:flex-row gap-4 w-full">
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Last Name*
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="w-full !h-12"
+                            placeholder="Enter last name"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="country"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Country*
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="w-full !h-12"
+                            placeholder="Select country"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col lg:flex-row gap-4 w-full">
+                  <FormField
+                    control={form.control}
+                    name="placeOfBirth"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Place of Birth*
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="w-full !h-12"
+                            placeholder="Enter place of birth"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="dateOfBirth"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Date of Birth*
+                        </FormLabel>
+                        <FormControl>
+                          <DatePicker
+                            name={field.name}
+                            control={form.control}
+                            placeholder="Select date"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
-                  name="country"
+                  name="residentialAddress"
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormLabel className="text-sm text-foreground/55">
-                        Country*
+                        Residential Address*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           className="w-full !h-12"
-                          placeholder="Select country"
+                          placeholder="Enter residential address"
                         />
                       </FormControl>
                       <FormMessage className="text-xs text-red-500" />
                     </FormItem>
                   )}
                 />
-              </div>
-              <div className="flex flex-col lg:flex-row gap-4 w-full">
+                <div className="flex flex-col lg:flex-row gap-4 w-full">
+                  <FormField
+                    control={form.control}
+                    name="city"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          City*
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="w-full !h-12"
+                            placeholder="Enter city"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="postalCode"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Postal Code*
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="w-full !h-12"
+                            placeholder="Enter postal code"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col lg:flex-row gap-4 w-full">
+                  <FormField
+                    control={form.control}
+                    name="occupationIndustry"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Occupation Industry*
+                        </FormLabel>
+                        <FormControl>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <SelectTrigger className="w-full !h-12">
+                              <SelectValue placeholder="Select occupation industry" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="tech">Technology</SelectItem>
+                              <SelectItem value="finance">Finance</SelectItem>
+                              <SelectItem value="health">Healthcare</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="occupation"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel className="text-sm text-foreground/55">
+                          Occupation*
+                        </FormLabel>
+                        <FormControl>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <SelectTrigger className="w-full !h-12">
+                              <SelectValue placeholder="Select occupation" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="developer">
+                                Developer
+                              </SelectItem>
+                              <SelectItem value="manager">Manager</SelectItem>
+                              <SelectItem value="doctor">Doctor</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
-                  name="placeOfBirth"
+                  name="occupationExperience"
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormLabel className="text-sm text-foreground/55">
-                        Place of Birth*
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          className="w-full !h-12"
-                          placeholder="Enter place of birth"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="dateOfBirth"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel className="text-sm text-foreground/55">
-                        Date of Birth*
-                      </FormLabel>
-                      <FormControl>
-                        <DatePicker
-                          name={field.name}
-                          control={form.control}
-                          placeholder="Select date"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <FormField
-                control={form.control}
-                name="residentialAddress"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel className="text-sm text-foreground/55">
-                      Residential Address*
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        className="w-full !h-12"
-                        placeholder="Enter residential address"
-                      />
-                    </FormControl>
-                    <FormMessage className="text-xs text-red-500" />
-                  </FormItem>
-                )}
-              />
-              <div className="flex flex-col lg:flex-row gap-4 w-full">
-                <FormField
-                  control={form.control}
-                  name="city"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel className="text-sm text-foreground/55">
-                        City*
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          className="w-full !h-12"
-                          placeholder="Enter city"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="postalCode"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel className="text-sm text-foreground/55">
-                        Postal Code*
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          className="w-full !h-12"
-                          placeholder="Enter postal code"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <div className="flex flex-col lg:flex-row gap-4 w-full">
-                <FormField
-                  control={form.control}
-                  name="occupationIndustry"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel className="text-sm text-foreground/55">
-                        Occupation Industry*
+                        Occupation Experience*
                       </FormLabel>
                       <FormControl>
                         <Select
@@ -260,39 +319,12 @@ export default function ConfirmDetailStep1() {
                           defaultValue={field.value}
                         >
                           <SelectTrigger className="w-full !h-12">
-                            <SelectValue placeholder="Select occupation industry" />
+                            <SelectValue placeholder="Select experience" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="tech">Technology</SelectItem>
-                            <SelectItem value="finance">Finance</SelectItem>
-                            <SelectItem value="health">Healthcare</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="occupation"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel className="text-sm text-foreground/55">
-                        Occupation*
-                      </FormLabel>
-                      <FormControl>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <SelectTrigger className="w-full !h-12">
-                            <SelectValue placeholder="Select occupation" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="developer">Developer</SelectItem>
-                            <SelectItem value="manager">Manager</SelectItem>
-                            <SelectItem value="doctor">Doctor</SelectItem>
+                            <SelectItem value="0-2">0-2 years</SelectItem>
+                            <SelectItem value="3-5">3-5 years</SelectItem>
+                            <SelectItem value="5+">5+ years</SelectItem>
                           </SelectContent>
                         </Select>
                       </FormControl>
@@ -301,47 +333,21 @@ export default function ConfirmDetailStep1() {
                   )}
                 />
               </div>
-              <FormField
-                control={form.control}
-                name="occupationExperience"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel className="text-sm text-foreground/55">
-                      Occupation Experience*
-                    </FormLabel>
-                    <FormControl>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <SelectTrigger className="w-full !h-12">
-                          <SelectValue placeholder="Select experience" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="0-2">0-2 years</SelectItem>
-                          <SelectItem value="3-5">3-5 years</SelectItem>
-                          <SelectItem value="5+">5+ years</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage className="text-xs text-red-500" />
-                  </FormItem>
-                )}
-              />
+              <div className="absolute bottom-0 left-0 w-full h-4 bg-gradient-to-t from-background to-transparent pointer-events-none" />
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-          </div>
-          <div className="w-full mt-4 bg-gradient-to-t from-bg-background to-background/0">
-            <Button
-              type="submit"
-              className="w-full h-12"
-              disabled={!form.formState.isValid}
-            >
-              Save and Continue
-            </Button>
-          </div>
-        </form>
-      </Form>
+          </form>
+        </Form>
+      </div>
+      {/* submit button */}
+      <div className="w-full mt-4">
+        <Button
+          type="submit"
+          className="w-full h-12"
+          disabled={!form.formState.isValid}
+        >
+          Save and Continue
+        </Button>
+      </div>
     </div>
   );
 }

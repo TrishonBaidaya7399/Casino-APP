@@ -131,7 +131,7 @@ export default function AppSidebar() {
 
   return (
     <nav
-      className={`hidden md:block z-50 sticky top-0 left-0 h-screen overflow-y-auto border-r border-border bg-sidebar shrink-0
+      className={`hidden md:block z-50 sticky top-0 left-0 h-screen overflow-y-auto no-scrollbar border-r border-border bg-sidebar shrink-0
       transition-all duration-300`}
     >
       {/* top bar */}

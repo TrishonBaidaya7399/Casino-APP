@@ -74,7 +74,7 @@ export default function WalletSetupModal({
         );
         toggleWalletSetupModalOpen();
       }}
-      className="min-h-60 min-w-160"
+      className="min-h-60 lg:min-w-160"
       title={
         <div className="flex items-center gap-4">
           <div className="inline-flex items-center gap-3">

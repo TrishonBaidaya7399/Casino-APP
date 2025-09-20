@@ -16,11 +16,13 @@ export function GlobalTabs({
   tabName = "tab",
   extraContent,
   tabButtonFull = false,
+  onTabChange,
 }: {
   data: TabProps[];
   tabName?: string;
   extraContent?: ReactNode;
   tabButtonFull?: boolean;
+  onTabChange?: (value: string) => void;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -37,6 +39,16 @@ export function GlobalTabs({
   return (
     <Tabs
       value={activeTab}
+      onValueChange={(value) => {
+        const currentParams = new URLSearchParams(
+          Array.from(searchParams.entries())
+        );
+        currentParams.set(tabName, value);
+        router.push(`?${currentParams.toString()}`, { scroll: false });
+        if (onTabChange) {
+          onTabChange(value);
+        }
+      }}
       className="w-full mb-2.5 bg-sidebar rounded-lg overflow-x-auto flex flex-row items-center gap-6 justify-between"
     >
       <TabsList
